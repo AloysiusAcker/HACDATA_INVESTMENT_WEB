@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-03.4 - Mercado de Software en Perú</title>
+    <link rel="stylesheet" href="../anthropic-base.css">
+    <style>
+        .market-scene {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .donut-wrap {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+        svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+        circle { fill: none; stroke-width: 40; }
+        
+        .c-total { stroke: var(--alpha-white-10); }
+        .c-enterprise { stroke: var(--color-brand-blue); stroke-dasharray: 42.2 57.8; stroke-dashoffset: 0; }
+        
+        .market-center {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .market-center h2 { font-size: 32px; margin: 0; color: var(--neutral-white); }
+        .market-center span { font-size: 11px; color: var(--neutral-400); text-transform: uppercase; }
+
+        .callout {
+            position: absolute;
+            padding: var(--space-md);
+            background: var(--neutral-700);
+            border: 1px solid var(--alpha-white-10);
+            border-radius: var(--radius-lg);
+            width: 180px;
+        }
+        .c1 { top: 20px; right: -20px; border-left: 2px solid var(--color-brand-blue); }
+        .c2 { bottom: 20px; left: -20px; border-left: 2px solid var(--color-brand-purple); }
+
+        .growth-tag {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--color-brand-orange);
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Oportunidad de Mercado (2025)</div>
+        <h1>Mercado Software Perú</h1>
+        
+        <div class="market-scene">
+            <div class="donut-wrap">
+                <svg viewBox="0 0 100 100">
+                    <circle class="c-total" cx="50" cy="50" r="40" />
+                    <!-- 42.2% of 2*pi*40 (251.3) = 106.0 -->
+                    <circle class="c-enterprise" cx="50" cy="50" r="40" style="stroke-dasharray: 106 251.3;" />
+                </svg>
+                <div class="market-center">
+                    <span>Total 2025</span>
+                    <h2>$1,060M</h2>
+                    <span style="color: var(--color-brand-blue)">USD</span>
+                </div>
+            </div>
+
+            <div class="callout c1">
+                <div class="label">Enterprise Soft.</div>
+                <div class="growth-tag">42.2%</div>
+                <div class="label" style="text-transform: none; color: var(--neutral-200); margin-top: 4px;">Subsegmento más grande y con mayor absorción operativa.</div>
+            </div>
+
+            <div class="callout c2">
+                <div class="label">Crecimiento CRM</div>
+                <div class="growth-tag">8.61% CAGR</div>
+                <div class="label" style="text-transform: none; color: var(--neutral-200); margin-top: 4px;">Principal motor de inversión digital hacia 2030.</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; font-size: 13px; color: var(--neutral-250); text-align: center;">
+            HACDATA captura la intersección de un mercado masivo con una brecha de implementación crítica.
+        </div>
+
+        <div class="data-source">SOURCE: Statista Informe 2025 (Sec 3.2.1)</div>
+    </div>
+</body>
+</html>

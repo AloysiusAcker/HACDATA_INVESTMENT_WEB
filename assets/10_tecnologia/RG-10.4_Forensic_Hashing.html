@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-10.4 - The Forensic Hashing Chain</title>
+    <link rel="stylesheet" href="../anthropic-base.css">
+    <style>
+        .hashing-scene {
+            width: 100%;
+            height: 480px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: var(--space-xl);
+        }
+
+        .blocks-row {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .data-block {
+            width: 140px;
+            height: 140px;
+            background: var(--neutral-900);
+            border: 2px solid var(--alpha-white-10);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .data-block::before {
+            content: "";
+            position: absolute;
+            top: -10px; left: -10px; right: -10px; bottom: -10px;
+            border: 1px dashed var(--alpha-white-05);
+            border-radius: 16px;
+            z-index: -1;
+        }
+
+        .block-id {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: var(--font-mono);
+            font-size: 8px;
+            color: var(--neutral-500);
+        }
+
+        .block-icon { font-size: 24px; margin-bottom: 5px; }
+        .block-label { font-size: 10px; color: var(--neutral-400); text-transform: uppercase; }
+        .block-hash {
+            margin-top: 15px;
+            padding: 4px 8px;
+            background: var(--neutral-850);
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 7px;
+            color: var(--color-brand-blue);
+            width: 80%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .chain-link {
+            width: 40px;
+            height: 4px;
+            background: var(--alpha-white-10);
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .chain-link::after {
+            content: "SHA-256";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-mono);
+            font-size: 8px;
+            color: var(--neutral-500);
+        }
+
+        .tamper-warning {
+            border-color: var(--state-error) !important;
+            box-shadow: 0 0 20px rgba(255, 71, 87, 0.2);
+            animation: shake 0.5s ease-in-out infinite;
+        }
+
+        .tamper-warning .block-hash { color: var(--state-error); }
+        .tamper-warning::after {
+            content: "TAMPER DETECTED";
+            position: absolute;
+            bottom: -30px;
+            color: var(--state-error);
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(2px); }
+            50% { transform: translateX(-2px); }
+            75% { transform: translateX(2px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Seguridad de Grado Forense</div>
+        <h1>The Forensic Hashing Chain</h1>
+        
+        <div class="hashing-scene">
+            <div class="blocks-row">
+                <!-- Block 1 -->
+                <div class="data-block" style="border-color: var(--color-brand-blue);">
+                    <div class="block-id">ID: OP-4412</div>
+                    <div class="block-icon">📦</div>
+                    <div class="block-label">Cierre Stock</div>
+                    <div class="block-hash">5e884898da28047151...</div>
+                </div>
+
+                <div class="chain-link"></div>
+
+                <!-- Block 2 -->
+                <div class="data-block" style="border-color: var(--color-brand-blue);">
+                    <div class="block-id">ID: OP-4413</div>
+                    <div class="block-icon">✅</div>
+                    <div class="block-label">Auditoría</div>
+                    <div class="block-hash">a7f1d2c3b4e5f6...</div>
+                </div>
+
+                <div class="chain-link" style="background: var(--state-error);"></div>
+
+                <!-- Block 3 (Tampered) -->
+                <div class="data-block tamper-warning">
+                    <div class="block-id">ID: OP-4414</div>
+                    <div class="block-icon">❗</div>
+                    <div class="block-label">Modificación</div>
+                    <div class="block-hash">ERROR: HASH_MISMATCH</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px; padding: var(--space-md); background: rgba(32, 127, 222, 0.05); border-radius: var(--radius-lg); border-left: 3px solid var(--color-brand-blue); max-width: 600px;">
+                <p style="font-size: 12px; color: var(--neutral-200); margin: 0; line-height: 1.5;">
+                    Cada registro en <strong>GESTOR</strong> genera una firma criptográfica inalterable. Cualquier intento de cambio posterior destruye la cadena de confianza, garantizando <strong>valor probatorio</strong> absoluto.
+                </p>
+            </div>
+        </div>
+
+        <div class="data-source">SOURCE: 10_Tecnologia_y_arquitectura_Final.md (Sec 10.4.1)</div>
+    </div>
+</body>
+</html>

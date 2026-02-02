@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-07.3 - The Competitive Gap (Quadrant)</title>
+    <link rel="stylesheet" href="../anthropic-base.css">
+    <style>
+        .matrix-scene {
+            width: 100%;
+            height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: var(--space-xl);
+        }
+
+        .matrix-bg {
+            width: 400px;
+            height: 400px;
+            border: 2px solid var(--alpha-white-10);
+            position: relative;
+            background: linear-gradient(45deg, var(--alpha-white-05) 25%, transparent 25%) -50px 0,
+                        linear-gradient(-45deg, var(--alpha-white-05) 25%, transparent 25%) -50px 0,
+                        linear-gradient(45deg, transparent 75%, var(--alpha-white-05) 75%),
+                        linear-gradient(-45deg, transparent 75%, var(--alpha-white-05) 75%);
+            background-size: 100px 100px;
+        }
+
+        .axis-x, .axis-y {
+            position: absolute;
+            background: var(--neutral-400);
+            z-index: 1;
+        }
+
+        .axis-x { width: 110%; height: 1px; top: 50%; left: -5%; }
+        .axis-y { height: 110%; width: 1px; left: 50%; top: -5%; }
+
+        .axis-label-text {
+            position: absolute;
+            font-size: 10px;
+            text-transform: uppercase;
+            color: var(--neutral-400);
+            font-weight: 700;
+        }
+
+        .label-top { top: -25px; left: 50%; transform: translateX(-50%); }
+        .label-bottom { bottom: -25px; left: 50%; transform: translateX(-50%); }
+        .label-right { right: -60px; top: 50%; transform: translateY(-50%) rotate(90deg); }
+        .label-left { left: -60px; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+
+        .competitor {
+            position: absolute;
+            padding: 4px 10px;
+            background: var(--neutral-700);
+            border: 1px solid var(--alpha-white-10);
+            border-radius: 4px;
+            font-size: 11px;
+            color: var(--neutral-300);
+            z-index: 2;
+        }
+
+        /* Competitors mapping */
+        .c-sap { top: 20%; left: 70%; }
+        .c-buk { top: 70%; left: 20%; }
+        .c-alegra { top: 80%; left: 10%; }
+        .c-bpo-trad { top: 20%; left: 10%; }
+
+        .hacdata-hero {
+            position: absolute;
+            top: 25%;
+            left: 75%;
+            padding: 12px 20px;
+            background: var(--color-brand-orange);
+            color: white;
+            border-radius: var(--radius-lg);
+            font-weight: 800;
+            z-index: 10;
+            box-shadow: 0 0 30px rgba(217, 119, 87, 0.4);
+            border: 2px solid white;
+            animation: pulse-orange 2s infinite;
+        }
+
+        @keyframes pulse-orange {
+            0% { box-shadow: 0 0 20px rgba(217, 119, 87, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(217, 119, 87, 0.7); }
+            100% { box-shadow: 0 0 20px rgba(217, 119, 87, 0.4); }
+        }
+
+        .quadrant-label {
+            position: absolute;
+            font-size: 14px;
+            color: var(--alpha-white-10);
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Posicionamiento Único</div>
+        <h1>The Competitive Gap</h1>
+        
+        <div class="matrix-scene">
+            <div class="matrix-bg">
+                <div class="axis-x"></div>
+                <div class="axis-y"></div>
+
+                <span class="axis-label-text label-top">Alta Profundidad Operativa</span>
+                <span class="axis-label-text label-bottom">Baja Profundidad (Solo Registro)</span>
+                <span class="axis-label-text label-right">Full SaaS (Escalable)</span>
+                <span class="axis-label-text label-left">BPO Tradicional (No Tech)</span>
+
+                <!-- Quadrant Indicators -->
+                <div class="quadrant-label" style="top: 10px; right: 10px;">Líder Híbrido</div>
+                <div class="quadrant-label" style="bottom: 10px; left: 10px;">Comodidad Admin</div>
+
+                <!-- Competitors -->
+                <div class="competitor c-sap">ERP Incumbents</div>
+                <div class="competitor c-buk">Verticales (Buk/ClickUp)</div>
+                <div class="competitor c-alegra">SaaS Contable</div>
+                <div class="competitor c-bpo-trad">BPO Convencional</div>
+
+                <!-- HACDATA -->
+                <div class="hacdata-hero">
+                    HACDATA
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; font-size: 13px; color: var(--neutral-200); text-align: center;">
+            HACDATA ocupa el cuadrante superior derecho de "Líder Híbrido", combinando la escalabilidad del SaaS con la profundidad de ejecución del BPO sobre un mismo núcleo técnico.
+        </div>
+
+        <div class="data-source">SOURCE: 07_Mercado_y_competencia_Final.md (Sec 7.4.1)</div>
+    </div>
+</body>
+</html>

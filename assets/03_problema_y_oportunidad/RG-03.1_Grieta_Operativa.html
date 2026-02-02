@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-03.1 - La Grieta Operativa</title>
+    <link rel="stylesheet" href="../anthropic-base.css">
+    <style>
+        .heatmap {
+            width: 100%;
+            margin-top: var(--space-xl);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+        .heatmap-row {
+            display: grid;
+            grid-template-columns: 180px 1fr 1fr 1fr;
+            gap: var(--space-xs);
+            align-items: stretch;
+        }
+        .heatmap-cell {
+            padding: var(--space-md);
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .header-cell {
+            color: var(--neutral-200);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 10px;
+            background: transparent;
+        }
+        .dim-name {
+            justify-content: flex-start;
+            text-align: left;
+            font-weight: 600;
+            color: var(--neutral-white);
+        }
+        /* Intensity Colors */
+        .critico { background: rgba(191, 77, 67, 0.8); color: white; border: 1px solid var(--state-error); }
+        .alto { background: rgba(191, 77, 67, 0.5); color: white; }
+        .medio { background: rgba(191, 77, 67, 0.3); color: var(--neutral-150); }
+
+        .legend-heatmap {
+            margin-top: var(--space-lg);
+            display: flex;
+            gap: var(--space-md);
+            justify-content: flex-end;
+        }
+        .legend-item { font-size: 10px; display: flex; align-items: center; gap: 4px; color: var(--neutral-250); }
+        .box { width: 12px; height: 12px; border-radius: 2px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">El Problema Estructural</div>
+        <h1>Matriz de Desconexión</h1>
+        
+        <div class="heatmap">
+            <div class="heatmap-row">
+                <div class="heatmap-cell header-cell">Dimensión</div>
+                <div class="heatmap-cell header-cell">Realidad Operativa</div>
+                <div class="heatmap-cell header-cell">Gestión Digital</div>
+                <div class="heatmap-cell header-cell">Consecuencia</div>
+            </div>
+            
+            <div class="heatmap-row">
+                <div class="heatmap-cell dim-name">Procesos</div>
+                <div class="heatmap-cell alto">Dependencia crítica de personas.</div>
+                <div class="heatmap-cell critico">Módulos transaccionales, no flujos.</div>
+                <div class="heatmap-cell critico">Variabilidad operativa.</div>
+            </div>
+
+            <div class="heatmap-row">
+                <div class="heatmap-cell dim-name">Conocimiento</div>
+                <div class="heatmap-cell critico">Capturado en chats y memoria.</div>
+                <div class="heatmap-cell alto">Sin captura de know-how.</div>
+                <div class="heatmap-cell critico">Onboarding lento.</div>
+            </div>
+
+            <div class="heatmap-row">
+                <div class="heatmap-cell dim-name">Tecnología</div>
+                <div class="heatmap-cell critico">Fragmentada e invisible.</div>
+                <div class="heatmap-cell medio">Integraciones nulas.</div>
+                <div class="heatmap-cell alto">Tiempo perdiendo data.</div>
+            </div>
+
+            <div class="heatmap-row">
+                <div class="heatmap-cell dim-name">Incidencias</div>
+                <div class="heatmap-cell critico">WhatsApp y llamadas.</div>
+                <div class="heatmap-cell alto">Tickets aislados del proceso.</div>
+                <div class="heatmap-cell critico">Estrés operativo.</div>
+            </div>
+
+            <div class="heatmap-row">
+                <div class="heatmap-cell dim-name">Métricas</div>
+                <div class="heatmap-cell medio">Medición retrovisor.</div>
+                <div class="heatmap-cell critico">Data contable, no operativa.</div>
+                <div class="heatmap-cell critico">Decisiones por "olfato".</div>
+            </div>
+        </div>
+
+        <div class="legend-heatmap">
+            <div class="legend-item"><div class="box critico"></div> Crítico</div>
+            <div class="legend-item"><div class="box alto"></div> Alto</div>
+            <div class="legend-item"><div class="box medio"></div> Moderado</div>
+        </div>
+
+        <div class="data-source">SOURCE: 03_Problema_y_Oportunidad_Final.md (Sec 3.1.2)</div>
+    </div>
+</body>
+</html>

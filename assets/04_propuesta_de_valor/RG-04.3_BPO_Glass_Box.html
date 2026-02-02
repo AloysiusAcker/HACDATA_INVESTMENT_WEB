@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-04.3 - The BPO Glass-Box</title>
+    <link rel="stylesheet" href="../anthropic-base.css">
+    <style>
+        .glass-box-scene {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .client-environment {
+          width: 350px;
+          height: 250px;
+          border-radius: var(--radius-2xl);
+          background: rgba(255, 255, 255, 0.03);
+          backdrop-filter: blur(5px);
+          border: 1px solid var(--alpha-white-10);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          z-index: 2;
+        }
+
+        .client-label {
+          position: absolute;
+          top: -12px;
+          left: 24px;
+          background: var(--neutral-800);
+          padding: 2px 12px;
+          border-radius: var(--radius-sm);
+          border: 1px solid var(--alpha-white-10);
+          font-family: var(--font-mono);
+          font-size: 10px;
+          color: var(--neutral-400);
+        }
+
+        .hacdata-agent {
+          width: 140px;
+          height: 140px;
+          background: linear-gradient(135deg, var(--color-brand-orange) 0%, #D97757 100%);
+          border-radius: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          box-shadow: 0 0 30px rgba(217, 119, 87, 0.3);
+          border: 4px solid rgba(255, 255, 255, 0.2);
+          animation: agent-float 4s ease-in-out infinite;
+        }
+
+        @keyframes agent-float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+
+        .agent-label {
+          font-weight: 700;
+          font-size: 14px;
+          letter-spacing: 1px;
+        }
+
+        .transparency-beam {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(circle, rgba(32, 127, 222, 0.1) 0%, transparent 70%);
+          pointer-events: none;
+        }
+
+        .feature-tag {
+          position: absolute;
+          background: var(--neutral-700);
+          padding: 6px 12px;
+          border-radius: var(--radius-pill);
+          border: 1px solid var(--alpha-white-10);
+          font-size: 11px;
+          color: var(--neutral-200);
+        }
+
+        .tag-1 { top: 20%; right: 10%; }
+        .tag-2 { bottom: 20%; left: 10%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Transparencia Operativa</div>
+        <h1>The BPO Glass-Box</h1>
+        
+        <div class="glass-box-scene">
+            <div class="transparency-beam"></div>
+            
+            <div class="client-environment">
+              <div class="client-label">INFRAESTRUCTURA DEL CLIENTE (GESTOR Instance)</div>
+              
+              <div class="hacdata-agent">
+                <div style="font-size: 24px; margin-bottom: 4px;">🤝</div>
+                <div class="agent-label">HACDATA BPO</div>
+                <div style="font-size: 10px; opacity: 0.8;">Equipo Delegado</div>
+              </div>
+
+              <div class="feature-tag tag-1">Auditoría en Tiempo Real</div>
+              <div class="feature-tag tag-2">Misma "Fuente de Verdad"</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; font-size: 14px; color: var(--neutral-200); text-align: center; line-height: 1.5;">
+          A diferencia del outsourcing tradicional (caja negra), nuestro equipo opera <strong>dentro de tu propio sistema</strong>. Tienes visibilidad total de cada acción, tiempo y entregable.
+        </div>
+
+        <div class="data-source">SOURCE: 04_Propuesta_de_Valor_Final.md (Sec 4.3)</div>
+    </div>
+</body>
+</html>

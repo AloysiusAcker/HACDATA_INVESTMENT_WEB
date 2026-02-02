@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-04.2 - Modularity vs Ticket-Centric</title>
+    <link rel="stylesheet" href="../anthropic-base.css">
+    <style>
+        .comparison-scene {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+            height: 350px;
+        }
+
+        .side-box {
+          background: var(--alpha-white-05);
+          border: 1px solid var(--alpha-white-10);
+          border-radius: var(--radius-xl);
+          padding: var(--space-xl);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          position: relative;
+        }
+
+        .visual-demo {
+          flex: 1;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+        }
+
+        /* Legacy Style */
+        .module {
+          width: 60px;
+          height: 60px;
+          border: 1px dashed var(--neutral-500);
+          border-radius: var(--radius-sm);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 10px;
+          color: var(--neutral-400);
+          text-align: center;
+        }
+
+        /* CORE7 Style */
+        .ticket-flow {
+          width: 100%;
+          height: 8px;
+          background: var(--alpha-white-10);
+          border-radius: 4px;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .flow-particle {
+          position: absolute;
+          width: 40px;
+          height: 100%;
+          background: var(--color-brand-blue);
+          box-shadow: 0 0 10px var(--color-brand-blue);
+          border-radius: 4px;
+          animation: flow-move 2s linear infinite;
+        }
+
+        @keyframes flow-move {
+          0% { left: -40px; }
+          100% { left: 100%; }
+        }
+
+        .header-box { text-align: center; margin-bottom: var(--space-md); }
+        .header-box h3 { font-size: 16px; margin-bottom: 4px; }
+        .badge { font-size: 9px; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; font-weight: 700; }
+        .badge-legacy { background: var(--neutral-700); color: var(--neutral-400); }
+        .badge-core7 { background: var(--color-brand-blue); color: white; }
+
+        .desc-text { font-size: 12px; color: var(--neutral-200); text-align: center; margin-top: var(--space-md); line-height: 1.4; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Diferenciación Técnica</div>
+        <h1>Modularity vs. Ticket-Centric</h1>
+        
+        <div class="comparison-scene">
+            <!-- Legacy Section -->
+            <div class="side-box">
+                <div class="header-box">
+                    <span class="badge badge-legacy">ERP Tradicional</span>
+                    <h3>Silos Modulares</h3>
+                </div>
+                <div class="visual-demo" style="flex-wrap: wrap; width: 140px;">
+                    <div class="module">Ventas</div>
+                    <div class="module">Stock</div>
+                    <div class="module">Finan.</div>
+                    <div class="module">CRM</div>
+                </div>
+                <p class="desc-text">Datos fragmentados en cajones aislados. Requiere conciliación manual constante.</p>
+            </div>
+
+            <!-- CORE7 Section -->
+            <div class="side-box" style="border-color: var(--color-brand-blue);">
+                <div class="header-box">
+                    <span class="badge badge-core7">GESTOR / CORE7</span>
+                    <h3>Ecosistema Fluyente</h3>
+                </div>
+                <div class="visual-demo" style="flex-direction: column; padding: 0 20px;">
+                    <div class="ticket-flow">
+                        <div class="flow-particle" style="animation-delay: 0s"></div>
+                    </div>
+                    <div class="ticket-flow">
+                        <div class="flow-particle" style="animation-delay: 0.5s"></div>
+                    </div>
+                    <div class="ticket-flow">
+                        <div class="flow-particle" style="animation-delay: 1s"></div>
+                    </div>
+                </div>
+                <p class="desc-text"><b>ID Único Universal:</b> El dato fluye de punto a punto sin roturas de trazabilidad.</p>
+            </div>
+        </div>
+
+        <div class="data-source">SOURCE: 04_Propuesta_de_Valor_Final.md (Sec 4.7)</div>
+    </div>
+</body>
+</html>

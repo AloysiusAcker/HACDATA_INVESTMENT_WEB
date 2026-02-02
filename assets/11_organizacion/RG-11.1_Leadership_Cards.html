@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-11.1 - Leadership Profile Cards</title>
+    <link rel="stylesheet" href="../anthropic-base.css">
+    <style>
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .profile-card {
+            background: rgba(10, 14, 23, 0.9);
+            border: 1px solid var(--alpha-white-10);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .profile-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-brand-blue), transparent);
+            opacity: 0.5;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-brand-blue);
+            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.1);
+        }
+
+        .hud-corner {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border: 1px solid var(--alpha-white-20);
+        }
+        .top-left { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+        .bottom-right { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+
+        .avatar-box {
+            width: 80px;
+            height: 80px;
+            background: var(--neutral-850);
+            border: 1px solid var(--alpha-white-10);
+            margin: 0 auto var(--space-md);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            position: relative;
+        }
+
+        .avatar-box::after {
+            content: "";
+            position: absolute;
+            inset: -5px;
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            border-radius: 2px;
+        }
+
+        .role-tag {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            color: var(--color-brand-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            display: block;
+            text-align: center;
+        }
+
+        .name-title {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--neutral-white);
+            text-align: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: var(--space-md);
+        }
+
+        .stat-item {
+            background: var(--alpha-white-05);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .stat-label { font-size: 8px; color: var(--neutral-400); text-transform: uppercase; }
+        .stat-value { font-size: 10px; color: var(--neutral-200); font-weight: 700; display: block; }
+
+        .skills-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .skills-list li {
+            font-size: 10px;
+            color: var(--neutral-300);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 3px;
+        }
+
+        .skills-list li::before { content: "›"; color: var(--color-brand-blue); font-weight: bold; }
+
+        .core7-status {
+            margin-top: var(--space-md);
+            border-top: 1px solid var(--alpha-white-05);
+            padding-top: var(--space-sm);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-pill {
+            font-family: var(--font-mono);
+            font-size: 8px;
+            padding: 2px 6px;
+            background: rgba(0, 255, 65, 0.1);
+            color: #00FF41;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Liderazgo Estratégico</div>
+        <h1>The Architect & Visionary Deck</h1>
+        
+        <div class="cards-container">
+            <!-- CEO -->
+            <div class="profile-card">
+                <div class="hud-corner top-left"></div>
+                <div class="hud-corner bottom-right"></div>
+                <div class="role-tag">Strategic Vision</div>
+                <div class="avatar-box">👔</div>
+                <div class="name-title">CEO</div>
+                <div class="stats-grid">
+                    <div class="stat-item"><span class="stat-label">EXP</span><span class="stat-value">Scale X</span></div>
+                    <div class="stat-item"><span class="stat-label">FOCUS</span><span class="stat-value">Growth</span></div>
+                </div>
+                <ul class="skills-list">
+                    <li>Financial Expansion</li>
+                    <li>Investor Relations</li>
+                    <li>Corporate Culture</li>
+                </ul>
+                <div class="core7-status">
+                    <span style="font-size: 8px; color: var(--neutral-500);">CORE7_LEVEL</span>
+                    <span class="status-pill">MASTER</span>
+                </div>
+            </div>
+
+            <!-- Strategic Advisor -->
+            <div class="profile-card">
+                <div class="hud-corner top-left"></div>
+                <div class="hud-corner bottom-right"></div>
+                <div class="role-tag">Ontology Master</div>
+                <div class="avatar-box">🎓</div>
+                <div class="name-title">Strategic Advisor</div>
+                <div class="stats-grid">
+                    <div class="stat-item"><span class="stat-label">EXP</span><span class="stat-value">Founding</span></div>
+                    <div class="stat-item"><span class="stat-label">FOCUS</span><span class="stat-value">Ontology</span></div>
+                </div>
+                <ul class="skills-list">
+                    <li>Process First Philo</li>
+                    <li>Methodology Custody</li>
+                    <li>Business Logic</li>
+                </ul>
+                <div class="core7-status">
+                    <span style="font-size: 8px; color: var(--neutral-500);">LEGACY_VALUE</span>
+                    <span class="status-pill">ETERNAL</span>
+                </div>
+            </div>
+
+            <!-- COO -->
+            <div class="profile-card" style="border-color: rgba(32, 127, 222, 0.5);">
+                <div class="hud-corner top-left"></div>
+                <div class="hud-corner bottom-right"></div>
+                <div class="role-tag">Operations Hub</div>
+                <div class="avatar-box">⚙️</div>
+                <div class="name-title">COO</div>
+                <div class="stats-grid">
+                    <div class="stat-item"><span class="stat-label">EXP</span><span class="stat-value">Process Eng</span></div>
+                    <div class="stat-item"><span class="stat-label">FOCUS</span><span class="stat-value">Execution</span></div>
+                </div>
+                <ul class="skills-list">
+                    <li>Orchestration Design</li>
+                    <li>BPO Management</li>
+                    <li>Customer Success</li>
+                </ul>
+                <div class="core7-status">
+                    <span style="font-size: 8px; color: var(--neutral-500);">SYNC_RATE</span>
+                    <span class="status-pill">99.9%</span>
+                </div>
+            </div>
+
+            <!-- CTO -->
+            <div class="profile-card">
+                <div class="hud-corner top-left"></div>
+                <div class="hud-corner bottom-right"></div>
+                <div class="role-tag">Logic Architect</div>
+                <div class="avatar-box">💻</div>
+                <div class="name-title">CTO</div>
+                <div class="stats-grid">
+                    <div class="stat-item"><span class="stat-label">EXP</span><span class="stat-value">AI Labs</span></div>
+                    <div class="stat-item"><span class="stat-label">FOCUS</span><span class="stat-value">Tech Stack</span></div>
+                </div>
+                <ul class="skills-list">
+                    <li>Software Engineering</li>
+                    <li>AI Protocols (MCP)</li>
+                    <li>Infra Architecture</li>
+                </ul>
+                <div class="core7-status">
+                    <span style="font-size: 8px; color: var(--neutral-500);">BUILD_STATE</span>
+                    <span class="status-pill">ELITE</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-source">SOURCE: 11_Organizacion_y_Equipo_Final.md (Sec 11.1)</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-06.4 - Unit Economics Dashboard</title>
+    <link rel="stylesheet" href="../anthropic-base.css">
+    <style>
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .metric-card {
+            padding: var(--space-xl);
+            background: linear-gradient(135deg, var(--neutral-900) 0%, #1a1a1a 100%);
+            border: 1px solid var(--alpha-white-10);
+            border-radius: var(--radius-xl);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: var(--color-brand-blue);
+        }
+
+        .metric-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--neutral-400);
+        }
+
+        .metric-value {
+            font-family: var(--font-mono);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--neutral-white);
+        }
+
+        .metric-sub {
+            font-size: 13px;
+            color: var(--color-brand-orange);
+            font-weight: 600;
+        }
+
+        .l-box { border-color: var(--color-brand-blue); }
+        .r-box { border-color: var(--color-brand-orange); }
+
+        .chart-mini {
+            height: 40px;
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            margin-top: 10px;
+        }
+
+        .mini-bar {
+            flex: 1;
+            background: var(--alpha-white-10);
+            border-radius: 1px;
+        }
+
+        .active-bar { background: var(--color-brand-blue); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Métricas de Élite VC</div>
+        <h1>Unit Economics</h1>
+        
+        <div class="dashboard-grid">
+            <!-- LTV/CAC -->
+            <div class="metric-card">
+                <span class="metric-label">LTV / CAC Ratio</span>
+                <span class="metric-value">44.8x</span>
+                <span class="metric-sub">Eficiencia Directa</span>
+                <div class="chart-mini">
+                    <div class="mini-bar"></div>
+                    <div class="mini-bar"></div>
+                    <div class="mini-bar"></div>
+                    <div class="mini-bar active-bar" style="height: 60%"></div>
+                    <div class="mini-bar active-bar" style="height: 80%"></div>
+                    <div class="mini-bar active-bar" style="height: 100%"></div>
+                </div>
+            </div>
+
+            <!-- Payback -->
+            <div class="metric-card" style="border-top-color: var(--color-brand-orange);">
+                <span class="metric-label">CAC Payback</span>
+                <span class="metric-value">2.1 Meses</span>
+                <span class="metric-sub">Recuperación Ultra-Rápida</span>
+                <div class="chart-mini">
+                    <div class="mini-bar active-bar" style="height: 100%; background: var(--color-brand-orange);"></div>
+                    <div class="mini-bar active-bar" style="height: 80%; background: var(--color-brand-orange);"></div>
+                    <div class="mini-bar" style="height: 10%"></div>
+                    <div class="mini-bar"></div>
+                    <div class="mini-bar"></div>
+                    <div class="mini-bar"></div>
+                </div>
+            </div>
+
+            <!-- SaaS Margin -->
+            <div class="metric-card">
+                <span class="metric-label">SaaS Gross Margin</span>
+                <span class="metric-value">94.5%</span>
+                <span class="metric-sub">Escalabilidad Pura</span>
+            </div>
+
+            <!-- Retención -->
+            <div class="metric-card">
+                <span class="metric-label">Net Retention (NRR)</span>
+                <span class="metric-value">124%</span>
+                <span class="metric-sub">Negative Churn Logic</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; padding: var(--space-md); border-left: 2px solid var(--color-brand-blue); background: var(--alpha-white-05); font-size: 13px; color: var(--neutral-200);">
+            <strong>Data Source Directa:</strong> Todas las métricas se extraen en tiempo real de la instancia de <strong>GESTOR</strong>, eliminando proyecciones teóricas y basando el valor en transaccionalidad auditada.
+        </div>
+
+        <div class="data-source">SOURCE: 06_Modelo_de_negocio_Final.md (Sec 6.4)</div>
+    </div>
+</body>
+</html>

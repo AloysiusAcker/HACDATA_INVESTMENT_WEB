@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-14.2 - Strategic Use of Funds</title>
+    <link rel="stylesheet" href="../anthropic-base.css">
+    <style>
+        .funds-container {
+            width: 100%;
+            height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            margin-top: var(--space-xl);
+        }
+
+        .donut-scene {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+
+        .segment {
+            fill: none;
+            stroke-width: 40;
+            transition: stroke-width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .segment:hover { stroke-width: 50; }
+
+        .center-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .center-circle strong { font-size: 32px; color: var(--neutral-white); display: block; }
+        .center-circle span { font-size: 11px; color: var(--neutral-500); text-transform: uppercase; }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .legend-item { display: flex; align-items: flex-start; gap: 12px; }
+        .color-box { width: 14px; height: 14px; border-radius: 3px; margin-top: 3px; flex-shrink: 0; }
+        .legend-text h4 { font-size: 13px; margin: 0; color: var(--neutral-200); }
+        .legend-text p { font-size: 10px; color: var(--neutral-400); margin: 2px 0 0; }
+
+        /* Segment Colors */
+        .color-tech { stroke: var(--color-brand-blue); }
+        .color-growth { stroke: var(--color-brand-purple); }
+        .color-infra { stroke: var(--color-brand-orange); }
+        .color-ga { stroke: var(--neutral-500); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Asignación Seed Capital</div>
+        <h1>Strategic Use of Funds ($2.6M)</h1>
+        
+        <div class="funds-container">
+            <div class="donut-scene">
+                <!-- Donut Chart -->
+                <svg viewBox="0 0 200 200">
+                    <!-- Tech 40% (circumference ~628) -> dash 251 377 -->
+                    <circle cx="100" cy="100" r="80" class="segment color-tech" stroke-dasharray="201 301.6" />
+                    <!-- Growth 35% -> dash 175.8, starts after 40% (251) -->
+                    <circle cx="100" cy="100" r="80" class="segment color-growth" stroke-dasharray="175.9 326.7" stroke-dashoffset="-201.0" />
+                    <!-- Infra 15% -> dash 75.3 -->
+                    <circle cx="100" cy="100" r="80" class="segment color-infra" stroke-dasharray="75.4 427.2" stroke-dashoffset="-376.9" />
+                    <!-- G&A 10% -> dash 50.2 -->
+                    <circle cx="100" cy="100" r="80" class="segment color-ga" stroke-dasharray="50.3 452.3" stroke-dashoffset="-452.3" />
+                </svg>
+                <div class="center-circle">
+                    <strong>$2.6M</strong>
+                    <span>ROUND TOTAL</span>
+                </div>
+            </div>
+
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <div class="color-box color-tech"></div>
+                    <div class="legend-text">
+                        <h4>Ingeniería & Producto (40%)</h4>
+                        <p>Migración SaaS, Conectores MCP, Core7.</p>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box color-growth"></div>
+                    <div class="legend-text">
+                        <h4>Growth (35%)</h4>
+                        <p>Equipo comercial AE/SDR & Marketing CCL.</p>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box color-infra"></div>
+                    <div class="legend-text">
+                        <h4>Infra & IA (15%)</h4>
+                        <p>Nodos de IA local & Escalado Cloud.</p>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box color-ga"></div>
+                    <div class="legend-text">
+                        <h4>G&A & Risks (10%)</h4>
+                        <p>Reserva operativa y soporte administrativo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-source">SOURCE: 14_Tesis_de_inversion_y_uso_de_fondos_Final.md (Sec 14.2)</div>
+    </div>
+</body>
+</html>

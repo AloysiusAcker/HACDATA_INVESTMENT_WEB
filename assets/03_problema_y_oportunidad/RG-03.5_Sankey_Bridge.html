@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-03.5 - El Puente de la Oportunidad</title>
+    <link rel="stylesheet" href="../anthropic-base.css">
+    <style>
+        .sankey-scene {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: var(--space-xl);
+        }
+        svg { width: 100%; height: 350px; }
+        
+        .flow {
+            fill: none;
+            stroke-opacity: 0.3;
+            transition: stroke-opacity 0.3s ease;
+        }
+        .flow:hover { stroke-opacity: 0.6; }
+        
+        .node-box {
+            fill: var(--neutral-700);
+            stroke: var(--alpha-white-10);
+        }
+        .node-label {
+            font-size: 11px;
+            fill: var(--neutral-200);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .highlight { fill: var(--color-brand-orange); }
+        .success { fill: var(--color-brand-blue); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Tesis de Oportunidad</div>
+        <h1>El Puente de Valor</h1>
+        
+        <div class="sankey-scene">
+            <svg viewBox="0 0 800 350">
+                <!-- Flows -->
+                <path d="M50,100 C250,100 250,150 450,150" stroke="#BF4D43" stroke-width="40" class="flow" />
+                <path d="M50,250 C250,250 250,200 450,200" stroke="#BF4D43" stroke-width="20" class="flow" />
+                
+                <path d="M450,175 C600,175 600,175 750,175" stroke="#207FDE" stroke-width="60" class="flow" />
+
+                <!-- Source Nodes -->
+                <rect x="10" y="80" width="80" height="40" rx="4" class="node-box" />
+                <text x="50" y="105" text-anchor="middle" class="node-label">Gasto Tech</text>
+                
+                <rect x="10" y="230" width="80" height="40" rx="4" class="node-box" />
+                <text x="50" y="255" text-anchor="middle" class="node-label">Market Gap</text>
+                
+                <!-- Center Node (Problem) -->
+                <rect x="400" y="140" width="100" height="70" rx="4" class="node-box" style="stroke: var(--state-error);" />
+                <text x="450" y="170" text-anchor="middle" class="node-label highlight">Ineficiencia</text>
+                <text x="450" y="185" text-anchor="middle" class="node-label" style="font-size: 9px;">Fragmentación</text>
+
+                <!-- Target Node (HACDATA) -->
+                <rect x="700" y="140" width="90" height="70" rx="4" class="node-box" style="stroke: var(--color-brand-blue);" />
+                <text x="745" y="170" text-anchor="middle" class="node-label success">SOBERANÍA</text>
+                <text x="745" y="185" text-anchor="middle" class="node-label" style="font-size: 9px;">Operativa</text>
+            </svg>
+        </div>
+
+        <div style="margin-top: 20px; font-size: 13px; color: var(--neutral-200); line-height: 1.5;">
+            HACDATA actúa como el orquestador que reconecta el gasto tecnológico y la necesidad de mercado para generar <strong>productividad operativa real</strong>.
+        </div>
+
+        <div class="data-source">SOURCE: Sankey Bridge Thesis (Sec 3.2.4)</div>
+    </div>
+</body>
+</html>

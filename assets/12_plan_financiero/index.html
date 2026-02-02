@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Bloque 12 - Plan Financiero</title>
+    <link rel="stylesheet" href="../anthropic-base.css">
+    <style>
+        body {
+            overflow: auto;
+            display: block;
+            padding: var(--space-4xl);
+        }
+        .grid-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--space-2xl);
+        }
+        iframe {
+            width: 100%;
+            height: 650px;
+            border: 1px solid var(--alpha-white-10);
+            border-radius: var(--radius-lg);
+            background: var(--neutral-800);
+        }
+        .item-header {
+            margin-bottom: var(--space-md);
+            padding: 0 var(--space-sm);
+        }
+    </style>
+</head>
+<body>
+    <div class="item-header">
+        <div class="label">HACDATA 2026 - Visual Assets</div>
+        <h1>Bloque 12: Plan Financiero y Proyecciones</h1>
+        <p style="color: var(--neutral-200);">Rentabilidad exponencial SaaS, Unit Economics de élite y trayectoria de caja hacia la autosuficiencia.</p>
+    </div>
+
+    <div class="grid-preview">
+        <div>
+            <div class="label">RG-12.1</div>
+            <iframe src="RG-12.1_Revenue_Mix.html"></iframe>
+        </div>
+        <div>
+            <div class="label">RG-12.2</div>
+            <iframe src="RG-12.2_Margin_Expansion.html"></iframe>
+        </div>
+        <div>
+            <div class="label">RG-12.3</div>
+            <iframe src="RG-12.3_Efficiency_Dashboard.html"></iframe>
+        </div>
+        <div>
+            <div class="label">RG-12.4</div>
+            <iframe src="RG-12.4_Cash_Curve.html"></iframe>
+        </div>
+        <div>
+            <div class="label">RG-12.5</div>
+            <iframe src="RG-12.5_Scenario_Radar.html"></iframe>
+        </div>
+    </div>
+</body>
+</html>
