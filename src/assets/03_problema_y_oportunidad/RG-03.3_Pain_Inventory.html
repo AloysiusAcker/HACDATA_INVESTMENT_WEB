@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-03.3 - Inventario de Dolores por Segmento</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .segment-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            height: 100%;
+            margin-top: var(--space-xl);
+        }
+
+        .segment-col {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--alpha-white-10);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            transition: all 0.3s ease;
+        }
+
+        .segment-col:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--alpha-white-20);
+            transform: translateY(-2px);
+        }
+
+        /* Segment Styles */
+        .seg-micro { border-top: 3px solid var(--color-brand-blue); }
+        .seg-small { border-top: 3px solid var(--color-brand-purple); }
+        .seg-medium { border-top: 3px solid var(--color-brand-orange); }
+
+        .seg-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-sm);
+            padding-bottom: var(--space-sm);
+            border-bottom: 1px solid var(--alpha-white-05);
+        }
+
+        .seg-title {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--neutral-white);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .seg-icon {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        /* Pain Item */
+        .pain-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: var(--space-md);
+            border-radius: var(--radius-base);
+            border-left: 2px solid var(--state-error);
+        }
+
+        .pain-name {
+            font-size: 12px;
+            color: var(--neutral-150);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .pain-meta {
+            font-size: 10px;
+            color: var(--neutral-400);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .kpi-tag {
+            color: var(--state-error);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">SEGMENT PAINS & FRICTIONS</div>
+        <h1>The Pain Inventory</h1>
+        
+        <div class="segment-container">
+            <!-- MICRO -->
+            <div class="segment-col seg-micro">
+                <div class="seg-header">
+                    <span class="seg-title" style="color: var(--color-brand-blue)">Micro</span>
+                    <span class="seg-icon">🔹</span>
+                </div>
+                
+                <div class="pain-item">
+                    <div class="pain-name">Conciliación Manual</div>
+                    <div class="pain-meta">
+                        <span>Tesorería</span>
+                        <span class="kpi-tag">High Friction</span>
+                    </div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-name">Descuadres de Caja</div>
+                    <div class="pain-meta">
+                        <span>Admin</span>
+                        <span class="kpi-tag">-15% Cash</span>
+                    </div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-name">Cobranza x WhatsApp</div>
+                    <div class="pain-meta">
+                        <span>Ventas</span>
+                        <span class="kpi-tag">Caótico</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PEQUEÑA (SMALL) -->
+            <div class="segment-col seg-small">
+                <div class="seg-header">
+                    <span class="seg-title" style="color: var(--color-brand-purple)">Pequeña</span>
+                    <span class="seg-icon">🟣</span>
+                </div>
+
+                <div class="pain-item">
+                    <div class="pain-name">Cotizaciones Lentas</div>
+                    <div class="pain-meta">
+                        <span>Comercial</span>
+                        <span class="kpi-tag">Lost Deals</span>
+                    </div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-name">Inventario Desfazado</div>
+                    <div class="pain-meta">
+                        <span>Logística</span>
+                        <span class="kpi-tag">Stockout</span>
+                    </div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-name">Gestión "Apagafuegos"</div>
+                    <div class="pain-meta">
+                        <span>Operaciones</span>
+                        <span class="kpi-tag">Reactivo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MEDIANA (MEDIUM) -->
+            <div class="segment-col seg-medium">
+                <div class="seg-header">
+                    <span class="seg-title" style="color: var(--color-brand-orange)">Mediana</span>
+                    <span class="seg-icon">🔶</span>
+                </div>
+
+                <div class="pain-item">
+                    <div class="pain-name">Margen Invisible</div>
+                    <div class="pain-meta">
+                        <span>Finanzas</span>
+                        <span class="kpi-tag">Blind Spot</span>
+                    </div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-name">Silos de Información</div>
+                    <div class="pain-meta">
+                        <span>Gerencia</span>
+                        <span class="kpi-tag">No Data</span>
+                    </div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-name">Marketing sin Atribución</div>
+                    <div class="pain-meta">
+                        <span>Growth</span>
+                        <span class="kpi-tag">Wasted AdSpend</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-source">SOURCE: 03_Problema_y_Oportunidad_Final.md (Sec 3.3)</div>
+    </div>
+</body>
+</html>

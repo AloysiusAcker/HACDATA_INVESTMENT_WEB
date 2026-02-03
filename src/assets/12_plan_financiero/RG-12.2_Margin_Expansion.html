@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-12.2 - Step-Function Margin Expansion</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        .waterfall-container {
+            width: 100%;
+            height: 480px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: var(--space-2xl) var(--space-xl);
+            margin-top: var(--space-xl);
+            position: relative;
+        }
+
+        .step {
+            width: 120px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .step-bar {
+            width: 100%;
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .gross-profit { background: var(--color-brand-blue); height: 350px; }
+        .opex { background: var(--state-error); height: 60px; opacity: 0.8; }
+        .ebitda { background: #00FF41; height: 280px; box-shadow: 0 0 20px rgba(0, 255, 65, 0.2); }
+
+        .step-label {
+            margin-top: var(--space-md);
+            font-size: 11px;
+            color: var(--neutral-400);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .connector-line {
+            position: absolute;
+            top: 20px;
+            right: -60px;
+            width: 60px;
+            border-top: 1px dashed var(--alpha-white-20);
+            z-index: 1;
+        }
+
+        .percentage {
+            position: absolute;
+            top: -25px;
+            font-family: var(--font-mono);
+            font-size: 16px;
+            font-weight: 900;
+            color: var(--neutral-white);
+        }
+
+        .highlight-card {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--alpha-white-05);
+            padding: var(--space-md);
+            border: 1px solid var(--alpha-white-10);
+            border-radius: var(--radius-lg);
+            width: 220px;
+        }
+
+        .highlight-card h4 { font-size: 12px; color: var(--color-brand-blue); margin-bottom: 5px; }
+        .highlight-card p { font-size: 10px; color: var(--neutral-400); margin: 0; line-height: 1.4; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Eficiencia Operativa (M66)</div>
+        <h1>Step-Function Margin Expansion</h1>
+        
+        <div class="waterfall-container">
+            <!-- Gross Profit -->
+            <div class="step">
+                <span class="percentage">94.5%</span>
+                <div class="step-bar gross-profit">
+                    <div class="connector-line"></div>
+                </div>
+                <div class="step-label">Gross Profit</div>
+            </div>
+
+            <!-- OPEX -->
+            <div class="step" style="align-self: flex-start; margin-top: 70px;">
+                <span class="percentage" style="color: var(--state-error);">-18.0%</span>
+                <div class="step-bar opex">
+                    <div class="connector-line"></div>
+                </div>
+                <div class="step-label">OPEX</div>
+            </div>
+
+            <!-- EBITDA -->
+            <div class="step">
+                <span class="percentage" style="color: #00FF41;">76.5%</span>
+                <div class="step-bar ebitda"></div>
+                <div class="step-label">EBITDA FINAL</div>
+            </div>
+
+            <!-- Annotation -->
+            <div class="highlight-card">
+                <h4>Apalancamiento Operativo</h4>
+                <p>El incremento de clientes no genera un aumento proporcional en costos. El margen operativo se expande radicalmente con la escala SaaS.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 13px; color: var(--neutral-300); text-align: center;">
+            Métrica Rule of 40: <strong> >100 </strong> (Crecimiento + Margen EBITDA)
+        </div>
+
+        <div class="data-source">SOURCE: 12_Plan_financiero_Final.md (Sec 12.3)</div>
+    </div>
+</body>
+</html>
