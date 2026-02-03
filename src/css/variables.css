@@ -18,22 +18,23 @@
   --color-brand-blue-active: #1A6FC2;
 
   /* ========================================
-     NEUTRAL COLORS (Dark Theme)
+     NEUTRAL COLORS (Light Mode)
      ======================================== */
-  --color-neutral-white: #FFFFFF;
-  --color-neutral-900: #191919;    /* Sidebar background */
-  --color-neutral-850: #1E1E1D;
-  --color-neutral-800: #262625;    /* Main background (canvas) */
-  --color-neutral-750: #282624;
-  --color-neutral-700: #2B2A27;    /* Card background */
-  --color-neutral-650: #302F2B;
-  --color-neutral-600: #34332C;
-  --color-neutral-500: #40403E;
-  --color-neutral-400: #52514A;    /* Muted elements, labels */
-  --color-neutral-300: #666663;
-  --color-neutral-250: #91918D;    /* Muted text */
-  --color-neutral-200: #BFBFBA;    /* Secondary text */
-  --color-neutral-100: #E5E5E0;
+  --color-neutral-white: #ffffff;
+  --color-neutral-black: #191919;
+  --color-neutral-900: #f8f7f6;    /* Sidebar background - crema claro */
+  --color-neutral-850: #f4f3f1;
+  --color-neutral-800: #ffffff;    /* Main background - blanco */
+  --color-neutral-750: #fafafa;
+  --color-neutral-700: #f2f1ef;    /* Card background - gris muy claro */
+  --color-neutral-650: #eceae8;
+  --color-neutral-600: #e0dfdc;    /* Borders, dividers */
+  --color-neutral-500: #c8c7c4;    /* Muted elements */
+  --color-neutral-400: #9a9994;    /* Labels, placeholders */
+  --color-neutral-300: #6b6a66;    /* Secondary text */
+  --color-neutral-250: #4d4c48;    /* Body text */
+  --color-neutral-200: #3d3d3a;    /* Primary text */
+  --color-neutral-100: #1a1a18;    /* Headings, strong text */
 
   /* ========================================
      STATE COLORS
