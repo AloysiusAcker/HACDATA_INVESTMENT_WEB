@@ -291,6 +291,16 @@
   min-height: 850px;
 }
 
+/* Extra tall variant for very large assets (e.g. 5 detailed pillars) */
+.viz-card-content.max-tall {
+  min-height: 1050px;
+}
+
+.viz-card-content.max-tall iframe {
+  height: 1100px;
+  min-height: 1050px;
+}
+
 /* Viz Card Loading State */
 .viz-card-content.loading::before {
   content: "Cargando visualización...";
