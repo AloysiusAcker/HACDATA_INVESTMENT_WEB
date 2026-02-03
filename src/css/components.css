@@ -192,7 +192,7 @@
    VISUALIZATION CARDS (Keep Dark for Contrast)
    ======================================== */
 .viz-card {
-  background: #262625;
+  background: linear-gradient(180deg, #2A2A28 0%, #3A3A38 15%, #3A3A38 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-2xl);
   overflow: hidden;
@@ -210,7 +210,7 @@
   justify-content: space-between;
   gap: var(--space-lg);
   padding: var(--space-lg) var(--space-xl);
-  background: #191919;
+  background: #2A2A28;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -261,7 +261,7 @@
 .viz-card-content {
   position: relative;
   min-height: 500px;
-  background: #262625;
+  background: #3A3A38;
   overflow: hidden;
 }
 
@@ -495,7 +495,7 @@ tr.highlight td {
   width: calc(100vw - 48px);
   height: calc(100vh - 48px);
   max-width: 1600px;
-  background: #262625;
+  background: #3A3A38;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-2xl);
   z-index: var(--z-modal);
@@ -518,7 +518,7 @@ tr.highlight td {
   align-items: center;
   justify-content: space-between;
   padding: var(--space-xl) var(--space-3xl);
-  background: #191919;
+  background: #2A2A28;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -549,7 +549,7 @@ tr.highlight td {
 .modal-body {
   flex: 1;
   overflow: hidden;
-  background: #262625;
+  background: #3A3A38;
 }
 
 .modal-body iframe {
