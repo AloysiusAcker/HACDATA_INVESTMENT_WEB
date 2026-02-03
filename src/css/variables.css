@@ -7,42 +7,42 @@
   /* ========================================
      BRAND COLORS
      ======================================== */
-  --color-brand-orange: #D97757;
-  --color-brand-orange-hover: #E5896A;
-  --color-brand-orange-active: #C46B4D;
-  --color-brand-purple: #9B87F5;
-  --color-brand-purple-hover: #AE9DF7;
-  --color-brand-purple-active: #8A75E8;
-  --color-brand-blue: #207FDE;
-  --color-brand-blue-hover: #3A91E8;
-  --color-brand-blue-active: #1A6FC2;
+  --color-brand-orange: #d97757;
+  --color-brand-orange-hover: #e5896a;
+  --color-brand-orange-active: #c46b4d;
+  --color-brand-purple: #9b87f5;
+  --color-brand-purple-hover: #ae9df7;
+  --color-brand-purple-active: #8a75e8;
+  --color-brand-blue: #207fde;
+  --color-brand-blue-hover: #3a91e8;
+  --color-brand-blue-active: #1a6fc2;
 
   /* ========================================
      NEUTRAL COLORS (Light Mode)
      ======================================== */
   --color-neutral-white: #ffffff;
   --color-neutral-black: #191919;
-  --color-neutral-900: #f8f7f6;    /* Sidebar background - crema claro */
+  --color-neutral-900: #f8f7f6; /* Sidebar background - crema claro */
   --color-neutral-850: #f4f3f1;
-  --color-neutral-800: #ffffff;    /* Main background - blanco */
+  --color-neutral-800: #ffffff; /* Main background - blanco */
   --color-neutral-750: #fafafa;
-  --color-neutral-700: #f2f1ef;    /* Card background - gris muy claro */
+  --color-neutral-700: #f2f1ef; /* Card background - gris muy claro */
   --color-neutral-650: #eceae8;
-  --color-neutral-600: #e0dfdc;    /* Borders, dividers */
-  --color-neutral-500: #c8c7c4;    /* Muted elements */
-  --color-neutral-400: #9a9994;    /* Labels, placeholders */
-  --color-neutral-300: #6b6a66;    /* Secondary text */
-  --color-neutral-250: #4d4c48;    /* Body text */
-  --color-neutral-200: #3d3d3a;    /* Primary text */
-  --color-neutral-100: #1a1a18;    /* Headings, strong text */
+  --color-neutral-600: #e0dfdc; /* Borders, dividers */
+  --color-neutral-500: #c8c7c4; /* Muted elements */
+  --color-neutral-400: #9a9994; /* Labels, placeholders */
+  --color-neutral-300: #6b6a66; /* Secondary text */
+  --color-neutral-250: #4d4c48; /* Body text */
+  --color-neutral-200: #3d3d3a; /* Primary text */
+  --color-neutral-100: #1a1a18; /* Headings, strong text */
 
   /* ========================================
      STATE COLORS
      ======================================== */
-  --color-state-focus: #61AAF2;
-  --color-state-error: #BF4D43;
-  --color-state-success: #4CAF50;
-  --color-state-warning: #FFA726;
+  --color-state-focus: #61aaf2;
+  --color-state-error: #bf4d43;
+  --color-state-success: #4caf50;
+  --color-state-warning: #ffa726;
 
   /* ========================================
      ALPHA / TRANSPARENCY
@@ -70,20 +70,20 @@
   /* ========================================
      TYPOGRAPHY - FONT SIZES
      ======================================== */
-  --text-display-xl: 48px;    /* Hero titles */
-  --text-display-lg: 40px;    /* Section titles */
+  --text-display-xl: 48px; /* Hero titles */
+  --text-display-lg: 40px; /* Section titles */
   --text-display-md: 36px;
   --text-heading-xl: 28px;
-  --text-heading-lg: 32px;    /* H2 */
-  --text-heading-md: 20px;    /* H3 */
-  --text-heading-sm: 18px;    /* H4 */
-  --text-body-lg: 16px;       /* Body default */
+  --text-heading-lg: 32px; /* H2 */
+  --text-heading-md: 20px; /* H3 */
+  --text-heading-sm: 18px; /* H4 */
+  --text-body-lg: 16px; /* Body default */
   --text-body-md: 15px;
-  --text-body-sm: 14px;       /* UI text */
+  --text-body-sm: 14px; /* UI text */
   --text-body-xs: 13px;
-  --text-caption-lg: 12px;    /* Labels */
+  --text-caption-lg: 12px; /* Labels */
   --text-caption-md: 11px;
-  --text-caption-sm: 10px;    /* Tags */
+  --text-caption-sm: 10px; /* Tags */
 
   /* ========================================
      TYPOGRAPHY - LINE HEIGHTS
@@ -156,8 +156,9 @@
   --shadow-card: -1px 1px 3px rgba(206, 204, 197, 0.08);
   --shadow-popover: 0px 4px 4px rgba(0, 0, 0, 0.25);
   --shadow-modal: 0 24px 48px rgba(0, 0, 0, 0.5);
-  --shadow-primary-btn: -1px 1px 4px rgba(0, 0, 0, 0.25),
-                        inset 0px 1.5px 0px rgba(186, 111, 48, 0.5);
+  --shadow-primary-btn:
+    -1px 1px 4px rgba(0, 0, 0, 0.25),
+    inset 0px 1.5px 0px rgba(186, 111, 48, 0.5);
   --shadow-glow-orange: 0 0 20px rgba(217, 119, 87, 0.3);
   --shadow-glow-purple: 0 0 20px rgba(155, 135, 245, 0.3);
 
@@ -198,6 +199,14 @@
   --content-max-width: 1200px;
   --viz-card-height: 450px;
   --viz-card-height-expanded: calc(100vh - 100px);
+
+  /* ========================================
+     SEMANTIC SPACING (Vertical Rhythm)
+     ======================================== */
+  --gap-section: var(--space-8xl);  /* 80px - Between H2 sections */
+  --gap-block: var(--space-6xl);    /* 48px - Between major content blocks */
+  --gap-content: var(--space-3xl);  /* 24px - Between text and sub-headers */
+  --gap-item: var(--space-xl);      /* 16px - Between items in a list/grid */
 }
 
 /* ========================================
