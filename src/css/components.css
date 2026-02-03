@@ -293,12 +293,12 @@
 
 /* Extra tall variant for very large assets (e.g. 5 detailed pillars) */
 .viz-card-content.max-tall {
-  min-height: 1050px;
+  min-height: 980px;
 }
 
 .viz-card-content.max-tall iframe {
-  height: 1100px;
-  min-height: 1050px;
+  height: 980px;
+  min-height: 980px;
 }
 
 /* Viz Card Loading State */
