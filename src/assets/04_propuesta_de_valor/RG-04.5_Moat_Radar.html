@@ -6,9 +6,18 @@
     <title>RG-04.5 - Radar de Foso Híbrido</title>
     <link rel="stylesheet" href="../shared/anthropic-base.css">
     <style>
+        .container {
+            padding: 30px 40px;
+            box-sizing: border-box;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
         .radar-scene {
+            flex: 1;
             width: 100%;
-            height: 450px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,13 +25,14 @@
         }
 
         svg {
-            width: 480px;
-            height: 480px;
+            width: 100%;
+            height: 100%;
+            max-width: 600px; /* Mas ancho para evitar cortes de texto */
         }
 
         .radar-ring {
             fill: none;
-            stroke: var(--alpha-white-05);
+            stroke: var(--alpha-white-10);
             stroke-width: 1;
         }
 
@@ -32,37 +42,57 @@
         }
 
         .moat-polygon {
-            fill: rgba(217, 119, 87, 0.2);
+            fill: rgba(217, 119, 87, 0.25);
             stroke: var(--color-brand-orange);
             stroke-width: 3;
-            filter: drop-shadow(0 0 10px rgba(217, 119, 87, 0.4));
+            filter: drop-shadow(0 0 8px rgba(217, 119, 87, 0.4));
         }
 
         .axis-label {
             font-family: var(--font-sans);
-            font-size: 11px;
+            font-size: 10px;
             fill: var(--neutral-200);
-            font-weight: 500;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .moat-score {
-          font-family: var(--font-mono);
-          font-size: 9px;
-          fill: var(--color-brand-orange);
-        }
-
+        /* Legend moved to bottom-right, where the source was */
         .legend {
             position: absolute;
-            bottom: var(--space-xl);
-            right: var(--space-xl);
-            background: var(--alpha-white-05);
-            padding: var(--space-md);
+            bottom: 30px;
+            right: 40px;
+            background: rgba(43, 42, 39, 0.9);
+            padding: 12px 16px;
             border-radius: var(--radius-lg);
             border: 1px solid var(--alpha-white-10);
+            backdrop-filter: blur(8px);
+            z-index: 10;
         }
         
-        .leg-item { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--neutral-200); }
-        .dot { width: 8px; height: 8px; border-radius: 2px; background: var(--color-brand-orange); }
+        .leg-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            font-size: 11px; 
+            color: var(--neutral-white); 
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .dot { 
+            width: 12px; 
+            height: 12px; 
+            border-radius: 3px; 
+            background: var(--color-brand-orange); 
+            box-shadow: 0 0 8px var(--color-brand-orange);
+        }
+        .leg-sub {
+            font-size: 9px; 
+            color: var(--neutral-200); 
+            margin-top: 4px;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
@@ -71,40 +101,52 @@
         <h1>Ventaja de Foso Híbrido</h1>
         
         <div class="radar-scene">
-            <svg viewBox="0 0 400 400">
-                <!-- Rings -->
-                <circle class="radar-ring" cx="200" cy="200" r="40" />
-                <circle class="radar-ring" cx="200" cy="200" r="80" />
-                <circle class="radar-ring" cx="200" cy="200" r="120" />
-                <circle class="radar-ring" cx="200" cy="200" r="160" />
+            <!-- Increased Width ViewBox to 600x400 to prevent text clipping -->
+            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet">
+                <!-- Center is now at 300, 200 -->
+                <!-- Rings (r=30, 60, 90, 120) -->
+                <circle class="radar-ring" cx="300" cy="200" r="30" />
+                <circle class="radar-ring" cx="300" cy="200" r="60" />
+                <circle class="radar-ring" cx="300" cy="200" r="90" />
+                <circle class="radar-ring" cx="300" cy="200" r="120" />
 
                 <!-- Axes -->
-                <!-- 5 points: 0, 72, 144, 216, 288 deg -->
-                <line class="radar-axis" x1="200" y1="200" x2="200" y2="40" />
-                <line class="radar-axis" x1="200" y1="200" x2="352" y2="150" />
-                <line class="radar-axis" x1="200" y1="200" x2="294" y2="330" />
-                <line class="radar-axis" x1="200" y1="200" x2="106" y2="330" />
-                <line class="radar-axis" x1="200" y1="200" x2="48" y2="150" />
+                <!-- P1: 0deg (300, 80) -->
+                <line class="radar-axis" x1="300" y1="200" x2="300" y2="80" />
+                <!-- P2: 72deg (300 + 120*sin72, 200 - 120*cos72) = (414, 163) -->
+                <line class="radar-axis" x1="300" y1="200" x2="414" y2="163" />
+                <!-- P3: 144deg (300 + 120*sin144, 200 - 120*cos144) = (370, 297) -->
+                <line class="radar-axis" x1="300" y1="200" x2="370" y2="297" />
+                <!-- P4: 216deg (300 + 120*sin216, 200 - 120*cos216) = (230, 297) -->
+                <line class="radar-axis" x1="300" y1="200" x2="230" y2="297" />
+                <!-- P5: 288deg (300 + 120*sin288, 200 - 120*cos288) = (186, 163) -->
+                <line class="radar-axis" x1="300" y1="200" x2="186" y2="163" />
 
                 <!-- Polygon (HACDATA Moat) -->
-                <!-- P1: Control Tech (95%), P2: Ejecucional (90%), P3: Adherencia (98%), P4: Localización (85%), P5: Costo (80%) -->
-                <polygon class="moat-polygon" points="200,48 337,155 292,327 110,310 78,160" />
+                <!-- Values: Tech: 95%, BPO: 92%, Adherencia: 98%, Local: 88%, Costo: 85% -->
+                <!-- R_max = 120. Points:
+                     P1: (300, 200 - 120*0.95) = (300, 86)
+                     P2: (300 + 120*0.92*sin72, 200 - 120*0.92*cos72) = (300+105, 200-34) = (405, 166)
+                     P3: (300 + 120*0.98*sin144, 200 - 120*0.98*cos144) = (300+69, 200+95) = (369, 295)
+                     P4: (300 + 120*0.88*sin216, 200 - 120*0.88*cos216) = (300-62, 200+85) = (238, 285)
+                     P5: (300 + 120*0.85*sin288, 200 - 120*0.85*cos288) = (300-97, 200-31) = (203, 169)
+                -->
+                <polygon class="moat-polygon" points="300,86 405,166 369,295 238,285 203,169" />
 
-                <!-- Labels -->
-                <text x="200" y="30" class="axis-label" text-anchor="middle">Control Tech</text>
-                <text x="360" y="145" class="axis-label">Brazo Ejecutor (BPO)</text>
-                <text x="300" y="345" class="axis-label">Adherencia Operativa</text>
-                <text x="10" y="345" class="axis-label">Localización Regional</text>
-                <text x="10" y="145" class="axis-label">Ventaja en Costos</text>
+                <!-- Labels with enough room and correct alignment -->
+                <text x="300" y="65" class="axis-label" text-anchor="middle">Control Tech</text>
+                <text x="425" y="163" class="axis-label" text-anchor="start">Brazo Ejecutor (BPO)</text>
+                <text x="380" y="315" class="axis-label" text-anchor="start">Adherencia Operativa</text>
+                <text x="220" y="315" class="axis-label" text-anchor="end">Localización Regional</text>
+                <text x="175" y="163" class="axis-label" text-anchor="end">Ventaja en Costos</text>
             </svg>
 
+            <!-- Legend now exactly where the Source was -->
             <div class="legend">
                 <div class="leg-item"><div class="dot"></div> Nivel de Defensa HACDATA</div>
-                <div style="font-size: 9px; color: var(--neutral-400); margin-top: 4px;">Escala de Protección Competitiva</div>
+                <div class="leg-sub">Escala de Protección Competitiva</div>
             </div>
         </div>
-
-        <div class="data-source">SOURCE: 04_Propuesta_de_Valor_Final.md (Sec 4.10)</div>
     </div>
 </body>
 </html>

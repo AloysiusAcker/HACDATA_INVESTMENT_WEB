@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-05.1 - Pilares CORE7</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        :root {
+            --color-card-bg: #2E2E2B;
+            --color-card-border: rgba(206, 204, 197, 0.05);
+            --color-label-bg: #262625;
+            --color-label-border: #373632;
+            --color-muted-text: #BFBFBA;
+            
+            /* Enhanced Palette */
+            --pillar-color-1: #207FDE; /* Blue */
+            --pillar-color-2: #D97757; /* Orange */
+            --pillar-color-3: #9B87F5; /* Purple */
+            --pillar-color-4: #4CAF50; /* Green/Success */
+            --pillar-color-5: #61AAF2; /* Sky Blue/Focus */
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            overflow-x: hidden;
+        }
+
+        body {
+            color: var(--neutral-white);
+            padding: 20px 40px;
+            font-family: var(--font-sans);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Character / ALT Card Style */
+        .pillar-card {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 24px 28px; /* Increased padding for better alignment */
+            gap: 20px;
+            width: 100%;
+            min-height: 140px;
+            background: var(--color-card-bg);
+            border: 1px solid var(--color-card-border);
+            border-radius: 12px;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .pillar-card:hover {
+            border-color: rgba(206, 204, 197, 0.12);
+            transform: translateY(-2px);
+            background: #353531;
+        }
+
+        /* Number Badge */
+        .number-badge {
+            flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            margin-top: 0; /* Aligned with first line of text */
+        }
+
+        /* Left Side - Vertical Alignment Fix */
+        .pillar-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 0px;
+            gap: 16px; /* Controlled gap between blocks */
+            flex: 1;
+        }
+
+        .name-desc-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0px;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .pillar-name {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.2;
+            display: flex;
+            align-items: center;
+            text-transform: capitalize;
+            color: #FFFFFF;
+            margin: 0;
+        }
+
+        .pillar-description {
+            font-family: var(--font-sans);
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14.5px; /* Increased by 1.5px (from 13px) */
+            line-height: 1.6;
+            color: #FFFFFF;
+            opacity: 0.85;
+            margin: 0;
+            max-width: 95%;
+        }
+
+        .pillar-footer {
+            font-family: var(--font-sans);
+            font-weight: 500;
+            font-size: 11px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: var(--color-muted-text);
+            margin-top: 4px; /* Space from description */
+        }
+
+        /* Right Side */
+        .pillar-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0px;
+            gap: 16px;
+            width: 160px;
+            height: 100%;
+            min-height: 90px;
+        }
+
+        .project-tag {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 6px 12px;
+            gap: 8px;
+            background: var(--color-label-bg);
+            border: 1px solid var(--color-label-border);
+            border-radius: 8px;
+        }
+
+        .project-icon {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+        }
+
+        .project-text {
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 10px;
+            line-height: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .traits-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 6px;
+        }
+
+        .trait-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-sans);
+            font-size: 11px;
+            color: var(--color-muted-text);
+            text-align: right;
+        }
+
+        /* Specific Pillar Colors */
+        .p1 .number-badge { background: var(--pillar-color-1); box-shadow: 0 0 15px rgba(32, 127, 222, 0.4); }
+        .p1 .project-icon { background: var(--pillar-color-1); }
+        .p1 .project-text { color: var(--pillar-color-1); }
+
+        .p2 .number-badge { background: var(--pillar-color-2); box-shadow: 0 0 15px rgba(217, 119, 87, 0.4); }
+        .p2 .project-icon { background: var(--pillar-color-2); }
+        .p2 .project-text { color: var(--pillar-color-2); }
+
+        .p3 .number-badge { background: var(--pillar-color-3); box-shadow: 0 0 15px rgba(155, 135, 245, 0.4); }
+        .p3 .project-icon { background: var(--pillar-color-3); }
+        .p3 .project-text { color: var(--pillar-color-3); }
+
+        .p4 .number-badge { background: var(--pillar-color-4); box-shadow: 0 0 15px rgba(76, 175, 80, 0.4); }
+        .p4 .project-icon { background: var(--pillar-color-4); }
+        .p4 .project-text { color: var(--pillar-color-4); }
+
+        .p5 .number-badge { background: var(--pillar-color-5); box-shadow: 0 0 15px rgba(97, 170, 242, 0.4); }
+        .p5 .project-icon { background: var(--pillar-color-5); }
+        .p5 .project-text { color: var(--pillar-color-5); }
+
+    </style>
+</head>
+<body>
+
+    <!-- Card 1 -->
+    <div class="pillar-card p1">
+        <div class="number-badge">1</div>
+        <div class="pillar-left">
+            <div class="name-desc-group">
+                <h4 class="pillar-name">Identificación Unívoca</h4>
+                <p class="pillar-description">Toda acción se origina desde un ticket que centraliza el historial transaccional y operativo, garantizando una verdad única e inmutable.</p>
+            </div>
+            <div class="pillar-footer">Q1 2026 • Auditoría Activa</div>
+        </div>
+        <div class="pillar-right">
+            <div class="project-tag">
+                <div class="project-icon"></div>
+                <span class="project-text">GESTOR Core</span>
+            </div>
+            <div class="traits-group">
+                <div class="trait-item"><span>3.5 Sonnet Engine</span></div>
+                <div class="trait-item"><span>Shared-ID Architecture</span></div>
+                <div class="trait-item"><span>144 Knowledge Nodes</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="pillar-card p2">
+        <div class="number-badge">2</div>
+        <div class="pillar-left">
+            <div class="name-desc-group">
+                <h4 class="pillar-name">Control de Desviaciones</h4>
+                <p class="pillar-description">Motor de incidentes integrado que captura fallos en tiempo real y condiciona proactivamente el avance de cada flujo operativo.</p>
+            </div>
+            <div class="pillar-footer">Q1 2026 • Control Preventivo</div>
+        </div>
+        <div class="pillar-right">
+            <div class="project-tag">
+                <div class="project-icon"></div>
+                <span class="project-text">Incident Moat</span>
+            </div>
+            <div class="traits-group">
+                <div class="trait-item"><span>Zero Entropía Goal</span></div>
+                <div class="trait-item"><span>82 Rules Applied</span></div>
+                <div class="trait-item"><span>Auto-remediación</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="pillar-card p3">
+        <div class="number-badge">3</div>
+        <div class="pillar-left">
+            <div class="name-desc-group">
+                <h4 class="pillar-name">Soberanía de Evidencia</h4>
+                <p class="pillar-description">Bloqueo de avance de flujo supeditado a la carga obligatoria de pruebas multimedia o registros documentales auditables.</p>
+            </div>
+            <div class="pillar-footer">Q1 2026 • Registro Forense</div>
+        </div>
+        <div class="pillar-right">
+            <div class="project-tag">
+                <div class="project-icon"></div>
+                <span class="project-text">Multimedia DB</span>
+            </div>
+            <div class="traits-group">
+                <div class="trait-item"><span>Asset Sovereignty</span></div>
+                <div class="trait-item"><span>Cloud Proof Storage</span></div>
+                <div class="trait-item"><span>Hashing Verifier</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="pillar-card p4">
+        <div class="number-badge">4</div>
+        <div class="pillar-left">
+            <div class="name-desc-group">
+                <h4 class="pillar-name">Validación Sistemática</h4>
+                <p class="pillar-description">Motor de auditoría (QA vivo) que califica el desempeño en tiempo real contrastando la ejecución contra la regla de negocio.</p>
+            </div>
+            <div class="pillar-footer">Q1 2026 • Compliance Real-time</div>
+        </div>
+        <div class="pillar-right">
+            <div class="project-tag">
+                <div class="project-icon"></div>
+                <span class="project-text">QA Engine</span>
+            </div>
+            <div class="traits-group">
+                <div class="trait-item"><span>Logic Validation</span></div>
+                <div class="trait-item"><span>Real-time Scoring</span></div>
+                <div class="trait-item"><span>Falla Permitida: 0%</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="pillar-card p5">
+        <div class="number-badge">5</div>
+        <div class="pillar-left">
+            <div class="name-desc-group">
+                <h4 class="pillar-name">Consolidación de Conocimiento</h4>
+                <p class="pillar-description">Base de datos dinámica que despliega visualmente las guías operativas y estándares técnicos en el punto exacto de la acción.</p>
+            </div>
+            <div class="pillar-footer">Q1 2026 • Knowledge Hub</div>
+        </div>
+        <div class="pillar-right">
+            <div class="project-tag">
+                <div class="project-icon"></div>
+                <span class="project-text">Wiki Actionable</span>
+            </div>
+            <div class="traits-group">
+                <div class="trait-item"><span>AI Guided Ops</span></div>
+                <div class="trait-item"><span>Just-in-time Help</span></div>
+                <div class="trait-item"><span>Know-how Digital</span></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
