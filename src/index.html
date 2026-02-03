@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HACDATA Investment Memorandum 2026 - Platform-as-a-Brain for SMEs">
+  <meta name="theme-color" content="#191919">
+
+  <title>HACDATA | Investment Memorandum 2026</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23D97757' rx='15' width='100' height='100'/><text x='50' y='70' text-anchor='middle' font-size='60' font-family='monospace' fill='white'>H</text></svg>">
+</head>
+<body>
+  <div class="app">
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress">
+      <div class="reading-progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Sidebar Overlay (Mobile) -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon">H</div>
+          <div class="logo-text">
+            <span class="logo-title">HACDATA</span>
+            <span class="logo-subtitle">Investment Memorandum</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Contenido</div>
+          <ul class="nav-list" id="nav-list">
+            <li>
+              <a class="nav-link active" data-section="00" href="#indice">
+                <span class="nav-link-number">00</span>
+                <span class="nav-link-text">Índice</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-section="01" href="#resumen-ejecutivo">
+                <span class="nav-link-number">01</span>
+                <span class="nav-link-text">Resumen Ejecutivo</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-section="02" href="#la-empresa">
+                <span class="nav-link-number">02</span>
+                <span class="nav-link-text">La Empresa</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-section="03" href="#problema-oportunidad">
+                <span class="nav-link-number">03</span>
+                <span class="nav-link-text">Problema y Oportunidad</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-section="04" href="#propuesta-valor">
+                <span class="nav-link-number">04</span>
+                <span class="nav-link-text">Propuesta de Valor</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-section="05" href="#producto-servicios">
+                <span class="nav-link-number">05</span>
+                <span class="nav-link-text">Producto y Servicios</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-section="06" href="#modelo-negocio">
+                <span class="nav-link-number">06</span>
+                <span class="nav-link-text">Modelo de Negocio</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-section="07" href="#mercado-competencia">
+                <span class="nav-link-number">07</span>
+                <span class="nav-link-text">Mercado y Competencia</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-section="08" href="#go-to-market">
+                <span class="nav-link-number">08</span>
+                <span class="nav-link-text">Go-to-Market</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-section="09" href="#operaciones">
+                <span class="nav-link-number">09</span>
+                <span class="nav-link-text">Operaciones</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-section="10" href="#tecnologia">
+                <span class="nav-link-number">10</span>
+                <span class="nav-link-text">Tecnología</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-section="11" href="#organizacion">
+                <span class="nav-link-number">11</span>
+                <span class="nav-link-text">Organización</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-section="12" href="#plan-financiero">
+                <span class="nav-link-number">12</span>
+                <span class="nav-link-text">Plan Financiero</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-section="13" href="#riesgos">
+                <span class="nav-link-number">13</span>
+                <span class="nav-link-text">Riesgos</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-section="14" href="#tesis-inversion">
+                <span class="nav-link-number">14</span>
+                <span class="nav-link-text">Tesis de Inversión</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-section="15" href="#anexos">
+                <span class="nav-link-number">15</span>
+                <span class="nav-link-text">Anexos</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p class="sidebar-footer-text">
+          HACDATA &copy; 2026<br>
+          <a href="mailto:inversores@hacdata.com" class="sidebar-footer-link">inversores@hacdata.com</a>
+        </p>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main">
+      <div class="main-content">
+        <div id="content-container">
+          <!-- Content will be loaded here dynamically -->
+          <div class="section">
+            <div class="section-header">
+              <div class="section-meta">
+                <span class="badge badge-orange">Cargando...</span>
+              </div>
+            </div>
+            <div class="content">
+              <div class="skeleton skeleton-title"></div>
+              <div class="skeleton skeleton-text" style="width: 100%"></div>
+              <div class="skeleton skeleton-text" style="width: 90%"></div>
+              <div class="skeleton skeleton-text" style="width: 95%"></div>
+              <div class="skeleton skeleton-text" style="width: 85%"></div>
+              <div class="skeleton skeleton-card mt-3xl"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <!-- Modal for Expanded Visualizations -->
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal" id="viz-modal">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span class="viz-card-id" id="modal-viz-id"></span>
+          <span class="viz-card-title" id="modal-viz-title"></span>
+        </div>
+        <button class="modal-close" id="modal-close" aria-label="Close modal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <iframe id="modal-iframe" title="Visualization"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/app.js"></script>
+</body>
+</html>
