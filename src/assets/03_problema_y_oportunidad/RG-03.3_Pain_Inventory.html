@@ -3,194 +3,357 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RG-03.3 - Inventario de Dolores por Segmento</title>
+    <title>RG-03.3 - Inventario de Dolores</title>
     <link rel="stylesheet" href="../shared/anthropic-base.css">
     <style>
-        body {
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            padding: 30px 40px 50px 40px;
+            box-sizing: border-box;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .label {
+            margin-bottom: 6px;
+        }
+
+        /* Legend - Inline compact */
+        .legend {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10px;
+            color: var(--neutral-200);
+        }
+
+        .legend-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 2px;
+        }
+
+        .legend-dot.d1 { background: var(--color-brand-orange); }
+        .legend-dot.d2 { background: #9B87F5; }
+        .legend-dot.d3 { background: var(--color-brand-blue); }
+        .legend-dot.d4 { background: #BF4D43; }
+        .legend-dot.d5 { background: #4ECDC4; }
+
+        /* Pain Grid - Flex grow to fill space */
+        .pain-grid {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Dimension Rows */
+        .dimension-row {
+            display: grid;
+            grid-template-columns: 160px 1fr 1fr;
+            gap: 12px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        /* Dimension Header */
+        .dimension-header {
             display: flex;
             flex-direction: column;
             justify-content: center;
+            padding: 12px 14px;
+            border-radius: 8px;
+            background: var(--neutral-800);
+            border-left: 4px solid;
         }
 
-        .segment-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-lg);
-            height: 100%;
-            margin-top: var(--space-xl);
+        .dimension-header.d1 { border-color: var(--color-brand-orange); }
+        .dimension-header.d2 { border-color: #9B87F5; }
+        .dimension-header.d3 { border-color: var(--color-brand-blue); }
+        .dimension-header.d4 { border-color: #BF4D43; }
+        .dimension-header.d5 { border-color: #4ECDC4; }
+
+        .dimension-code {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 700;
+            opacity: 0.7;
+            margin-bottom: 3px;
         }
 
-        .segment-col {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--alpha-white-10);
-            border-radius: var(--radius-lg);
-            padding: var(--space-lg);
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-md);
-            transition: all 0.3s ease;
-        }
+        .dimension-header.d1 .dimension-code { color: var(--color-brand-orange); }
+        .dimension-header.d2 .dimension-code { color: #9B87F5; }
+        .dimension-header.d3 .dimension-code { color: var(--color-brand-blue); }
+        .dimension-header.d4 .dimension-code { color: #BF4D43; }
+        .dimension-header.d5 .dimension-code { color: #4ECDC4; }
 
-        .segment-col:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--alpha-white-20);
-            transform: translateY(-2px);
-        }
-
-        /* Segment Styles */
-        .seg-micro { border-top: 3px solid var(--color-brand-blue); }
-        .seg-small { border-top: 3px solid var(--color-brand-purple); }
-        .seg-medium { border-top: 3px solid var(--color-brand-orange); }
-
-        .seg-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: var(--space-sm);
-            padding-bottom: var(--space-sm);
-            border-bottom: 1px solid var(--alpha-white-05);
-        }
-
-        .seg-title {
-            font-family: var(--font-display);
-            font-size: 14px;
+        .dimension-name {
+            font-size: 11px;
             font-weight: 600;
             color: var(--neutral-white);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            line-height: 1.3;
         }
 
-        .seg-icon {
-            font-size: 16px;
-            opacity: 0.8;
-        }
-
-        /* Pain Item */
-        .pain-item {
-            background: rgba(0, 0, 0, 0.2);
-            padding: var(--space-md);
-            border-radius: var(--radius-base);
-            border-left: 2px solid var(--state-error);
-        }
-
-        .pain-name {
-            font-size: 12px;
-            color: var(--neutral-150);
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-
-        .pain-meta {
-            font-size: 10px;
-            color: var(--neutral-400);
+        /* Pain Point Cards */
+        .pain-card {
+            background: var(--neutral-700);
+            border: 1px solid var(--alpha-white-10);
+            border-radius: 6px;
+            padding: 12px 14px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 5px;
+            transition: all 0.2s ease;
         }
 
-        .kpi-tag {
-            color: var(--state-error);
+        .pain-card:hover {
+            border-color: var(--alpha-white-20);
+        }
+
+        .pain-title {
+            font-size: 12px;
             font-weight: 600;
+            color: var(--neutral-white);
+            line-height: 1.3;
+        }
+
+        .pain-area {
+            font-size: 9px;
+            color: var(--neutral-400);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        /* Evidence Section */
+        .pain-evidence {
+            font-size: 10px;
+            color: var(--neutral-200);
+            line-height: 1.35;
+            padding: 7px 8px;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 4px;
+        }
+
+        .evidence-label {
+            font-size: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            color: var(--neutral-400);
+            margin-bottom: 3px;
+            display: block;
+        }
+
+        .pain-impact {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 10px;
+            font-weight: 500;
+            margin-top: auto;
+            padding-top: 6px;
+            border-top: 1px solid var(--alpha-white-10);
+        }
+
+        .pain-impact.critical { color: #BF4D43; }
+        .pain-impact.high { color: var(--color-brand-orange); }
+        .pain-impact.medium { color: #f59e0b; }
+
+        .impact-arrow {
+            font-size: 9px;
+        }
+
+        .data-source {
+            margin-top: 12px;
+            padding-top: 8px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="label">SEGMENT PAINS & FRICTIONS</div>
-        <h1>The Pain Inventory</h1>
-        
-        <div class="segment-container">
-            <!-- MICRO -->
-            <div class="segment-col seg-micro">
-                <div class="seg-header">
-                    <span class="seg-title" style="color: var(--color-brand-blue)">Micro</span>
-                    <span class="seg-icon">🔹</span>
+        <div class="label">Consecuencias Visibles del Problema Estructural</div>
+        <h1>Inventario de Dolores</h1>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item"><div class="legend-dot d1"></div> Procesos</div>
+            <div class="legend-item"><div class="legend-dot d2"></div> Conocimiento</div>
+            <div class="legend-item"><div class="legend-dot d3"></div> Tecnología</div>
+            <div class="legend-item"><div class="legend-dot d4"></div> Incidentes</div>
+            <div class="legend-item"><div class="legend-dot d5"></div> Métricas</div>
+        </div>
+
+        <div class="pain-grid">
+            <!-- D1: Procesos no Estandarizados -->
+            <div class="dimension-row">
+                <div class="dimension-header d1">
+                    <span class="dimension-code">D1</span>
+                    <span class="dimension-name">Procesos no Estandarizados</span>
                 </div>
-                
-                <div class="pain-item">
-                    <div class="pain-name">Conciliación Manual</div>
-                    <div class="pain-meta">
-                        <span>Tesorería</span>
-                        <span class="kpi-tag">High Friction</span>
+                <div class="pain-card">
+                    <div class="pain-title">Cotizaciones Lentas</div>
+                    <div class="pain-area">Gestión Comercial</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Cotizaciones con formatos distintos, tiempos variables, aprobaciones por chat, retrabajo por errores.
+                    </div>
+                    <div class="pain-impact critical">
+                        <span class="impact-arrow">▼</span> Win Rate bajo / Ciclo de venta largo
                     </div>
                 </div>
-                <div class="pain-item">
-                    <div class="pain-name">Descuadres de Caja</div>
-                    <div class="pain-meta">
-                        <span>Admin</span>
-                        <span class="kpi-tag">-15% Cash</span>
+                <div class="pain-card">
+                    <div class="pain-title">Descuadres de Caja</div>
+                    <div class="pain-area">Admin. y Finanzas</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Cierres largos, ajustes manuales, faltantes sin explicación, diferencias por turno/cajero.
                     </div>
-                </div>
-                <div class="pain-item">
-                    <div class="pain-name">Cobranza x WhatsApp</div>
-                    <div class="pain-meta">
-                        <span>Ventas</span>
-                        <span class="kpi-tag">Caótico</span>
+                    <div class="pain-impact critical">
+                        <span class="impact-arrow">▼</span> Mermas / Riesgo de fraude
                     </div>
                 </div>
             </div>
 
-            <!-- PEQUEÑA (SMALL) -->
-            <div class="segment-col seg-small">
-                <div class="seg-header">
-                    <span class="seg-title" style="color: var(--color-brand-purple)">Pequeña</span>
-                    <span class="seg-icon">🟣</span>
+            <!-- D2: Conocimiento Disperso -->
+            <div class="dimension-row">
+                <div class="dimension-header d2">
+                    <span class="dimension-code">D2</span>
+                    <span class="dimension-name">Conocimiento Disperso</span>
                 </div>
-
-                <div class="pain-item">
-                    <div class="pain-name">Cotizaciones Lentas</div>
-                    <div class="pain-meta">
-                        <span>Comercial</span>
-                        <span class="kpi-tag">Lost Deals</span>
+                <div class="pain-card">
+                    <div class="pain-title">Cliente "en la cabeza del vendedor"</div>
+                    <div class="pain-area">CRM / Relación Cliente</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Respuestas distintas según quién atiende; "reinicios" cuando cambia el ejecutivo.
+                    </div>
+                    <div class="pain-impact high">
+                        <span class="impact-arrow">▼</span> Churn alto / Venta cruzada perdida
                     </div>
                 </div>
-                <div class="pain-item">
-                    <div class="pain-name">Inventario Desfazado</div>
-                    <div class="pain-meta">
-                        <span>Logística</span>
-                        <span class="kpi-tag">Stockout</span>
+                <div class="pain-card">
+                    <div class="pain-title">Leads Dispersos</div>
+                    <div class="pain-area">Marketing Digital</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Formularios a correos genéricos; mensajes sin dueño; leads sin historia ni estado.
                     </div>
-                </div>
-                <div class="pain-item">
-                    <div class="pain-name">Gestión "Apagafuegos"</div>
-                    <div class="pain-meta">
-                        <span>Operaciones</span>
-                        <span class="kpi-tag">Reactivo</span>
+                    <div class="pain-impact high">
+                        <span class="impact-arrow">▼</span> Oportunidades fugadas
                     </div>
                 </div>
             </div>
 
-            <!-- MEDIANA (MEDIUM) -->
-            <div class="segment-col seg-medium">
-                <div class="seg-header">
-                    <span class="seg-title" style="color: var(--color-brand-orange)">Mediana</span>
-                    <span class="seg-icon">🔶</span>
+            <!-- D3: Tecnología Fragmentada -->
+            <div class="dimension-row">
+                <div class="dimension-header d3">
+                    <span class="dimension-code">D3</span>
+                    <span class="dimension-name">Tecnología Fragmentada</span>
                 </div>
+                <div class="pain-card">
+                    <div class="pain-title">Inconsistencia Tienda vs Web</div>
+                    <div class="pain-area">Omnicanal / POS</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Catálogo duplicado; actualizaciones manuales; clientes mostrando capturas de precios.
+                    </div>
+                    <div class="pain-impact critical">
+                        <span class="impact-arrow">▼</span> Reclamos / Pérdida de confianza
+                    </div>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-title">Conciliación Digital Manual</div>
+                    <div class="pain-area">Tesorería / Cobranzas</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Cruces manuales; pedidos "en duda"; cobranzas duplicadas; retrasos en liberación.
+                    </div>
+                    <div class="pain-impact high">
+                        <span class="impact-arrow">▼</span> Morosidad aparente / Disputas
+                    </div>
+                </div>
+            </div>
 
-                <div class="pain-item">
-                    <div class="pain-name">Margen Invisible</div>
-                    <div class="pain-meta">
-                        <span>Finanzas</span>
-                        <span class="kpi-tag">Blind Spot</span>
+            <!-- D4: Incidentes Fuera del Flujo -->
+            <div class="dimension-row">
+                <div class="dimension-header d4">
+                    <span class="dimension-code">D4</span>
+                    <span class="dimension-name">Incidentes Fuera del Flujo</span>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-title">Reclamos por WhatsApp/Email</div>
+                    <div class="pain-area">Calidad / Operaciones</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Conversaciones sueltas; ausencia de historial; casos que se reabren; decisiones sin data.
+                    </div>
+                    <div class="pain-impact critical">
+                        <span class="impact-arrow">▼</span> Recurrencia de fallas / NPS bajo
                     </div>
                 </div>
-                <div class="pain-item">
-                    <div class="pain-name">Silos de Información</div>
-                    <div class="pain-meta">
-                        <span>Gerencia</span>
-                        <span class="kpi-tag">No Data</span>
+                <div class="pain-card">
+                    <div class="pain-title">Entregas Tardías/Erróneas</div>
+                    <div class="pain-area">Logística / Despacho</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Reprogramaciones sin registro; llamadas para "ubicar" pedidos; falta de trazabilidad.
+                    </div>
+                    <div class="pain-impact critical">
+                        <span class="impact-arrow">▼</span> OTIF bajo / Devoluciones
                     </div>
                 </div>
-                <div class="pain-item">
-                    <div class="pain-name">Marketing sin Atribución</div>
-                    <div class="pain-meta">
-                        <span>Growth</span>
-                        <span class="kpi-tag">Wasted AdSpend</span>
+            </div>
+
+            <!-- D5: Falta de Métricas Operativas -->
+            <div class="dimension-row">
+                <div class="dimension-header d5">
+                    <span class="dimension-code">D5</span>
+                    <span class="dimension-name">Falta de Métricas Operativas</span>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-title">Margen Invisible</div>
+                    <div class="pain-area">Control de Gestión</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Decisiones basadas en ventas totales; promociones que destruyen margen sin saberlo.
+                    </div>
+                    <div class="pain-impact high">
+                        <span class="impact-arrow">▼</span> Decisiones a ciegas / Pérdida de caja
+                    </div>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-title">Marketing sin Atribución</div>
+                    <div class="pain-area">Growth / Pauta Digital</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Decisiones por "sensación"; reportes que no conectan con ventas; ROI desconocido.
+                    </div>
+                    <div class="pain-impact medium">
+                        <span class="impact-arrow">▼</span> CAC desconocido / ROI incierto
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="data-source">SOURCE: 03_Problema_y_Oportunidad_Final.md (Sec 3.3)</div>
+        <div class="data-source">SOURCE: 03_Problema_y_Oportunidad_Final.md (Sec 3.1.3)</div>
     </div>
 </body>
 </html>

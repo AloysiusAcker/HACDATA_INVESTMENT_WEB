@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RG-01.4 - Sunburst Treemap SOM CCL</title>
+    <title>RG-01.4 - Oportunidad de Mercado (SOM)</title>
     <link rel="stylesheet" href="../shared/anthropic-base.css">
     <style>
         .treemap-container {
@@ -12,7 +12,9 @@
             display: grid;
             grid-template-columns: 5321fr 2281fr; /* Proportionally sized columns */
             gap: var(--space-md);
-            margin-top: var(--space-xl);
+            margin-top: 50px;
+            padding: 0 40px; /* Safe zone */
+            box-sizing: border-box;
         }
 
         .category {
@@ -85,7 +87,7 @@
 <body>
     <div class="container">
         <div class="label">Mercado Objetivo (SOM CCL)</div>
-        <h1>Sunburst Treemap</h1>
+        <h1>Oportunidad de Mercado (SOM)</h1>
         
         <div>
             Universo Identificado: <span class="total-badge">7,602 Organizaciones</span>
@@ -94,7 +96,7 @@
 
         <div class="treemap-container">
             <div class="category pyme">
-                <div class="market-share-tag">70% del Volume</div>
+                <div class="market-share-tag">70% del Volumen</div>
                 <div>
                     <div class="cat-title">PYME</div>
                     <div class="cat-count">5,321</div>
@@ -102,7 +104,7 @@
                 </div>
             </div>
             <div class="category mediana">
-                <div class="market-share-tag">30% del Volume</div>
+                <div class="market-share-tag">30% del Volumen</div>
                 <div>
                     <div class="cat-title">Mediana</div>
                     <div class="cat-count">2,281</div>

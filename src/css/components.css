@@ -196,7 +196,8 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-2xl);
   overflow: hidden;
-  margin: var(--space-4xl) 0;
+  margin-top: var(--gap-block);
+  margin-bottom: var(--gap-block);
   transition: all var(--transition-normal);
 }
 
@@ -280,6 +281,16 @@
   display: none; /* Chrome/Safari */
 }
 
+/* Tall variant for assets with more content */
+.viz-card-content.tall {
+  min-height: 850px;
+}
+
+.viz-card-content.tall iframe {
+  height: 900px;
+  min-height: 850px;
+}
+
 /* Viz Card Loading State */
 .viz-card-content.loading::before {
   content: "Cargando visualización...";
@@ -298,7 +309,8 @@
 .table-wrapper,
 .table-container {
   overflow-x: auto;
-  margin: var(--space-3xl) 0;
+  margin-top: var(--gap-block);
+  margin-bottom: var(--gap-block);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-neutral-600);
   background: var(--color-neutral-white);
@@ -565,7 +577,8 @@ tr.highlight td {
   display: flex;
   align-items: center;
   gap: var(--space-xl);
-  margin: var(--space-4xl) 0;
+  margin-top: var(--gap-block);
+  margin-bottom: var(--gap-block);
 }
 
 .divider::before,
@@ -592,7 +605,8 @@ tr.highlight td {
   gap: var(--space-xl);
   padding: var(--space-2xl);
   border-radius: var(--radius-lg);
-  margin: var(--space-3xl) 0;
+  margin-top: var(--gap-block);
+  margin-bottom: var(--gap-block);
 }
 
 .callout-icon {

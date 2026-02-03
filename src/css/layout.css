@@ -320,6 +320,14 @@
 .mt-3xl { margin-top: var(--space-3xl); }
 .mt-4xl { margin-top: var(--space-4xl); }
 .mt-5xl { margin-top: var(--space-5xl); }
+.mt-6xl { margin-top: var(--space-6xl); }
+.mt-7xl { margin-top: var(--space-7xl); }
+.mt-8xl { margin-top: var(--space-8xl); }
+
+/* Semantic Spacing Utilities */
+.mt-section { margin-top: var(--gap-section) !important; }
+.mt-block { margin-top: var(--gap-block) !important; }
+.mt-content { margin-top: var(--gap-content) !important; }
 
 .mb-0 { margin-bottom: 0; }
 .mb-sm { margin-bottom: var(--space-sm); }
