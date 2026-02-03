@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-01.4 - Sunburst Treemap SOM CCL</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        .treemap-container {
+            width: 100%;
+            height: 400px;
+            display: grid;
+            grid-template-columns: 5321fr 2281fr; /* Proportionally sized columns */
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+
+        .category {
+            padding: var(--space-xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category:hover {
+            transform: scale(0.98);
+        }
+
+        .pyme {
+            background: linear-gradient(135deg, var(--color-brand-blue) 0%, #114578 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--state-focus);
+        }
+
+        .mediana {
+            background: linear-gradient(135deg, var(--color-brand-purple) 0%, #5a4f8f 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-brand-purple);
+        }
+
+        .cat-title {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            color: var(--neutral-white);
+        }
+
+        .cat-count {
+            font-family: var(--font-mono);
+            font-size: 42px;
+            font-weight: 700;
+            margin: var(--space-md) 0;
+            opacity: 0.9;
+        }
+
+        .cat-desc {
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.4;
+        }
+
+        .total-badge {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-sm);
+            background: var(--neutral-700);
+            border-radius: var(--radius-pill);
+            color: var(--color-brand-orange);
+            font-family: var(--font-mono);
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: var(--space-sm);
+        }
+
+        .market-share-tag {
+            background: var(--alpha-black-40);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            align-self: flex-start;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Mercado Objetivo (SOM CCL)</div>
+        <h1>Sunburst Treemap</h1>
+        
+        <div>
+            Universo Identificado: <span class="total-badge">7,602 Organizaciones</span>
+            <div class="cat-desc" style="margin-top: 8px;">Segmentación estratégica basada en el inventario verificado de la Cámara de Comercio.</div>
+        </div>
+
+        <div class="treemap-container">
+            <div class="category pyme">
+                <div class="market-share-tag">70% del Volume</div>
+                <div>
+                    <div class="cat-title">PYME</div>
+                    <div class="cat-count">5,321</div>
+                    <div class="cat-desc">Foco: Estandarización y Volumen. Orquestación rápida vía GESTOR Flash.</div>
+                </div>
+            </div>
+            <div class="category mediana">
+                <div class="market-share-tag">30% del Volume</div>
+                <div>
+                    <div class="cat-title">Mediana</div>
+                    <div class="cat-count">2,281</div>
+                    <div class="cat-desc">Foco: Complejidad y BPO. Implementación Pro/Ultra con integración profunda.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-source">SOURCE: 07_Mercado_y_competencia_Final.md (Sec 7.1)</div>
+    </div>
+</body>
+</html>

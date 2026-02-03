@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-12.4 - The J-Curve: Cash Flow & Runway</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        .j-curve-container {
+            width: 100%;
+            height: 480px;
+            margin-top: var(--space-xl);
+            position: relative;
+            background: var(--alpha-white-05);
+            border: 1px solid var(--alpha-white-10);
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .cash-path {
+            fill: rgba(32, 127, 222, 0.1);
+            stroke: var(--color-brand-blue);
+            stroke-width: 3;
+            stroke-linejoin: round;
+        }
+
+        .zero-line {
+            stroke: var(--alpha-white-20);
+            stroke-width: 1;
+            stroke-dasharray: 5 5;
+        }
+
+        .marker {
+            fill: var(--neutral-white);
+            stroke: var(--color-brand-blue);
+            stroke-width: 2;
+        }
+
+        .marker-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            fill: var(--neutral-300);
+        }
+
+        .breakeven-point {
+            fill: #00FF41;
+            stroke: var(--neutral-900);
+            stroke-width: 2;
+        }
+
+        .annotation-box {
+            position: absolute;
+            background: var(--neutral-850);
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid var(--alpha-white-10);
+            font-size: 10px;
+            pointer-events: none;
+        }
+
+        /* Positions based on the curve */
+        .anno-seed { top: 20%; left: 5%; }
+        .anno-min { bottom: 20%; left: 35%; border-color: var(--state-error); }
+        .anno-final { top: 10%; right: 5%; border-color: #00FF41; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Sostenibilidad y Runway</div>
+        <h1>The J-Curve: Cash Flow & Runway</h1>
+        
+        <div class="j-curve-container">
+            <svg viewBox="0 0 1000 500" preserveAspectRatio="none">
+                <!-- Zero Line -->
+                <line x1="0" y1="400" x2="1000" y2="400" class="zero-line" />
+                
+                <!-- Cash Curve (Manual Path Simulation) -->
+                <!-- Start at 2.6M (M1), dips to 514k (M19), ends at 15.3M (M66) -->
+                <path d="M 0 300 
+                         L 100 320 
+                         L 200 350
+                         L 300 380
+                         L 350 395 
+                         C 400 395, 450 370, 500 340
+                         L 600 280
+                         L 700 200
+                         L 800 120
+                         L 900 60
+                         L 1000 20
+                         V 500 H 0 Z" class="cash-path" />
+                
+                <!-- Breakeven Point M20 -->
+                <circle cx="360" cy="395" r="6" class="breakeven-point" />
+                
+                <!-- Markers -->
+                <circle cx="0" cy="300" r="4" class="marker" />
+                <circle cx="345" cy="405" r="4" class="marker" style="stroke: var(--state-error);" />
+            </svg>
+
+            <!-- Annotations -->
+            <div class="annotation-box anno-seed">
+                <strong style="color: var(--color-brand-blue);">FUNDING SEED: $2.6M</strong><br>MES 1: Cierre de Ronda
+            </div>
+            <div class="annotation-box anno-min">
+                <strong style="color: var(--state-error);">MÍNIMO: $514K</strong><br>MES 19: Valle de Caja
+            </div>
+            <div class="annotation-box anno-final" style="text-align: right;">
+                <strong style="color: #00FF41;">FINAL: $15.3M</strong><br>MES 66: Reserva Acumulada
+            </div>
+        </div>
+
+        <div style="margin-top: 25px; display: flex; justify-content: center; gap: 40px;">
+            <div style="text-align: center;">
+                <div style="font-size: 20px; font-weight: 800; color: #00FF41;">MES 20</div>
+                <div style="font-size: 10px; color: var(--neutral-400); text-transform: uppercase;">Breakeven Caja</div>
+            </div>
+            <div style="text-align: center;">
+                <div style="font-size: 20px; font-weight: 800; color: var(--color-brand-blue);">INFINITO</div>
+                <div style="font-size: 10px; color: var(--neutral-400); text-transform: uppercase;">Runway Post M24</div>
+            </div>
+        </div>
+
+        <div class="data-source">SOURCE: 12_Plan_financiero_Final.md (Sec 12.5)</div>
+    </div>
+</body>
+</html>

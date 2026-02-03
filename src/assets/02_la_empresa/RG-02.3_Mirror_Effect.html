@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-02.3 - The Mirror Effect</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        .mirror-scene {
+            display: flex;
+            width: 100%;
+            height: 400px;
+            gap: var(--space-xl);
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .side {
+            flex: 1;
+            padding: var(--space-xl);
+            border-radius: var(--radius-2xl);
+            background: var(--alpha-white-05);
+            border: 1px solid var(--alpha-white-10);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            position: relative;
+        }
+
+        .side h3 {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            color: var(--neutral-white);
+        }
+
+        .side p {
+            font-size: 13px;
+            color: var(--neutral-200);
+            line-height: 1.4;
+        }
+
+        .mirror-axis {
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, var(--color-brand-blue), transparent);
+            position: relative;
+        }
+
+        .mirror-axis::after {
+            content: "CONGRUENCIA TÉCNICA";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-90deg);
+            white-space: nowrap;
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: var(--color-brand-blue);
+            background: var(--neutral-900);
+            padding: 4px;
+        }
+
+        .icon-box {
+            font-size: 40px;
+            margin-bottom: var(--space-sm);
+        }
+
+        .tag {
+            font-size: 10px;
+            color: var(--color-brand-orange);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .internal {
+            border-right: none;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .external {
+            border-left: none;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .central-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: var(--neutral-900);
+            border: 2px solid var(--color-brand-blue);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(32, 127, 222, 0.4);
+            z-index: 10;
+        }
+
+        .central-core span {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Validación y Cultura</div>
+        <h1>The Mirror Effect</h1>
+
+        <div class="mirror-scene">
+            <div class="side internal">
+                <div class="tag">Uso Interno (Dogfooding)</div>
+                <div class="icon-box">🛡️</div>
+                <h3>Primer Laboratorio</h3>
+                <p>Nuestra propia operación es el sustrato de validación. Todo proceso administrativo y comercial corre bajo GESTOR.</p>
+            </div>
+
+            <div class="mirror-axis"></div>
+            
+            <div class="central-core">
+                <span>CORE7</span>
+            </div>
+
+            <div class="side external">
+                <div class="tag">Solución Cliente</div>
+                <div class="icon-box">🚀</div>
+                <h3>Soberanía Entrega</h3>
+                <p>El cliente recibe una tecnología auditada por nuestra propia ejecución diaria. Cero brecha entre teoría y realidad.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: var(--space-xl); padding: var(--space-md); background: var(--alpha-white-05); border-radius: var(--radius-lg); font-size: 13px; color: var(--neutral-200);">
+            <strong>Garantía Radical:</strong> No vendemos software que no usemos. Somos el cliente más riguroso de nuestra propia tecnología.
+        </div>
+
+        <div class="data-source">SOURCE: 02_La_empresa_Final.md (Sec 2.4)</div>
+    </div>
+</body>
+</html>

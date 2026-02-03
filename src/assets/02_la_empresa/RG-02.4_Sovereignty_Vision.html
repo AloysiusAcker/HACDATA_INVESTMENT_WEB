@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-02.4 - Sovereignty Vision</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        .vision-stack {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            margin-top: var(--space-2xl);
+            align-items: center;
+        }
+
+        .pillar {
+            width: 100%;
+            max-width: 600px;
+            padding: var(--space-xl);
+            background: var(--alpha-white-05);
+            border: 1px solid var(--alpha-white-10);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pillar:hover {
+            border-color: var(--color-brand-blue);
+            background: var(--alpha-white-08);
+            transform: translateX(10px);
+        }
+
+        .pillar-num {
+            font-family: var(--font-mono);
+            font-size: 32px;
+            color: var(--color-brand-orange);
+            font-weight: 700;
+            opacity: 0.5;
+        }
+
+        .pillar-content h3 {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            color: var(--neutral-white);
+            margin-bottom: 4px;
+        }
+
+        .pillar-content p {
+            font-size: 13px;
+            color: var(--neutral-200);
+            line-height: 1.4;
+        }
+
+        .pillar::before {
+            content: "↓";
+            position: absolute;
+            bottom: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--neutral-500);
+            font-size: 14px;
+        }
+
+        .pillar:last-child::before {
+            content: "";
+        }
+
+        .hero-banner {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(90deg, #D97757 0%, #9B87F5 100%);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-2xl);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner h2 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            color: var(--neutral-white);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            z-index: 2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.5) 100%);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Propósito y Visión</div>
+        <h1>Sovereignty Vision</h1>
+
+        <div class="hero-banner">
+            <div class="hero-overlay"></div>
+            <h2>LIBERTAD OPERATIVA</h2>
+        </div>
+        
+        <div class="vision-stack">
+            <div class="pillar">
+                <div class="pillar-num">01</div>
+                <div class="pillar-content">
+                    <h3>Erradicar la Incertidumbre</h3>
+                    <p>Eliminamos la dependencia de interpretaciones individuales y la "ceguera" de flujo.</p>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-num">02</div>
+                <div class="pillar-content">
+                    <h3>Garantizar la Computabilidad</h3>
+                    <p>Transformamos la lógica de negocio en activos digitales auditables y ejecutables.</p>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-num">03</div>
+                <div class="pillar-content">
+                    <h3>Lograr la Soberanía Operativa</h3>
+                    <p>Dotamos al empresario de autonomía total: Su estrategia se convierte en ejecución automática.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-source" style="bottom: 10px;">SOURCE: 02_La_empresa_Final.md (Sec 2.5)</div>
+    </div>
+</body>
+</html>

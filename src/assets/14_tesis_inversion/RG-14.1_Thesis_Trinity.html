@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-14.1 - The Investment Thesis Trinity</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        .trinity-container {
+            width: 100%;
+            height: 480px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: var(--space-xl);
+        }
+
+        .triangle-svg {
+            width: 400px;
+            height: 400px;
+        }
+
+        .triangle-path {
+            fill: none;
+            stroke: var(--alpha-white-10);
+            stroke-width: 2;
+        }
+
+        .pillar-node {
+            position: absolute;
+            width: 200px;
+            background: var(--neutral-900);
+            border: 1px solid var(--alpha-white-10);
+            padding: var(--space-md);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .pillar-node:hover {
+            border-color: var(--color-brand-blue);
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(32, 127, 222, 0.2);
+        }
+
+        .pillar-node h3 { font-size: 14px; margin-bottom: 5px; color: var(--color-brand-blue); text-transform: uppercase; letter-spacing: 1px; }
+        .pillar-node p { font-size: 10px; color: var(--neutral-400); margin: 0; }
+        .pillar-metric { font-family: var(--font-mono); font-size: 18px; font-weight: 800; color: var(--neutral-white); display: block; margin-bottom: 5px; }
+
+        /* Positioning pillars at triangle vertices */
+        .node-top { top: 0; left: 50%; transform: translateX(-50%); border-top: 3px solid var(--color-brand-blue); }
+        .node-left { bottom: 0; left: 0; border-left: 3px solid var(--color-brand-purple); }
+        .node-right { bottom: 0; right: 0; border-right: 3px solid var(--color-brand-orange); }
+
+        .center-text {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 120px;
+        }
+
+        .center-text strong { font-size: 24px; color: var(--neutral-white); letter-spacing: 2px; }
+        .center-text span { font-size: 9px; color: var(--neutral-500); text-transform: uppercase; }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 900px;">
+        <div class="label">Sustento de Valor</div>
+        <h1>The Investment Thesis Trinity</h1>
+        
+        <div class="trinity-container">
+            <svg class="triangle-svg" viewBox="0 0 400 350">
+                <polygon points="200,20 380,330 20,330" class="triangle-path" />
+                <!-- Glow lines -->
+                <line x1="200" y1="20" x2="200" y2="180" stroke="var(--alpha-white-05)" />
+                <line x1="20" y1="330" x2="200" y2="180" stroke="var(--alpha-white-05)" />
+                <line x1="380" y1="330" x2="200" y2="180" stroke="var(--alpha-white-05)" />
+            </svg>
+
+            <!-- Pillar: Unit Economics -->
+            <div class="pillar-node node-top">
+                <span class="pillar-metric">44.8x</span>
+                <h3>Unit Economics</h3>
+                <p>LTV/CAC de élite con Payback de 2 meses.</p>
+            </div>
+
+            <!-- Pillar: CORE7 Moat -->
+            <div class="pillar-node node-left">
+                <span class="pillar-metric">HIGH</span>
+                <h3>Defensability</h3>
+                <p>Switching costs críticos vía Red Semántica y BPO.</p>
+            </div>
+
+            <!-- Pillar: SOM CCL -->
+            <div class="pillar-node node-right">
+                <span class="pillar-metric">7,602</span>
+                <h3>Evidence Market</h3>
+                <p>SOM auditado por base de datos real CCL.</p>
+            </div>
+
+            <div class="center-text">
+                <strong>HAC</strong>
+                <span>DATA 2026</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 13px; color: var(--neutral-300); text-align: center;">
+            Nuestra tesis combina **eficiencia comercial extrema**, **barreras técnicas de salida** y un **mercado objetivo verificado**.
+        </div>
+
+        <div class="data-source">SOURCE: 14_Tesis_de_inversion_y_uso_de_fondos_Final.md (Sec 14.1)</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-07.2 - Record vs. Orchestration Radar</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        .radar-scene {
+            width: 100%;
+            height: 480px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        svg {
+            width: 500px;
+            height: 500px;
+        }
+
+        .radar-ring {
+            fill: none;
+            stroke: var(--alpha-white-05);
+            stroke-width: 1;
+        }
+
+        .radar-axis {
+            stroke: var(--alpha-white-10);
+            stroke-width: 1;
+        }
+
+        /* HACDATA Strategy */
+        .radar-poly-hacdata {
+            fill: rgba(32, 127, 222, 0.2);
+            stroke: var(--color-brand-blue);
+            stroke-width: 3;
+            filter: drop-shadow(0 0 10px rgba(32, 127, 222, 0.4));
+        }
+
+        /* Legacy Strategy */
+        .radar-poly-legacy {
+            fill: rgba(153, 153, 153, 0.1);
+            stroke: #666;
+            stroke-width: 2;
+            stroke-dasharray: 4;
+        }
+
+        .axis-label {
+            font-family: var(--font-sans);
+            font-size: 10px;
+            fill: var(--neutral-300);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .legend {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: var(--alpha-white-05);
+            padding: var(--space-md);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--alpha-white-10);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .leg-item { display: flex; align-items: center; gap: 8px; font-size: 11px; }
+        .dot { width: 10px; height: 10px; border-radius: 2px; }
+        .dot-hacdata { background: var(--color-brand-blue); }
+        .dot-legacy { background: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Comparativa de Arquitectura</div>
+        <h1>System of Record vs. Orchestration</h1>
+        
+        <div class="radar-scene">
+            <svg viewBox="0 0 400 400">
+                <!-- Grid Rings -->
+                <circle class="radar-ring" cx="200" cy="200" r="40" />
+                <circle class="radar-ring" cx="200" cy="200" r="80" />
+                <circle class="radar-ring" cx="200" cy="200" r="120" />
+                <circle class="radar-ring" cx="200" cy="200" r="160" />
+
+                <!-- Axes (5 dimensions) -->
+                <line class="radar-axis" x1="200" y1="200" x2="200" y2="40" /> <!-- Orquestación Real-time -->
+                <line class="radar-axis" x1="200" y1="200" x2="352" y2="150" /> <!-- Calidad de Evidencia -->
+                <line class="radar-axis" x1="200" y1="200" x2="294" y2="330" /> <!-- Cumplimiento Nativo -->
+                <line class="radar-axis" x1="200" y1="200" x2="106" y2="330" /> <!-- Trazabilidad Forense -->
+                <line class="radar-axis" x1="200" y1="200" x2="48" y2="150" />  <!-- IA Predictiva -->
+
+                <!-- Legacy Polygon (Saps/Oracles: Good at compliance, weak on real-time field data) -->
+                <polygon class="radar-poly-legacy" points="200,120 300,180 280,290 120,290 80,180" />
+
+                <!-- HACDATA Polygon (Strong in all operational dimensions) -->
+                <polygon class="radar-poly-hacdata" points="200,45 345,155 285,320 115,320 55,155" />
+
+                <!-- labels -->
+                <text x="200" y="30" text-anchor="middle" class="axis-label">Orquestación Tiempo Real</text>
+                <text x="360" y="150" class="axis-label">Calidad de Evidencia</text>
+                <text x="300" y="345" class="axis-label">Cumplimiento Nativo</text>
+                <text x="0" y="345" class="axis-label">Trazabilidad Forense</text>
+                <text x="0" y="150" class="axis-label">IA Predictiva</text>
+            </svg>
+
+            <div class="legend">
+                <div class="leg-item"><div class="dot dot-hacdata"></div> HACDATA (Orchestrator)</div>
+                <div class="leg-item"><div class="dot dot-legacy"></div> ERP Tradicional (Record)</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; font-size: 13px; color: var(--neutral-200); text-align: center;">
+            HACDATA supera a los incumbents globales al capturar la <strong>ejecución en movimiento</strong>, no el hecho consumado.
+        </div>
+
+        <div class="data-source">SOURCE: 07_Mercado_y_competencia_Final.md (Sec 7.3.1)</div>
+    </div>
+</body>
+</html>

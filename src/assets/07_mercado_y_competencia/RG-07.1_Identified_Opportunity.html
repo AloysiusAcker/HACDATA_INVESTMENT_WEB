@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-07.1 - The Identified Opportunity (Treemap)</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        .treemap-container {
+            width: 100%;
+            height: 450px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 1.5fr 1fr;
+            gap: 4px;
+            margin-top: var(--space-xl);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .tm-node {
+            padding: var(--space-md);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .tm-node:hover {
+            filter: brightness(1.1);
+            transform: scale(0.995);
+        }
+
+        .tm-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 2px;
+            opacity: 0.8;
+        }
+
+        .tm-title {
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .tm-count {
+            position: absolute;
+            bottom: var(--space-md);
+            right: var(--space-md);
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* Colors based on proportions */
+        .node-1 { grid-area: 1 / 1 / 2 / 2; background: #207FDE; color: white; } /* PYMES 5321 */
+        .node-2 { grid-area: 1 / 2 / 3 / 3; background: #D97757; color: white; } /* Medianas 2281 */
+        .node-3 { grid-area: 2 / 1 / 3 / 2; background: #9B87F5; color: white; } /* Otros rubros */
+
+        .som-summary {
+            margin-top: var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--alpha-white-05);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--alpha-white-10);
+        }
+
+        .summary-item { text-align: center; }
+        .summary-item strong { display: block; font-size: 24px; color: var(--color-brand-orange); }
+        .summary-item span { font-size: 11px; color: var(--neutral-400); text-transform: uppercase; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">SOM: Universo Identificado CCL</div>
+        <h1>The Identified Opportunity</h1>
+        
+        <div class="treemap-container">
+            <!-- PYMES -->
+            <div class="tm-node node-1">
+                <span class="tm-label">Segmento Pyme</span>
+                <span class="tm-title">SaaS Growth & Control</span>
+                <span class="tm-count">5,321</span>
+            </div>
+
+            <!-- Medianas -->
+            <div class="tm-node node-2">
+                <span class="tm-label">Mediana Empresa</span>
+                <span class="tm-title">BPO & Complex Ops</span>
+                <span class="tm-count">2,281</span>
+            </div>
+
+            <!-- Total Identifier -->
+            <div class="tm-node node-3">
+                <span class="tm-label">Universo CCL</span>
+                <span class="tm-title">Total SOM Pre-calificado</span>
+                <span class="tm-count">7,602</span>
+            </div>
+        </div>
+
+        <div class="som-summary">
+            <div class="summary-item">
+                <span>Total SOM</span>
+                <strong>7,602 Entidades</strong>
+            </div>
+            <div class="summary-item">
+                <span>Base de Datos</span>
+                <strong>Socio CCL</strong>
+            </div>
+            <div class="summary-item">
+                <span>Riesgo de Estimación</span>
+                <strong>Mínimo (Mercado Real)</strong>
+            </div>
+        </div>
+
+        <div class="data-source">SOURCE: 07_Mercado_y_competencia_Final.md (Sec 7.1.3)</div>
+    </div>
+</body>
+</html>

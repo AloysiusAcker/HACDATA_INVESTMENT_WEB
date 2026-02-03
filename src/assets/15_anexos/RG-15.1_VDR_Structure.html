@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-15.1 - Virtual Data Room Structure</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        .vdr-container {
+            width: 100%;
+            height: 480px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+            perspective: 1000px;
+        }
+
+        .folder-group {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--alpha-white-10);
+            padding: var(--space-md);
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .folder-group:hover {
+            border-color: var(--color-brand-blue);
+            background: rgba(32, 127, 222, 0.05);
+        }
+
+        .folder-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--neutral-white);
+            border-bottom: 1px solid var(--alpha-white-10);
+            padding-bottom: 8px;
+        }
+
+        .file-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .file-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 10px;
+            color: var(--neutral-400);
+            padding: 4px 0;
+            border-bottom: 1px solid var(--alpha-white-05);
+        }
+
+        .file-item:last-child { border-bottom: none; }
+
+        .file-icon { font-size: 12px; color: var(--color-brand-blue); opacity: 0.7; }
+
+        .seal {
+            background: rgba(0, 255, 65, 0.1);
+            color: #00FF41;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 8px;
+            text-transform: uppercase;
+            margin-left: auto;
+        }
+
+        .shield-icon {
+            font-size: 48px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.05;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Repositorio de Auditoría</div>
+        <h1>Virtual Data Room (VDR) Structure</h1>
+        
+        <div class="vdr-container">
+            <span class="shield-icon">🛡️</span>
+
+            <!-- Folder 1: Strategy & Market -->
+            <div class="folder-group">
+                <div class="folder-header">📂 01_ESTRATEGIA_MERCADO</div>
+                <ul class="file-list">
+                    <li class="file-item"><span class="file-icon">📄</span> MADUREZ_DIGITAL_EY_2024.pdf <span class="seal">VERIFIED</span></li>
+                    <li class="file-item"><span class="file-icon">📄</span> DIRECTORIO_CLIENTES_CCL.xlsx <span class="seal">AUDITED</span></li>
+                    <li class="file-item"><span class="file-icon">📄</span> TAXONOMIA_DEMANDA.md</li>
+                </ul>
+            </div>
+
+            <!-- Folder 2: Architecture -->
+            <div class="folder-group">
+                <div class="folder-header">📂 02_CORE7_ARQUITECTURA</div>
+                <ul class="file-list">
+                    <li class="file-item"><span class="file-icon">📄</span> CORE7_SEMANTIC_GRAPH.json <span class="seal">SECURE</span></li>
+                    <li class="file-item"><span class="file-icon">📄</span> PROTOCOLO_LOGISTIX_BPAAS.pdf</li>
+                    <li class="file-item"><span class="file-icon">📄</span> GESTOR_SOP_GUIDE.md</li>
+                </ul>
+            </div>
+
+            <!-- Folder 3: Financials -->
+            <div class="folder-group">
+                <div class="folder-header">📂 03_MODELO_FINANCIERO</div>
+                <ul class="file-list">
+                    <li class="file-item"><span class="file-icon">📈</span> HACDATA_FIN_MODEL_66M.xlsx <span class="seal">MASTER</span></li>
+                    <li class="file-item"><span class="file-icon">📄</span> UNIT_ECONOMICS_SAAS.pdf <span class="seal">ELITE</span></li>
+                    <li class="file-item"><span class="file-icon">📄</span> CASH_FLOW_PROJECTION.pdf</li>
+                </ul>
+            </div>
+
+            <!-- Folder 4: Security & Legal -->
+            <div class="folder-group">
+                <div class="folder-header">📂 04_SEGURIDAD_LEGAL</div>
+                <ul class="file-list">
+                    <li class="file-item"><span class="file-icon">📄</span> HASHING_SHA256_SPEC.pdf <span class="seal">FORENSIC</span></li>
+                    <li class="file-item"><span class="file-icon">📄</span> RISK_MATRIX_MITIGATION.md</li>
+                    <li class="file-item"><span class="file-icon">📄</span> CAP_TABLE_OWNERSHIP.xlsx</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; font-size: 13px; color: var(--neutral-400); text-align: center; border-top: 1px solid var(--alpha-white-10); padding-top: 20px;">
+            El acceso a la **Due Diligence** completa requiere firma de NDA y autorización expresa de la Junta Directiva.
+        </div>
+
+        <div class="data-source">SOURCE: 15_Anexos_Final.md (Sec 15.1-15.5)</div>
+    </div>
+</body>
+</html>

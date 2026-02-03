@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-04.4 - The Integrated Value Chain</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        .chain-scene {
+            width: 100%;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+            position: relative;
+        }
+
+        .support-layer {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: var(--space-xs);
+          height: 60px;
+        }
+
+        .primary-layer {
+          display: grid;
+          grid-template-columns: 1fr 2fr 1fr;
+          gap: var(--space-md);
+          height: 180px;
+        }
+
+        .core-center {
+          background: linear-gradient(180deg, var(--neutral-900) 0%, #1a1a1a 100%);
+          border: 1px solid var(--color-brand-purple);
+          border-radius: var(--radius-lg);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          box-shadow: 0 0 20px rgba(155, 135, 245, 0.2);
+        }
+
+        .core-center h2 { color: var(--color-brand-purple); font-size: 24px; letter-spacing: 2px; }
+
+        .chain-box {
+          background: var(--alpha-white-05);
+          border: 1px solid var(--alpha-white-10);
+          border-radius: var(--radius-base);
+          padding: var(--space-sm);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          font-size: 11px;
+          color: var(--neutral-200);
+          transition: all 0.2s ease;
+        }
+
+        .chain-box:hover {
+          border-color: var(--color-brand-blue);
+          background: var(--alpha-white-08);
+        }
+
+        .chain-box strong { color: var(--neutral-white); display: block; margin-bottom: 2px; }
+
+        .flow-arrow {
+            position: absolute;
+            color: var(--color-brand-purple);
+            font-size: 20px;
+            opacity: 0.5;
+        }
+
+        .down { top: 70px; left: 50%; transform: translateX(-50%); }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 900px;">
+        <div class="label">Visión Holística</div>
+        <h1>Integrated Value Chain</h1>
+        
+        <div class="chain-scene">
+            <!-- Support Layer -->
+            <div class="label" style="text-align: center; margin: 0;">Actividades de Soporte (Consumen Data Validada)</div>
+            <div class="support-layer">
+                <div class="chain-box"><strong>Finanzas</strong>Auditoría P&L</div>
+                <div class="chain-box"><strong>RRHH</strong>Control Células</div>
+                <div class="chain-box"><strong>Legal</strong>Gobernanza</div>
+                <div class="chain-box"><strong>Admin</strong>Compras/Cajas</div>
+            </div>
+
+            <div class="flow-arrow down">↓</div>
+
+            <!-- Primary Layer -->
+            <div class="label" style="text-align: center; margin: 0;">Gestión Primaria (Generan la Verdad Operativa)</div>
+            <div class="primary-layer">
+                <div class="chain-box" style="border-left: 3px solid var(--color-brand-orange);">
+                    <strong>COMERCIAL</strong>
+                    Prospecto > Propuesta
+                </div>
+                <div class="core-center">
+                    <div class="label" style="font-size: 8px;">MOTOR DE INTEGRACIÓN</div>
+                    <h2>CORE7</h2>
+                    <div class="label" style="font-size: 8px;">SHARED ID INFRASTRUCTURE</div>
+                </div>
+                <div class="chain-box" style="border-right: 3px solid var(--color-brand-blue);">
+                    <strong>OPERACIONES</strong>
+                    Ejecución > Entrega
+                </div>
+            </div>
+
+            <div style="margin-top: 10px; font-size: 12px; color: var(--neutral-400); text-align: center;">
+                El CORE7 elimina la redigitación: El soporte se alimenta automáticamente de la ejecución primaria.
+            </div>
+        </div>
+
+        <div class="data-source">SOURCE: 04_Propuesta_de_Valor_Final.md (Sec 4.6)</div>
+    </div>
+</body>
+</html>
