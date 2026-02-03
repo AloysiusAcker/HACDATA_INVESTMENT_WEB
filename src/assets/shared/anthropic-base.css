@@ -13,15 +13,40 @@
   --color-neutral-white: #FFFFFF;
   --color-neutral-800: #3A3A38; /* Canvas - softer gray */
   --color-neutral-900: #191919;
-  --color-neutral-200: #BFBFBA;
+  --color-neutral-700: #2B2A27;
+  --color-neutral-600: #34332C;
+  --color-neutral-500: #40403E;
   --color-neutral-400: #52514A;
-  
+  --color-neutral-300: #666663;
+  --color-neutral-250: #91918D;
+  --color-neutral-200: #BFBFBA;
+  --color-neutral-150: #D5D5D0;
+  --color-neutral-100: #E5E5E0;
+
   --color-state-error: #BF4D43;
   --color-state-focus: #61AAF2;
 
   --alpha-white-05: rgba(255, 255, 255, 0.05);
   --alpha-white-10: rgba(255, 255, 255, 0.1);
+  --alpha-white-20: rgba(255, 255, 255, 0.2);
+  --alpha-white-40: rgba(255, 255, 255, 0.4);
   --alpha-white-60: rgba(255, 255, 255, 0.6);
+  --alpha-black-40: rgba(0, 0, 0, 0.4);
+
+  /* --- ALIASES (for compatibility) --- */
+  --neutral-white: #FFFFFF;
+  --neutral-900: #191919;
+  --neutral-800: #3A3A38;
+  --neutral-700: #2B2A27;
+  --neutral-600: #34332C;
+  --neutral-500: #40403E;
+  --neutral-400: #52514A;
+  --neutral-300: #666663;
+  --neutral-250: #91918D;
+  --neutral-200: #BFBFBA;
+  --neutral-150: #D5D5D0;
+  --neutral-100: #E5E5E0;
+  --state-error: #BF4D43;
 
   /* --- 1.2 TYPOGRAPHY --- */
   --font-serif: 'Merriweather', 'Georgia', serif;
