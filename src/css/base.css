@@ -30,6 +30,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Light mode text colors */
+p, li {
+  color: var(--color-neutral-250);
+}
+
 /* Remove default list styles */
 ul, ol {
   list-style: none;
@@ -76,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
-  color: var(--color-neutral-white);
+  color: var(--color-neutral-100);
   margin-bottom: var(--space-lg);
 }
 
@@ -141,7 +146,7 @@ p {
   font-size: var(--text-heading-md);
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-relaxed);
-  color: var(--color-neutral-white);
+  color: var(--color-neutral-300);
   margin-bottom: var(--space-3xl);
 }
 
@@ -213,7 +218,7 @@ a:not(.btn):not(.nav-link):hover {
    ======================================== */
 strong, b {
   font-weight: var(--font-weight-semibold);
-  color: var(--color-neutral-white);
+  color: var(--color-neutral-100);
 }
 
 em, i {
@@ -305,7 +310,7 @@ hr {
   font-family: var(--font-mono);
   font-size: var(--text-display-lg);
   font-weight: var(--font-weight-bold);
-  color: var(--color-neutral-white);
+  color: var(--color-neutral-100);
   line-height: 1;
 }
 
