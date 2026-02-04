@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RG-01.5 - Inflexión de Caja</title>
-    <link rel="stylesheet" href="../shared/anthropic-base.css">
-    <link rel="stylesheet" href="../shared/asset-fixes.css">
+    <title>RG-01.5 - Cash Inflexion Chart</title>
+    <link rel="stylesheet" href="../anthropic-base.css">
     <style>
         .chart-wrapper {
             width: 100%;
-            height: 320px;
-            margin-top: var(--space-md);
+            height: 400px;
+            margin-top: var(--space-xl);
             position: relative;
         }
 
@@ -33,7 +32,7 @@
 
         .axis-label {
             font-size: 10px;
-            fill: #FFFFFF;
+            fill: var(--neutral-250);
             font-family: var(--font-mono);
         }
 
@@ -44,7 +43,7 @@
 
         .annotation {
             font-size: 12px;
-            fill: #FFFFFF;
+            fill: var(--neutral-white);
             font-weight: 600;
         }
 
@@ -70,17 +69,17 @@
 <body>
     <div class="container">
         <div class="label">Hitos de Caja</div>
-        <h1>Inflexión de Caja</h1>
+        <h1>Cash Inflexion</h1>
 
         <div class="legend-financial">
             <div class="label" style="color: var(--color-brand-blue);">● Caja Acumulada</div>
-            <div class="label" style="color: var(--color-brand-orange);">-- Punto de Equilibrio Operativo</div>
+            <div class="label" style="color: var(--color-brand-orange);">-- Breakeven Operativo</div>
         </div>
         
         <div class="chart-wrapper">
             <div class="inflexion-point">
                 <strong>MES 19</strong><br>
-                Punto de Equilibrio Operativo
+                Breakeven Operativo
             </div>
 
             <svg viewBox="0 0 800 400" preserveAspectRatio="none">
@@ -92,7 +91,7 @@
                 </defs>
 
                 <!-- Grid lines -->
-                <line x1="0" y1="350" x2="800" y2="350" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1" />
+                <line x1="0" y1="350" x2="800" y2="350" stroke="var(--neutral-500)" stroke-width="1" />
                 
                 <!-- Chart Data simulation (J-Curve) -->
                 <!-- Values: Start at -2.6M, valley at M12, recover to 0 at M19, growth to 15M at M66 -->
