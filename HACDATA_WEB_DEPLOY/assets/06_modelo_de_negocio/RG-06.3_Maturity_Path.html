@@ -5,7 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RG-06.3 - Ruta de Madurez del Cliente</title>
     <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <link rel="stylesheet" href="../shared/asset-fixes.css">
     <style>
+        /* Override para fondo claro */
+        body {
+            background: #3A3A38 !important;
+        }
+        h1 {
+            color: #FFFFFF !important;
+        }
+        .label {
+            color: #91918D !important;
+        }
+
+        .path-scene {
         :root {
             --color-card-bg: #2E2E2B;
             --color-card-border: rgba(206, 204, 197, 0.05);
@@ -140,7 +153,7 @@
         }
 
         .footer-text {
-            margin-top: 40px;
+            margin-top: var(--title-gap-standard);
             text-align: center;
             font-size: 13px;
             color: var(--neutral-400);

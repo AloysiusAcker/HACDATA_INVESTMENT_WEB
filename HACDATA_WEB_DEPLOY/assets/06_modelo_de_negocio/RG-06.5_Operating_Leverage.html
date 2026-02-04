@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RG-06.5 - Apalancamiento Operativo</title>
     <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <link rel="stylesheet" href="../shared/asset-fixes.css">
     <style>
         .scale-scene {
             width: 100%;
-            height: 400px;
-            margin-top: var(--space-xl);
+            max-width: 800px;
+            height: 350px;
+            margin: var(--space-lg) auto 0;
             position: relative;
+            overflow: hidden;
         }
 
         svg { width: 100%; height: 100%; }
@@ -37,11 +40,12 @@
 
         .label-box {
             position: absolute;
-            background: var(--neutral-850);
+            background: var(--neutral-900);
             border: 1px solid var(--alpha-white-10);
             padding: var(--space-sm);
             border-radius: var(--radius-base);
-            font-size: 11px;
+            font-size: 10px;
+            max-width: 180px;
         }
 
         .tag-ia {
@@ -62,7 +66,7 @@
         <h1>Apalancamiento Operativo</h1>
         
         <div class="scale-scene">
-            <svg viewBox="0 0 800 400" preserveAspectRatio="none">
+            <svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet">
                 <defs>
                     <linearGradient id="margin-grad" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="0%" stop-color="var(--color-brand-blue)" stop-opacity="0.2" />
@@ -85,14 +89,14 @@
             </svg>
 
             <!-- Annotation -->
-            <div class="label-box" style="top: 15%; right: 10%; border-color: var(--color-brand-purple);">
+            <div class="label-box" style="top: 10px; right: 10px; border-color: var(--color-brand-purple);">
                 <span class="tag-ia">EFECTO IA SCALE</span><br>
                 <strong>Apalancamiento Operativo:</strong><br>
-                Los costos fijos se desacoplan<br>mientras los ingresos escalan<br>por volumen SaaS.
+                Los costos fijos se desacoplan mientras los ingresos escalan por volumen SaaS.
             </div>
 
-            <div class="label-box" style="bottom: 25%; left: 5%;">
-                <strong>FASE 1:</strong> Onboarding &<br>Setup BPO
+            <div class="label-box" style="bottom: 60px; left: 10px;">
+                <strong>FASE 1:</strong> Onboarding & Setup BPO
             </div>
         </div>
 

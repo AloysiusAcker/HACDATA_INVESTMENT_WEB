@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RG-03.1 - La Grieta Operativa</title>
     <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <link rel="stylesheet" href="../shared/asset-fixes.css">
     <style>
         .heatmap {
             width: 100%;
-            margin-top: 40px;
+            margin-top: var(--title-gap-standard);
             display: flex;
             flex-direction: column;
             gap: var(--space-sm);
@@ -53,7 +54,7 @@
         .medio { background: rgba(191, 77, 67, 0.3); color: var(--neutral-150); }
 
         .legend-heatmap {
-            margin-top: 40px;
+            margin-top: var(--title-gap-standard);
             margin-bottom: 20px;
             display: flex;
             gap: var(--space-lg);

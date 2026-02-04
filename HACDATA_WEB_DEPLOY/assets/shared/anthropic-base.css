@@ -53,14 +53,18 @@
   --font-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'Fira Code', 'SF Mono', monospace;
 
-  /* --- 1.3 SPACING --- */
+  /* --- 1.3 SPACING (base 4px) --- */
   --space-xs: 4px;
-  --space-sm: 6px;
-  --space-md: 8px;
-  --space-lg: 12px;
-  --space-xl: 16px;
-  --space-2xl: 20px;
-  --space-3xl: 24px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* --- 1.4 TITLE-TO-CHART GAPS --- */
+  --title-gap-compact: 16px;   /* bars, lines */
+  --title-gap-standard: 24px;  /* treemaps, pies, custom */
+  --title-gap-expanded: 32px;  /* radars, sankeys */
 
   /* --- 1.4 RADIUS --- */
   --radius-sm: 4px;
