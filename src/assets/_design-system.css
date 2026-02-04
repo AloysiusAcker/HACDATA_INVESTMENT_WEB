@@ -1,0 +1,290 @@
+/**
+ * HACDATA DESIGN SYSTEM v1.0
+ * Sistema centralizado de variables para todos los assets
+ *
+ * USO: Incluir en cada asset HTML:
+ * <link rel="stylesheet" href="../_design-system.css">
+ * O copiar las variables :root en el <style> del asset
+ */
+
+:root {
+  /* ============================================
+     SPACING SYSTEM (base 4px)
+     ============================================ */
+
+  /* Base unit */
+  --space-unit: 4px;
+
+  /* Scale */
+  --space-xs: 4px;      /* 1 unit  - micro separaciones */
+  --space-sm: 8px;      /* 2 units - elementos compactos */
+  --space-md: 16px;     /* 4 units - estándar */
+  --space-lg: 24px;     /* 6 units - separación media */
+  --space-xl: 32px;     /* 8 units - separación amplia */
+  --space-2xl: 48px;    /* 12 units - secciones */
+
+  /* ============================================
+     SPACING TITLE-TO-CHART (crítico)
+     ============================================ */
+
+  /* Por tipo de gráfico */
+  --title-gap-compact: 16px;    /* bars, lines simples */
+  --title-gap-standard: 24px;   /* treemaps, pies, customs */
+  --title-gap-expanded: 32px;   /* radars, sankeys (necesitan respirar) */
+
+  /* ============================================
+     CONTAINER PADDING
+     ============================================ */
+
+  --container-padding-sm: 16px;
+  --container-padding-md: 24px;
+  --container-padding-lg: 32px;
+
+  /* ============================================
+     TYPOGRAPHY
+     ============================================ */
+
+  /* Font family */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Font sizes */
+  --text-xs: 10px;
+  --text-sm: 12px;
+  --text-md: 14px;
+  --text-lg: 16px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 32px;
+
+  /* Font weights */
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Line heights */
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* ============================================
+     COLORS - Dark Theme
+     ============================================ */
+
+  /* Backgrounds */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-tertiary: #1a1a24;
+  --bg-elevated: #22222e;
+  --bg-hover: #2a2a38;
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-tertiary: rgba(255, 255, 255, 0.5);
+  --text-muted: rgba(255, 255, 255, 0.3);
+
+  /* Accent colors */
+  --accent-cyan: #00d4ff;
+  --accent-cyan-dim: rgba(0, 212, 255, 0.6);
+  --accent-purple: #a855f7;
+  --accent-purple-dim: rgba(168, 85, 247, 0.6);
+  --accent-green: #10b981;
+  --accent-yellow: #f59e0b;
+  --accent-red: #ef4444;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
+
+  /* ============================================
+     CHART-SPECIFIC DIMENSIONS
+     ============================================ */
+
+  /* Radar charts */
+  --radar-container-padding: 32px;
+  --radar-title-gap: var(--title-gap-expanded);
+  --radar-min-height: 300px;
+
+  /* Bar charts */
+  --bar-container-padding: 24px;
+  --bar-title-gap: var(--title-gap-compact);
+  --bar-gap: 8px;
+
+  /* Treemaps */
+  --treemap-container-padding: 24px;
+  --treemap-title-gap: var(--title-gap-standard);
+  --treemap-cell-gap: 2px;
+
+  /* Sankey */
+  --sankey-container-padding: 32px;
+  --sankey-title-gap: var(--title-gap-expanded);
+
+  /* Pie charts */
+  --pie-container-padding: 24px;
+  --pie-title-gap: var(--title-gap-standard);
+
+  /* ============================================
+     ANIMATION
+     ============================================ */
+
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 800ms;
+
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* ============================================
+     SHADOWS & EFFECTS
+     ============================================ */
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+  --shadow-glow-cyan: 0 0 20px rgba(0, 212, 255, 0.3);
+  --shadow-glow-purple: 0 0 20px rgba(168, 85, 247, 0.3);
+
+  /* ============================================
+     BORDER RADIUS
+     ============================================ */
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* ============================================
+     Z-INDEX SCALE
+     ============================================ */
+
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-tooltip: 500;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Container base para todos los assets */
+.asset-container {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  padding: var(--container-padding-md);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Header section con badge + título */
+.asset-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+/* Badge de identificación (RG-XX.X) */
+.asset-badge {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* Título del asset */
+.asset-title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Sección de contenido principal */
+.asset-content {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 50px); /* Resta header */
+}
+
+/* Título interno del gráfico */
+.chart-section-title {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-xs);
+}
+
+.chart-main-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  margin: 0;
+  line-height: var(--leading-tight);
+}
+
+/* ============================================
+   CHART TYPE CONTAINERS
+   ============================================ */
+
+/* Radar charts */
+.chart-container--radar {
+  padding-top: var(--radar-title-gap);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bar charts */
+.chart-container--bar {
+  padding-top: var(--bar-title-gap);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Treemap */
+.chart-container--treemap {
+  padding-top: var(--treemap-title-gap);
+  flex: 1;
+}
+
+/* Sankey */
+.chart-container--sankey {
+  padding-top: var(--sankey-title-gap);
+  flex: 1;
+}
+
+/* Pie */
+.chart-container--pie {
+  padding-top: var(--pie-title-gap);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Custom/diagrams */
+.chart-container--custom {
+  padding-top: var(--title-gap-standard);
+  flex: 1;
+}
