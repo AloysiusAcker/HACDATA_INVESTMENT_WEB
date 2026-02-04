@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-04.1 - Capa de Orquestación CORE7</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        .stack-scene {
+            perspective: 1000px;
+            width: 100%;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: var(--space-xl);
+        }
+
+        .layer-stack {
+            position: relative;
+            width: 400px;
+            height: 250px;
+            transform-style: preserve-3d;
+            transform: rotateX(50deg) rotateZ(-20deg);
+        }
+
+        .layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--alpha-white-10);
+            display: flex;
+            flex-direction: column;
+            padding: var(--space-lg);
+            transition: all 0.5s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .layer span {
+          font-family: var(--font-mono);
+          font-size: 10px;
+          color: var(--neutral-400);
+          margin-bottom: 4px;
+        }
+
+        .layer h3 {
+          font-family: var(--font-serif);
+          font-size: 20px;
+          margin: 0;
+        }
+
+        /* Adjust z-index and spacing */
+        .layer-1 { transform: translateZ(100px); background: rgba(217, 119, 87, 0.2); border-color: var(--color-brand-orange); } /* Top: Intelligence */
+        .layer-2 { transform: translateZ(50px); background: rgba(155, 135, 245, 0.2); border-color: var(--color-brand-purple); } /* Mid: CORE7 */
+        .layer-3 { transform: translateZ(0); background: rgba(32, 127, 222, 0.1); border-color: var(--color-brand-blue); } /* Bottom: GESTOR */
+
+        .layer:hover {
+          transform: translateZ(120px);
+          background: var(--alpha-white-10);
+        }
+
+        .pulse-line {
+          position: absolute;
+          width: 2px;
+          height: 150px;
+          background: linear-gradient(0deg, var(--color-brand-blue), var(--color-brand-purple), var(--color-brand-orange));
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) rotateX(-50deg);
+          box-shadow: 0 0 15px var(--color-brand-orange);
+          z-index: 10;
+        }
+
+        .label-box {
+          position: absolute;
+          right: -100px;
+          width: 150px;
+          text-align: left;
+          transform: rotateX(-50deg) rotateZ(20deg);
+        }
+
+        .label-box p { font-size: 12px; color: var(--neutral-200); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Arquitectura CORE7</div>
+        <h1>Capa de Orquestación</h1>
+        
+        <div class="stack-scene">
+            <div class="layer-stack">
+                <div class="pulse-line"></div>
+                
+                <!-- Bottom Layer -->
+                <div class="layer layer-3">
+                  <span>CAPA DATA & INFRA</span>
+                  <h3>GESTOR</h3>
+                </div>
+
+                <!-- Mid Layer -->
+                <div class="layer layer-2">
+                  <span>CAPA ONTOLOGÍA</span>
+                  <h3>CORE7 Engine</h3>
+                </div>
+
+                <!-- Top Layer -->
+                <div class="layer layer-1">
+                  <span>CAPA PRODUCTO</span>
+                  <h3>Ejecución de Usuario</h3>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; font-size: 14px; color: var(--neutral-250); line-height: 1.5; text-align: center;">
+          El <strong>CORE7</strong> actúa como el motor que activa y controla el flujo operativo, asegurando que la estrategia se traduzca en ejecución sin fricción.
+        </div>
+
+        <div class="data-source">SOURCE: 04_Propuesta_de_Valor_Final.md (Sec 4.1)</div>
+    </div>
+</body>
+</html>

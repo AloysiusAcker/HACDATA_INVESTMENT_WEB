@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-01.3 - Benchmark de Desempeño</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        .radar-container {
+            width: 100%;
+            height: 380px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 0; 
+            margin-top: 0; /* Removed top margin completely */
+            transform: translateY(-20px); /* Visually pull chart up */
+        }
+
+        svg {
+            width: 400px;
+            height: 400px;
+        }
+
+        .axis {
+            stroke: rgba(255, 255, 255, 0.4);
+            stroke-width: 1;
+        }
+
+        .grid-line {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.15);
+            stroke-width: 0.5;
+        }
+
+        .label-text {
+            font-family: var(--font-sans);
+            font-size: 12px;
+            fill: #FFFFFF;
+            font-weight: 500;
+        }
+
+        .value-text {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            fill: #E5E5E0;
+        }
+
+        .polygon-benchmark {
+            fill: var(--alpha-white-10);
+            stroke: var(--neutral-300);
+            stroke-width: 2;
+            stroke-dasharray: 4;
+        }
+
+        .polygon-hacdata {
+            fill: rgba(32, 127, 222, 0.2);
+            stroke: var(--color-brand-blue);
+            stroke-width: 3;
+            filter: drop-shadow(0 0 10px rgba(32, 127, 222, 0.5));
+        }
+
+        .legend {
+            position: absolute;
+            top: var(--space-lg); /* Adjusted to align better with chart start */
+            right: var(--space-xl);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 11px;
+            color: #FFFFFF;
+        }
+
+        .legend-box {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Unit Economics de Élite</div>
+        <h1>Benchmark de Desempeño</h1>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background: var(--color-brand-blue); border: 1px solid var(--color-brand-blue);"></div>
+                HACDATA (44.8x LTV/CAC)
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background: var(--neutral-900); border: 1px dashed var(--neutral-300);"></div>
+                Benchmark del Sector (3.0x)
+            </div>
+        </div>
+        
+        <div class="radar-container">
+            <svg viewBox="0 0 400 400">
+                <!-- Center: 200, 200. Radius: 150 -->
+                
+                <!-- Grid rings -->
+                <circle class="grid-line" cx="200" cy="200" r="37.5" />
+                <circle class="grid-line" cx="200" cy="200" r="75" />
+                <circle class="grid-line" cx="200" cy="200" r="112.5" />
+                <circle class="grid-line" cx="200" cy="200" r="150" />
+
+                <!-- Axes -->
+                <line class="axis" x1="200" y1="200" x2="200" y2="50" /> <!-- LTV/CAC -->
+                <line class="axis" x1="200" y1="200" x2="330" y2="275" /> <!-- Gross Margin -->
+                <line class="axis" x1="200" y1="200" x2="70" y2="275" /> <!-- Payback (Inverted scale for better visualization) -->
+
+                <!-- Polygons (Coordinates calculated: 200 + r*sin(a), 200 - r*cos(a)) -->
+                <!-- Angles: 0, 120, 240 deg -->
+                
+                <!-- Benchmark (Small center circle essentially) -->
+                <polygon class="polygon-benchmark" points="200,185 212,207 188,207" />
+
+                <!-- HACDATA  -->
+                <!-- 
+                    LTV/CAC: r=150 (max)
+                    Margin (94.5%): r=140
+                    Payback (2M vs 18M): r=145 (since lower is better, we map 2M to an outer position)
+                -->
+                <polygon class="polygon-hacdata" points="200,50 321,270 74,270" />
+
+                <!-- Text -->
+                <text x="200" y="35" class="label-text" text-anchor="middle">LTV / CAC (44.8x)</text>
+                <text x="340" y="290" class="label-text">Margen Bruto (94.5%)</text>
+                <text x="10" y="290" class="label-text">Payback (2 Meses)</text>
+            </svg>
+        </div>
+
+        <div class="data-source">SOURCE: 12_Plan_financiero_Final.md (Sec 12.4)</div>
+    </div>
+</body>
+</html>

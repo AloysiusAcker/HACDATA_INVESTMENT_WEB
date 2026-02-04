@@ -1,0 +1,220 @@
+/**
+ * HACDATA Investment Memorandum - Design System Tokens
+ * Based on Anthropic Design System v1.0
+ */
+
+:root {
+  /* ========================================
+     BRAND COLORS
+     ======================================== */
+  --color-brand-orange: #d97757;
+  --color-brand-orange-hover: #e5896a;
+  --color-brand-orange-active: #c46b4d;
+  --color-brand-purple: #9b87f5;
+  --color-brand-purple-hover: #ae9df7;
+  --color-brand-purple-active: #8a75e8;
+  --color-brand-blue: #207fde;
+  --color-brand-blue-hover: #3a91e8;
+  --color-brand-blue-active: #1a6fc2;
+
+  /* ========================================
+     NEUTRAL COLORS (Light Mode)
+     ======================================== */
+  --color-neutral-white: #ffffff;
+  --color-neutral-black: #191919;
+  --color-neutral-900: #f8f7f6; /* Sidebar background - crema claro */
+  --color-neutral-850: #f4f3f1;
+  --color-neutral-800: #ffffff; /* Main background - blanco */
+  --color-neutral-750: #fafafa;
+  --color-neutral-700: #f2f1ef; /* Card background - gris muy claro */
+  --color-neutral-650: #eceae8;
+  --color-neutral-600: #e0dfdc; /* Borders, dividers */
+  --color-neutral-500: #c8c7c4; /* Muted elements */
+  --color-neutral-400: #9a9994; /* Labels, placeholders */
+  --color-neutral-300: #6b6a66; /* Secondary text */
+  --color-neutral-250: #4d4c48; /* Body text */
+  --color-neutral-200: #3d3d3a; /* Primary text */
+  --color-neutral-100: #1a1a18; /* Headings, strong text */
+
+  /* ========================================
+     STATE COLORS
+     ======================================== */
+  --color-state-focus: #61aaf2;
+  --color-state-error: #bf4d43;
+  --color-state-success: #4caf50;
+  --color-state-warning: #ffa726;
+
+  /* ========================================
+     ALPHA / TRANSPARENCY
+     ======================================== */
+  --alpha-white-05: rgba(255, 255, 255, 0.05);
+  --alpha-white-08: rgba(255, 255, 255, 0.08);
+  --alpha-white-10: rgba(255, 255, 255, 0.1);
+  --alpha-white-15: rgba(255, 255, 255, 0.15);
+  --alpha-white-20: rgba(255, 255, 255, 0.2);
+  --alpha-white-40: rgba(255, 255, 255, 0.4);
+  --alpha-white-60: rgba(255, 255, 255, 0.6);
+  --alpha-black-10: rgba(0, 0, 0, 0.1);
+  --alpha-black-20: rgba(0, 0, 0, 0.2);
+  --alpha-black-40: rgba(0, 0, 0, 0.4);
+  --alpha-black-60: rgba(0, 0, 0, 0.6);
+  --alpha-black-80: rgba(0, 0, 0, 0.8);
+
+  /* ========================================
+     TYPOGRAPHY - FONT FAMILIES
+     ======================================== */
+  --font-serif: "Merriweather", "Georgia", serif;
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Fira Code", "SF Mono", "Consolas", monospace;
+
+  /* ========================================
+     TYPOGRAPHY - FONT SIZES
+     ======================================== */
+  --text-display-xl: 48px; /* Hero titles */
+  --text-display-lg: 40px; /* Section titles */
+  --text-display-md: 36px;
+  --text-heading-xl: 28px;
+  --text-heading-lg: 32px; /* H2 */
+  --text-heading-md: 20px; /* H3 */
+  --text-heading-sm: 18px; /* H4 */
+  --text-body-lg: 16px; /* Body default */
+  --text-body-md: 15px;
+  --text-body-sm: 14px; /* UI text */
+  --text-body-xs: 13px;
+  --text-caption-lg: 12px; /* Labels */
+  --text-caption-md: 11px;
+  --text-caption-sm: 10px; /* Tags */
+
+  /* ========================================
+     TYPOGRAPHY - LINE HEIGHTS
+     ======================================== */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+  --line-height-loose: 1.9;
+
+  /* ========================================
+     TYPOGRAPHY - FONT WEIGHTS
+     ======================================== */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ========================================
+     SPACING SCALE
+     ======================================== */
+  --space-2xs: 2px;
+  --space-xs: 4px;
+  --space-sm: 6px;
+  --space-md: 8px;
+  --space-lg: 12px;
+  --space-xl: 16px;
+  --space-2xl: 20px;
+  --space-3xl: 24px;
+  --space-4xl: 32px;
+  --space-5xl: 40px;
+  --space-6xl: 48px;
+  --space-7xl: 64px;
+  --space-8xl: 80px;
+
+  /* ========================================
+     COMPONENT PADDING
+     ======================================== */
+  --pad-card-sm: 12px 16px;
+  --pad-card-md: 16px 20px;
+  --pad-card-lg: 20px 24px;
+  --pad-section: 40px 60px;
+  --pad-section-mobile: 24px 20px;
+  --pad-button-sm: 8px 16px;
+  --pad-button-md: 12px 24px;
+  --pad-button-lg: 16px 32px;
+
+  /* ========================================
+     BORDER RADIUS
+     ======================================== */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 5px;
+  --radius-base: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-2xl: 12px;
+  --radius-3xl: 14px;
+  --radius-4xl: 16px;
+  --radius-full: 32px;
+  --radius-pill: 24px;
+
+  /* ========================================
+     SHADOWS
+     ======================================== */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.35);
+  --shadow-card: -1px 1px 3px rgba(206, 204, 197, 0.08);
+  --shadow-popover: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  --shadow-modal: 0 24px 48px rgba(0, 0, 0, 0.5);
+  --shadow-primary-btn:
+    -1px 1px 4px rgba(0, 0, 0, 0.25),
+    inset 0px 1.5px 0px rgba(186, 111, 48, 0.5);
+  --shadow-glow-orange: 0 0 20px rgba(217, 119, 87, 0.3);
+  --shadow-glow-purple: 0 0 20px rgba(155, 135, 245, 0.3);
+
+  /* ========================================
+     BORDERS
+     ======================================== */
+  --border-default: 1px solid var(--color-neutral-600);
+  --border-subtle: 1px solid var(--alpha-white-08);
+  --border-focus: 2px solid var(--color-state-focus);
+
+  /* ========================================
+     TRANSITIONS
+     ======================================== */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+  --transition-bounce: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ========================================
+     Z-INDEX SCALE
+     ======================================== */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+  --z-max: 9999;
+
+  /* ========================================
+     LAYOUT
+     ======================================== */
+  --sidebar-width: 280px;
+  --sidebar-width-collapsed: 60px;
+  --header-height: 60px;
+  --content-max-width: 1200px;
+  --viz-card-height: 450px;
+  --viz-card-height-expanded: calc(100vh - 100px);
+
+  /* ========================================
+     SEMANTIC SPACING (Vertical Rhythm)
+     ======================================== */
+  --gap-section: var(--space-8xl);  /* 80px - Between H2 sections */
+  --gap-block: var(--space-6xl);    /* 48px - Between major content blocks */
+  --gap-content: var(--space-3xl);  /* 24px - Between text and sub-headers */
+  --gap-item: var(--space-xl);      /* 16px - Between items in a list/grid */
+}
+
+/* ========================================
+   RESPONSIVE BREAKPOINTS (as reference)
+   ======================================== */
+/*
+  Mobile: max-width: 640px
+  Tablet: max-width: 1024px
+  Desktop: min-width: 1025px
+  Wide: min-width: 1440px
+*/
