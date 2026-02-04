@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-06.5 - Apalancamiento Operativo</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <link rel="stylesheet" href="../shared/asset-fixes.css">
+    <style>
+        .scale-scene {
+            width: 100%;
+            height: 400px;
+            margin-top: var(--space-xl);
+            position: relative;
+        }
+
+        svg { width: 100%; height: 100%; }
+
+        .line-revenue {
+            fill: none;
+            stroke: var(--color-brand-blue);
+            stroke-width: 4;
+            filter: drop-shadow(0 0 10px rgba(32, 127, 222, 0.4));
+        }
+
+        .line-costs {
+            fill: none;
+            stroke: var(--neutral-500);
+            stroke-width: 2;
+            stroke-dasharray: 8;
+        }
+
+        .axis { stroke: var(--alpha-white-10); stroke-width: 1; }
+
+        .margin-fill {
+            fill: url(#margin-grad);
+        }
+
+        .label-box {
+            position: absolute;
+            background: var(--neutral-850);
+            border: 1px solid var(--alpha-white-10);
+            padding: var(--space-sm);
+            border-radius: var(--radius-base);
+            font-size: 11px;
+        }
+
+        .tag-ia {
+            background: var(--color-brand-purple);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Escalabilidad de Capital</div>
+        <h1>Apalancamiento Operativo</h1>
+        
+        <div class="scale-scene">
+            <svg viewBox="0 0 800 400" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="margin-grad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="var(--color-brand-blue)" stop-opacity="0.2" />
+                        <stop offset="100%" stop-color="var(--color-brand-blue)" stop-opacity="0" />
+                    </linearGradient>
+                </defs>
+
+                <!-- Grid -->
+                <line class="axis" x1="0" y1="350" x2="800" y2="350" />
+                
+                <!-- Margin Area (The Gap) -->
+                <path class="margin-fill" d="M0,330 C200,300 600,100 800,40 L800,280 C600,280 200,320 0,330 Z" />
+
+                <!-- Revenue Line -->
+                <path class="line-revenue" d="M0,330 C200,300 600,100 800,40" />
+
+                <!-- Costs Line (Asymptotic/Linear) -->
+                <path class="line-costs" d="M0,330 C200,320 600,280 800,280" />
+
+            </svg>
+
+            <!-- Annotation -->
+            <div class="label-box" style="top: 15%; right: 10%; border-color: var(--color-brand-purple);">
+                <span class="tag-ia">EFECTO IA SCALE</span><br>
+                <strong>Apalancamiento Operativo:</strong><br>
+                Los costos fijos se desacoplan<br>mientras los ingresos escalan<br>por volumen SaaS.
+            </div>
+
+            <div class="label-box" style="bottom: 25%; left: 5%;">
+                <strong>FASE 1:</strong> Onboarding &<br>Setup BPO
+            </div>
+        </div>
+
+        <div style="margin-top: 10px; font-size: 13px; color: var(--neutral-200); text-align: center; line-height: 1.5;">
+            La arquitectura centralizada de la <strong>Célula de Alto Rendimiento</strong> permite atender a miles de organizaciones sin incrementar la estructura administrativa de forma lineal.
+        </div>
+
+        <div class="data-source">SOURCE: 06_Modelo_de_negocio_Final.md (Sec 6.5)</div>
+    </div>
+</body>
+</html>
