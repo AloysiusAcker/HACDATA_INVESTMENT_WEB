@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RG-03.2 - Crisis del Forgotten Middle</title>
     <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <link rel="stylesheet" href="../shared/asset-fixes.css">
     <style>
         html, body {
             height: 100%;
@@ -22,12 +23,11 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            /* Flex centering magic */
-            flex: 1; 
-            align-content: center; 
-            padding: 0 40px; /* Safe zone */
+            flex: 1;
+            align-content: center;
+            padding: 0 40px;
             box-sizing: border-box;
-            margin: 0; /* Remove explicit margins to let flex align it */
+            margin-top: var(--title-gap-standard);
         }
         .hud-card {
             padding: var(--space-xl);
