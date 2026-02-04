@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-11.3 - Ruta Profesional Basada en Evidencia</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        .path-container {
+            width: 100%;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: var(--space-xl);
+            position: relative;
+        }
+
+        .vertical-line {
+            position: absolute;
+            width: 2px;
+            height: 80%;
+            background: linear-gradient(180deg, var(--color-brand-blue), var(--color-brand-orange));
+            left: 50%; transform: translateX(-50%);
+            opacity: 0.3;
+        }
+
+        .path-node {
+            position: absolute;
+            width: 280px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .node-circle {
+            width: 40px;
+            height: 40px;
+            background: var(--neutral-900);
+            border: 2px solid var(--color-brand-blue);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+            flex-shrink: 0;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+        }
+
+        .node-content {
+            background: var(--neutral-850);
+            border: 1px solid var(--alpha-white-10);
+            padding: var(--space-md);
+            border-radius: var(--radius-lg);
+            flex: 1;
+        }
+
+        .node-content h3 { font-size: 14px; margin: 0; color: var(--neutral-white); }
+        .node-content p { font-size: 9px; color: var(--neutral-400); margin: 3px 0 0; }
+
+        .evidence-seal {
+            margin-top: 8px;
+            padding: 3px 6px;
+            background: rgba(0, 255, 65, 0.1);
+            color: #00FF41;
+            font-family: var(--font-mono);
+            font-size: 8px;
+            border-radius: 3px;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        /* Positioning nodes */
+        .node-1 { top: 10%; right: 50%; margin-right: -20px; flex-direction: row-reverse; text-align: right; }
+        .node-2 { top: 35%; left: 50%; margin-left: -20px; }
+        .node-3 { top: 60%; right: 50%; margin-right: -20px; flex-direction: row-reverse; text-align: right; }
+        .node-4 { top: 85%; left: 50%; margin-left: -20px; }
+
+        .path-node:hover {
+            transform: translateX(10px);
+        }
+        .node-1:hover, .node-3:hover { transform: translateX(-10px); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Meritocracia Provatizable</div>
+        <h1>Ruta Profesional Basada en Evidencia</h1>
+        
+        <div class="path-container">
+            <div class="vertical-line"></div>
+
+            <!-- Level 1 -->
+            <div class="path-node node-1">
+                <div class="node-circle">🌱</div>
+                <div class="node-content">
+                    <h3>Onboarding Certificado</h3>
+                    <p>Dominio de flujos básicos CORE7 documentado en bitácora.</p>
+                    <div class="evidence-seal">EVIDENCIA: LOG_ENTRY_V1</div>
+                </div>
+            </div>
+
+            <!-- Level 2 -->
+            <div class="path-node node-2">
+                <div class="node-circle">⚙️</div>
+                <div class="node-content">
+                    <h3>Maestría Operativa</h3>
+                    <p>Ejecución exitosa de Squads con KPI auditados en GESTOR.</p>
+                    <div class="evidence-seal">EVIDENCIA: SQUAD_METRICS_OK</div>
+                </div>
+            </div>
+
+            <!-- Level 3 -->
+            <div class="path-node node-3">
+                <div class="node-circle">👔</div>
+                <div class="node-content">
+                    <h3>Liderazgo de Célula</h3>
+                    <p>Orquestación de equipos con optimización semántica probada.</p>
+                    <div class="evidence-seal">EVIDENCIA: OPTIM_GRAPH_DELTA</div>
+                </div>
+            </div>
+
+            <!-- Level 4 -->
+            <div class="path-node node-4">
+                <div class="node-circle">👑</div>
+                <div class="node-content">
+                    <h3>Soberanía Progresiva</h3>
+                    <p>Participación en el legado intelectual de la arquitectura.</p>
+                    <div class="evidence-seal">EVIDENCIA: LEGACY_CERT_MASTER</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; font-size: 13px; color: var(--neutral-200); text-align: center; line-height: 1.5;">
+            Hacemos que el talento sea <strong>dueño de su trayectoria</strong>: cada logro es un activo certificable y verificable mediante la infraestructura de datos de HACDATA.
+        </div>
+
+        <div class="data-source">SOURCE: 11_Organizacion_y_Equipo_Final.md (Sec 11.3)</div>
+    </div>
+</body>
+</html>

@@ -7,59 +7,86 @@
     <link rel="stylesheet" href="../shared/anthropic-base.css">
     <link rel="stylesheet" href="../shared/asset-fixes.css">
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-sizing: border-box;
+            /* Ensure container padding respects base css but allows flex growth */
+        }
         .hud-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--space-lg);
-            margin-top: var(--space-xl);
+            gap: 20px;
+            /* Flex centering magic */
+            flex: 1; 
+            align-content: center; 
+            padding: 0 40px; /* Safe zone */
+            box-sizing: border-box;
+            margin: 0; /* Remove explicit margins to let flex align it */
         }
         .hud-card {
             padding: var(--space-xl);
-            background: linear-gradient(135deg, var(--neutral-900) 0%, #1a1a1a 100%);
-            border: 1px solid var(--alpha-white-10);
-            border-radius: var(--radius-xl);
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid var(--alpha-white-20);
+            border-radius: var(--radius-lg);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 160px;
         }
         .hud-card::after {
             content: "";
             position: absolute;
             top: 0; left: 0; width: 4px; height: 100%;
             background: var(--color-brand-orange);
+            box-shadow: 2px 0 10px rgba(217, 119, 87, 0.3);
         }
         .hud-value {
             font-family: var(--font-mono);
-            font-size: 48px;
+            font-size: 40px;
             font-weight: 700;
             color: var(--neutral-white);
             line-height: 1;
-            margin-bottom: var(--space-xs);
+            margin: var(--space-xs) 0;
+            letter-spacing: -1px;
         }
         .hud-label {
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 13px;
+            font-weight: 700;
             color: var(--color-brand-orange);
-            margin-bottom: var(--space-sm);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         .hud-desc {
-            font-size: 13px;
-            color: var(--neutral-200);
+            font-size: 14px;
+            color: var(--neutral-150);
             line-height: 1.4;
+            margin-bottom: var(--space-md);
         }
         .hud-source {
-            font-size: 10px;
-            color: var(--neutral-500);
-            margin-top: var(--space-md);
-            display: block;
+            font-size: 11px;
+            font-weight: 500;
+            color: #9ca3af;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            align-self: flex-start;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="label">Diagnóstico de Autoridad</div>
-        <h1>The Forgotten Middle Crisis</h1>
+        <h1>Crisis del Sector Intermedio Olvidado</h1>
         
         <div class="hud-grid">
             <div class="hud-card">

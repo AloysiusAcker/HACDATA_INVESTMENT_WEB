@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-03.5 - El Puente de la Oportunidad</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        .sankey-scene {
+            width: 100%;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: var(--space-lg);
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+        svg { width: 100%; height: 100%; }
+        
+        .flow {
+            fill: none;
+            stroke-opacity: 0.4;
+            transition: stroke-opacity 0.3s ease;
+        }
+        .flow:hover { stroke-opacity: 0.7; }
+        
+        .node-box {
+            fill: var(--neutral-700);
+            stroke: var(--alpha-white-20);
+            stroke-width: 1;
+        }
+        .node-label {
+            font-family: var(--font-sans);
+            font-size: 11px;
+            fill: var(--neutral-200);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .node-sub {
+            font-family: var(--font-sans);
+            font-size: 9px;
+            fill: var(--neutral-300);
+            text-transform: uppercase;
+        }
+        .highlight { fill: var(--color-brand-orange); }
+        .success { fill: var(--color-brand-blue); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Tesis de Oportunidad</div>
+        <h1>El Puente de Valor</h1>
+        
+        <div class="sankey-scene">
+            <svg viewBox="0 0 800 320" preserveAspectRatio="xMidYMid meet">
+                <!-- 
+                Layout:
+                - Left nodes: x=40, width=130
+                - Center node: x=350, width=140
+                - Right node: x=630, width=130
+                - Gasto Tech: y=60, height=80 → center at y=100
+                - Brecha: y=180, height=80 → center at y=220
+                - Center node: y=90, height=120 → center at y=150
+                - Right node: y=90, height=120 → center at y=150
+                -->
+                
+                <!-- Flow: Gasto Tech → Ineficiencia (larger flow, 55px) -->
+                <path d="M 170 100 
+                         C 260 100, 260 120, 350 130" 
+                      stroke="#BF4D43" stroke-width="55" class="flow" />
+                
+                <!-- Flow: Brecha de Mercado → Ineficiencia (smaller flow, 35px) -->
+                <path d="M 170 220 
+                         C 260 220, 260 180, 350 170" 
+                      stroke="#BF4D43" stroke-width="35" class="flow" />
+                
+                <!-- Flow: Ineficiencia → Soberanía (combined flow, 90px) -->
+                <path d="M 490 150 
+                         C 560 150, 560 150, 630 150" 
+                      stroke="#207FDE" stroke-width="90" class="flow" />
+
+                <!-- Source Node 1: Gasto Tech -->
+                <rect x="40" y="60" width="130" height="80" rx="6" class="node-box" style="stroke: var(--color-brand-orange);" />
+                <text x="105" y="95" text-anchor="middle" class="node-label">Gasto Tech</text>
+                <text x="105" y="115" text-anchor="middle" class="node-sub">$1,060M/año</text>
+                
+                <!-- Source Node 2: Brecha de Mercado -->
+                <rect x="40" y="180" width="130" height="80" rx="6" class="node-box" style="stroke: var(--color-brand-purple);" />
+                <text x="105" y="215" text-anchor="middle" class="node-label">Brecha de</text>
+                <text x="105" y="232" text-anchor="middle" class="node-label">Mercado</text>
+                <text x="105" y="250" text-anchor="middle" class="node-sub">6.5% Adopción</text>
+                
+                <!-- Center Node: Ineficiencia -->
+                <rect x="350" y="90" width="140" height="120" rx="6" class="node-box" style="stroke: var(--state-error); stroke-width: 2;" />
+                <text x="420" y="140" text-anchor="middle" class="node-label highlight" style="font-size: 13px;">Ineficiencia</text>
+                <text x="420" y="160" text-anchor="middle" class="node-sub">Fragmentación</text>
+                <text x="420" y="178" text-anchor="middle" class="node-sub">Tecnológica</text>
+
+                <!-- Target Node: Soberanía Operativa -->
+                <rect x="630" y="90" width="130" height="120" rx="6" class="node-box" style="stroke: var(--color-brand-blue); stroke-width: 2;" />
+                <text x="695" y="140" text-anchor="middle" class="node-label success" style="font-size: 13px;">Soberanía</text>
+                <text x="695" y="160" text-anchor="middle" class="node-sub">Operativa</text>
+                <text x="695" y="180" text-anchor="middle" class="node-sub" style="fill: var(--color-brand-blue);">HACDATA</text>
+            </svg>
+        </div>
+
+        <div style="margin-top: 16px; font-size: 13px; color: var(--neutral-200); line-height: 1.5; padding: 0 40px;">
+            HACDATA actúa como el orquestador que reconecta el gasto tecnológico y la necesidad de mercado para generar <strong style="color: var(--color-brand-blue);">productividad operativa real</strong>.
+        </div>
+
+        <div class="data-source">SOURCE: Sankey Bridge Thesis (Sec 3.2.4)</div>
+    </div>
+</body>
+</html>

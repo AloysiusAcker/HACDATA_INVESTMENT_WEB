@@ -3,121 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RG-04.4 - The Integrated Value Chain</title>
+    <title>RG-04.4 - La Cadena de Valor Integrada</title>
     <link rel="stylesheet" href="../shared/anthropic-base.css">
     <link rel="stylesheet" href="../shared/asset-fixes.css">
     <style>
-        .chain-scene {
+        :root {
+            --color-core7: #207FDE;
+            --glow-core7: rgba(32, 127, 222, 0.4);
+            --layer-gap: 50px;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        body {
+            color: var(--neutral-white);
+            padding: 40px;
+            font-family: var(--font-sans);
+            box-sizing: border-box;
             width: 100%;
-            height: 450px;
+            height: 900px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-brand-orange);
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        /* Value Chain Layout */
+        .value-chain-viz {
             display: flex;
             flex-direction: column;
-            gap: var(--space-md);
-            margin-top: var(--space-xl);
+            align-items: center;
+        }
+
+        /* Section Headers */
+        .section-header {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--neutral-200); /* Better contrast */
+            text-align: center;
+            margin-bottom: 16px;
+            width: 100%;
+        }
+
+        /* Grid for Nodes */
+        .nodes-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 12px;
+            width: 100%;
+            z-index: 2;
+        }
+
+        /* Arrows Container */
+        .arrows-row {
+            height: var(--layer-gap);
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 12px;
+            pointer-events: none;
+        }
+
+        .arrow-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .arrow-svg {
+            width: 20px;
+            height: 30px;
+            opacity: 0.6;
+        }
+
+        .arrow-line {
+            stroke: var(--neutral-300);
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        .arrow-head {
+            fill: var(--neutral-300);
+        }
+
+        /* Node Styling */
+        .node {
+            background: var(--neutral-700);
+            border: 1px solid var(--alpha-white-20);
+            border-radius: var(--radius-lg);
+            padding: 12px 6px;
+            text-align: center;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 70px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .node:hover {
+            border-color: var(--color-brand-blue);
+            transform: translateY(-2px);
+            background: var(--neutral-600);
+        }
+
+        .node-title {
+            font-size: 11px;
+            font-weight: 600;
+            line-height: 1.25;
+            color: var(--neutral-white); /* Full white for maximum contrast */
+        }
+
+        /* Layer Accents */
+        .layer-primary .node { border-top: 3px solid var(--color-brand-orange); }
+        .layer-support .node { border-bottom: 3px solid var(--color-brand-purple); }
+
+        /* CORE7 Block */
+        .core7-container {
+            width: 100%;
+            z-index: 3;
+        }
+
+        .core7-block {
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.8) 0%, rgba(32, 127, 222, 0.15) 100%);
+            backdrop-filter: blur(12px);
+            border: 2px solid var(--color-core7);
+            border-radius: var(--radius-xl);
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(32, 127, 222, 0.25);
             position: relative;
         }
 
-        .support-layer {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: var(--space-xs);
-          height: 60px;
+        .core7-title {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            color: #FFFFFF;
+            margin-bottom: 6px;
+            text-shadow: 0 0 15px var(--color-brand-blue);
         }
 
-        .primary-layer {
-          display: grid;
-          grid-template-columns: 1fr 2fr 1fr;
-          gap: var(--space-md);
-          height: 180px;
+        .core7-subtitle {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--neutral-white); /* White for contrast */
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
         }
 
-        .core-center {
-          background: linear-gradient(180deg, var(--neutral-900) 0%, #1a1a1a 100%);
-          border: 1px solid var(--color-brand-purple);
-          border-radius: var(--radius-lg);
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-          box-shadow: 0 0 20px rgba(155, 135, 245, 0.2);
+        .core7-tags {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 16px;
+            font-size: 10px;
+            font-weight: 500;
+            color: var(--neutral-150); /* Lighter gray for readability */
+            text-transform: uppercase;
         }
 
-        .core-center h2 { color: var(--color-brand-purple); font-size: 24px; letter-spacing: 2px; }
-
-        .chain-box {
-          background: var(--alpha-white-05);
-          border: 1px solid var(--alpha-white-10);
-          border-radius: var(--radius-base);
-          padding: var(--space-sm);
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          font-size: 11px;
-          color: var(--neutral-200);
-          transition: all 0.2s ease;
+        /* Footer */
+        .footer-note {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--neutral-200);
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
         }
 
-        .chain-box:hover {
-          border-color: var(--color-brand-blue);
-          background: var(--alpha-white-08);
+        .data-source {
+            margin-top: 30px;
         }
-
-        .chain-box strong { color: var(--neutral-white); display: block; margin-bottom: 2px; }
-
-        .flow-arrow {
-            position: absolute;
-            color: var(--color-brand-purple);
-            font-size: 20px;
-            opacity: 0.5;
-        }
-
-        .down { top: 70px; left: 50%; transform: translateX(-50%); }
     </style>
 </head>
 <body>
-    <div class="container" style="max-width: 900px;">
-        <div class="label">Visión Holística</div>
-        <h1>Integrated Value Chain</h1>
-        
-        <div class="chain-scene">
-            <!-- Support Layer -->
-            <div class="label" style="text-align: center; margin: 0;">Actividades de Soporte (Consumen Data Validada)</div>
-            <div class="support-layer">
-                <div class="chain-box"><strong>Finanzas</strong>Auditoría P&L</div>
-                <div class="chain-box"><strong>RRHH</strong>Control Células</div>
-                <div class="chain-box"><strong>Legal</strong>Gobernanza</div>
-                <div class="chain-box"><strong>Admin</strong>Compras/Cajas</div>
+    <div class="container">
+        <div class="label">Visión Holística: Modelo de Operación</div>
+        <h1>La Cadena de Valor Integrada</h1>
+
+        <div class="value-chain-viz">
+            
+            <!-- CAPA SUPERIOR -->
+            <div class="section-header">Actividades Primarias</div>
+            <div class="nodes-grid layer-primary">
+                <div class="node"><span class="node-title">Leads</span></div>
+                <div class="node"><span class="node-title">Oportunidades</span></div>
+                <div class="node"><span class="node-title">Ventas</span></div>
+                <div class="node"><span class="node-title">Onboarding</span></div>
+                <div class="node"><span class="node-title">Operaciones</span></div>
+                <div class="node"><span class="node-title">Entrega</span></div>
+                <div class="node"><span class="node-title">Postventa</span></div>
             </div>
 
-            <div class="flow-arrow down">↓</div>
+            <!-- ARROWS DOWN -->
+            <div class="arrows-row">
+                <div class="arrow-box"><svg class="arrow-svg" viewBox="0 0 20 30"><path class="arrow-line" d="M10,0 V25"/><path class="arrow-head" d="M5,20 L10,27 L15,20 Z"/></svg></div>
+                <div class="arrow-box"><svg class="arrow-svg" viewBox="0 0 20 30"><path class="arrow-line" d="M10,0 V25"/><path class="arrow-head" d="M5,20 L10,27 L15,20 Z"/></svg></div>
+                <div class="arrow-box"><svg class="arrow-svg" viewBox="0 0 20 30"><path class="arrow-line" d="M10,0 V25"/><path class="arrow-head" d="M5,20 L10,27 L15,20 Z"/></svg></div>
+                <div class="arrow-box"><svg class="arrow-svg" viewBox="0 0 20 30"><path class="arrow-line" d="M10,0 V25"/><path class="arrow-head" d="M5,20 L10,27 L15,20 Z"/></svg></div>
+                <div class="arrow-box"><svg class="arrow-svg" viewBox="0 0 20 30"><path class="arrow-line" d="M10,0 V25"/><path class="arrow-head" d="M5,20 L10,27 L15,20 Z"/></svg></div>
+                <div class="arrow-box"><svg class="arrow-svg" viewBox="0 0 20 30"><path class="arrow-line" d="M10,0 V25"/><path class="arrow-head" d="M5,20 L10,27 L15,20 Z"/></svg></div>
+                <div class="arrow-box"><svg class="arrow-svg" viewBox="0 0 20 30"><path class="arrow-line" d="M10,0 V25"/><path class="arrow-head" d="M5,20 L10,27 L15,20 Z"/></svg></div>
+            </div>
 
-            <!-- Primary Layer -->
-            <div class="label" style="text-align: center; margin: 0;">Gestión Primaria (Generan la Verdad Operativa)</div>
-            <div class="primary-layer">
-                <div class="chain-box" style="border-left: 3px solid var(--color-brand-orange);">
-                    <strong>COMERCIAL</strong>
-                    Prospecto > Propuesta
-                </div>
-                <div class="core-center">
-                    <div class="label" style="font-size: 8px;">MOTOR DE INTEGRACIÓN</div>
-                    <h2>CORE7</h2>
-                    <div class="label" style="font-size: 8px;">SHARED ID INFRASTRUCTURE</div>
-                </div>
-                <div class="chain-box" style="border-right: 3px solid var(--color-brand-blue);">
-                    <strong>OPERACIONES</strong>
-                    Ejecución > Entrega
+            <!-- CORE7 -->
+            <div class="core7-container">
+                <div class="core7-block">
+                    <div class="core7-title">CORE7</div>
+                    <div class="core7-subtitle">Capa Integradora de Gestión</div>
+                    <div class="core7-tags">
+                        <span>Registro/Gestión Ticket</span>
+                        <span>•</span>
+                        <span>Incidentes</span>
+                        <span>•</span>
+                        <span>Multimedios</span>
+                        <span>•</span>
+                        <span>Evaluaciones</span>
+                        <span>•</span>
+                        <span>Data Knowledge</span>
+                    </div>
                 </div>
             </div>
 
-            <div style="margin-top: 10px; font-size: 12px; color: var(--neutral-400); text-align: center;">
-                El CORE7 elimina la redigitación: El soporte se alimenta automáticamente de la ejecución primaria.
+            <!-- ARROWS BIDIRECTIONAL -->
+            <div class="arrows-row">
+                <div class="arrow-box"><svg class="arrow-svg" viewBox="0 0 20 30"><path class="arrow-line" d="M10,3 V27"/><path class="arrow-head" d="M5,8 L10,1 L15,8 Z"/><path class="arrow-head" d="M5,22 L10,29 L15,22 Z"/></svg></div>
+                <div class="arrow-box"><svg class="arrow-svg" viewBox="0 0 20 30"><path class="arrow-line" d="M10,3 V27"/><path class="arrow-head" d="M5,8 L10,1 L15,8 Z"/><path class="arrow-head" d="M5,22 L10,29 L15,22 Z"/></svg></div>
+                <div class="arrow-box"><svg class="arrow-svg" viewBox="0 0 20 30"><path class="arrow-line" d="M10,3 V27"/><path class="arrow-head" d="M5,8 L10,1 L15,8 Z"/><path class="arrow-head" d="M5,22 L10,29 L15,22 Z"/></svg></div>
+                <div class="arrow-box"><svg class="arrow-svg" viewBox="0 0 20 30"><path class="arrow-line" d="M10,3 V27"/><path class="arrow-head" d="M5,8 L10,1 L15,8 Z"/><path class="arrow-head" d="M5,22 L10,29 L15,22 Z"/></svg></div>
+                <div class="arrow-box"><svg class="arrow-svg" viewBox="0 0 20 30"><path class="arrow-line" d="M10,3 V27"/><path class="arrow-head" d="M5,8 L10,1 L15,8 Z"/><path class="arrow-head" d="M5,22 L10,29 L15,22 Z"/></svg></div>
+                <div class="arrow-box"><svg class="arrow-svg" viewBox="0 0 20 30"><path class="arrow-line" d="M10,3 V27"/><path class="arrow-head" d="M5,8 L10,1 L15,8 Z"/><path class="arrow-head" d="M5,22 L10,29 L15,22 Z"/></svg></div>
+                <div class="arrow-box"><svg class="arrow-svg" viewBox="0 0 20 30"><path class="arrow-line" d="M10,3 V27"/><path class="arrow-head" d="M5,8 L10,1 L15,8 Z"/><path class="arrow-head" d="M5,22 L10,29 L15,22 Z"/></svg></div>
             </div>
+
+            <!-- CAPA INFERIOR -->
+            <div class="nodes-grid layer-support">
+                <div class="node"><span class="node-title">Contabilidad</span></div>
+                <div class="node"><span class="node-title">Finanzas / Tesorería</span></div>
+                <div class="node"><span class="node-title">RRHH & Nómina</span></div>
+                <div class="node"><span class="node-title">Activos</span></div>
+                <div class="node"><span class="node-title">Facturación & Tributación</span></div>
+                <div class="node"><span class="node-title">BI / Reporting</span></div>
+                <div class="node"><span class="node-title">Legal / Contratos</span></div>
+            </div>
+            <div class="section-header" style="margin-top: 20px;">Actividades de Soporte</div>
+
         </div>
 
-        <div class="data-source">SOURCE: 04_Propuesta_de_Valor_Final.md (Sec 4.6)</div>
+        <p class="footer-note">
+            El <strong>CORE7</strong> actúa como el sistema nervioso central, orquestando el flujo de información entre la ejecución primaria y el soporte administrativo, garantizando la orquestación total de la cadena de valor.
+        </p>
+
+        <div class="data-source">SOURCE: Cadena de Valor KnowFlow (Sec 4.6)</div>
     </div>
 </body>
 </html>

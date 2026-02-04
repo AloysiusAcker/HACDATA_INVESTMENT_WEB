@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RG-01.3 - Radar Benchmark</title>
+    <title>RG-01.3 - Benchmark de Desempeño</title>
     <link rel="stylesheet" href="../shared/anthropic-base.css">
     <link rel="stylesheet" href="../shared/asset-fixes.css">
     <style>
@@ -13,7 +13,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding-top: var(--space-md);
+            padding-top: 0; 
+            margin-top: 0; /* Removed top margin completely */
+            transform: translateY(-20px); /* Visually pull chart up */
         }
 
         svg {
@@ -22,27 +24,27 @@
         }
 
         .axis {
-            stroke: var(--neutral-500);
+            stroke: rgba(255, 255, 255, 0.4);
             stroke-width: 1;
         }
 
         .grid-line {
             fill: none;
-            stroke: var(--alpha-white-05);
+            stroke: rgba(255, 255, 255, 0.15);
             stroke-width: 0.5;
         }
 
         .label-text {
             font-family: var(--font-sans);
             font-size: 12px;
-            fill: var(--neutral-white);
+            fill: #FFFFFF;
             font-weight: 500;
         }
 
         .value-text {
             font-family: var(--font-mono);
             font-size: 10px;
-            fill: var(--neutral-200);
+            fill: #E5E5E0;
         }
 
         .polygon-benchmark {
@@ -61,7 +63,7 @@
 
         .legend {
             position: absolute;
-            top: var(--space-xl);
+            top: var(--space-lg); /* Adjusted to align better with chart start */
             right: var(--space-xl);
             display: flex;
             flex-direction: column;
@@ -73,7 +75,7 @@
             align-items: center;
             gap: var(--space-xs);
             font-size: 11px;
-            color: var(--neutral-200);
+            color: #FFFFFF;
         }
 
         .legend-box {
@@ -86,7 +88,7 @@
 <body>
     <div class="container">
         <div class="label">Unit Economics de Élite</div>
-        <h1>Radar Benchmark</h1>
+        <h1>Benchmark de Desempeño</h1>
 
         <div class="legend">
             <div class="legend-item">
@@ -95,7 +97,7 @@
             </div>
             <div class="legend-item">
                 <div class="legend-box" style="background: var(--neutral-900); border: 1px dashed var(--neutral-300);"></div>
-                Benchmark Sector (3.0x)
+                Benchmark del Sector (3.0x)
             </div>
         </div>
         
@@ -130,7 +132,7 @@
 
                 <!-- Text -->
                 <text x="200" y="35" class="label-text" text-anchor="middle">LTV / CAC (44.8x)</text>
-                <text x="340" y="290" class="label-text">Gross Margin (94.5%)</text>
+                <text x="340" y="290" class="label-text">Margen Bruto (94.5%)</text>
                 <text x="10" y="290" class="label-text">Payback (2 Meses)</text>
             </svg>
         </div>

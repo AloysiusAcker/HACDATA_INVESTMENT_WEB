@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-11.5 - Red Institucional Estratégica</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        .network-container {
+            width: 100%;
+            height: 480px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: var(--space-xl);
+        }
+
+        .center-brand {
+            width: 120px;
+            height: 120px;
+            background: var(--neutral-900);
+            border: 2px solid var(--color-brand-blue);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            box-shadow: 0 0 40px rgba(32, 127, 222, 0.4);
+        }
+
+        .center-brand strong { font-size: 16px; color: var(--neutral-white); letter-spacing: 2px; }
+
+        .net-node {
+            position: absolute;
+            background: var(--neutral-850);
+            border: 1px solid var(--alpha-white-10);
+            padding: var(--space-md) var(--space-lg);
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            z-index: 5;
+            transition: all 0.3s ease;
+        }
+
+        .net-node:hover {
+            border-color: var(--color-brand-blue);
+            transform: scale(1.05);
+        }
+
+        .node-tag { font-size: 8px; color: var(--color-brand-blue); text-transform: uppercase; letter-spacing: 1px; }
+        .node-name { font-size: 13px; font-weight: 800; color: var(--neutral-white); }
+        .node-desc { font-size: 9px; color: var(--neutral-400); text-align: center; max-width: 120px; }
+
+        /* Lines */
+        .connector {
+            position: absolute;
+            background: linear-gradient(90deg, var(--color-brand-blue), transparent);
+            height: 1px;
+            opacity: 0.2;
+            z-index: 1;
+            transform-origin: left center;
+        }
+
+        /* Distribution */
+        .node-ccl { top: 10%; left: 15%; border-left: 3px solid #E63946; } /* CCL Red */
+        .node-audit { top: 15%; right: 15%; border-right: 3px solid var(--color-brand-blue); }
+        .node-ethics { bottom: 15%; left: 15%; border-left: 3px solid var(--color-brand-purple); }
+        .node-cloud { bottom: 10%; right: 15%; border-right: 3px solid var(--color-brand-orange); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Respaldo y Legitimidad</div>
+        <h1>Red Institucional Estratégica</h1>
+        
+        <div class="network-container">
+            <!-- Center -->
+            <div class="center-brand">
+                <strong>HACDATA</strong>
+            </div>
+
+            <!-- CCL -->
+            <div class="net-node node-ccl">
+                <span class="node-tag">Market Anchor</span>
+                <span class="node-name">CCL</span>
+                <span class="node-desc">Prospección científica y legitimidad gremial.</span>
+            </div>
+
+            <!-- Financial Audit -->
+            <div class="net-node node-audit">
+                <span class="node-tag">Compliance</span>
+                <span class="node-name">Finan. Audit</span>
+                <span class="node-desc">Supervisión estratégica de P&L y Cash-Flow.</span>
+            </div>
+
+            <!-- Ethics IA -->
+            <div class="net-node node-ethics">
+                <span class="node-tag">Trust Layer</span>
+                <span class="node-name">Etica IA</span>
+                <span class="node-desc">Uso responsable de datos en redes semánticas.</span>
+            </div>
+
+            <!-- Cloud Partners -->
+            <div class="net-node node-cloud">
+                <span class="node-tag">Infra Stack</span>
+                <span class="node-name">Cloud Partners</span>
+                <span class="node-desc">Escalado global (AWS/Azure) y Hardware Pro.</span>
+            </div>
+
+            <!-- Decorative lines (simplified) -->
+            <div class="connector" style="width: 250px; top: 50%; left: 50%; transform: rotate(140deg);"></div>
+            <div class="connector" style="width: 250px; top: 50%; left: 50%; transform: rotate(40deg);"></div>
+            <div class="connector" style="width: 250px; top: 50%; left: 50%; transform: rotate(220deg);"></div>
+            <div class="connector" style="width: 250px; top: 50%; left: 50%; transform: rotate(320deg);"></div>
+        </div>
+
+        <div style="margin-top: 20px; font-size: 13px; color: var(--neutral-300); text-align: center; line-height: 1.5;">
+            Nuestro crecimiento está blindado por un ecosistema de alianzas que garantizan transparencia, ética técnica y una <strong>prospección de mercado autorizada</strong> y eficiente.
+        </div>
+
+        <div class="data-source">SOURCE: 11_Organizacion_y_Equipo_Final.md (Sec 11.5)</div>
+    </div>
+</body>
+</html>
