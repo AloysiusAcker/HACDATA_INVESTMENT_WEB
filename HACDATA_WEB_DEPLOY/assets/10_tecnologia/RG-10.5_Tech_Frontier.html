@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-10.5 - Roadmap: La Frontera Tecnológica 2030</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        .roadmap-container {
+            width: 100%;
+            height: 480px;
+            margin-top: var(--space-xl);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(32, 127, 222, 0.05) 0%, transparent 100%);
+            border-radius: var(--radius-2xl);
+            border: 1px solid var(--alpha-white-05);
+        }
+
+        .hud-grid {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(var(--alpha-white-05) 1px, transparent 1px),
+                linear-gradient(90deg, var(--alpha-white-05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+
+        .timeline-main {
+            position: absolute;
+            width: 90%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-brand-blue), var(--color-brand-purple), var(--color-brand-orange));
+            top: 50%;
+            left: 5%;
+            z-index: 1;
+        }
+
+        .milestone-point {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: var(--neutral-900);
+            border: 2px solid var(--neutral-white);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .milestone-card {
+            position: absolute;
+            width: 220px;
+            background: rgba(10, 14, 23, 0.8);
+            border: 1px solid var(--alpha-white-10);
+            border-left: 3px solid var(--neutral-white);
+            padding: var(--space-md);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .milestone-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-brand-blue);
+        }
+
+        .milestone-year {
+            font-family: var(--font-mono);
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--alpha-white-20);
+            position: absolute;
+            top: -30px;
+            left: 0;
+        }
+
+        .milestone-card h3 { font-size: 14px; margin-bottom: 5px; color: var(--neutral-white); }
+        .milestone-card p { font-size: 10px; color: var(--neutral-400); line-height: 1.4; }
+
+        /* Phases placement */
+        .p1 { left: 10%; bottom: 55%; border-left-color: var(--color-brand-blue); }
+        .m1 { left: 10%; }
+
+        .p2 { left: 45%; top: 55%; border-left-color: var(--color-brand-purple); }
+        .m2 { left: 45%; }
+
+        .p3 { left: 80%; bottom: 55%; border-left-color: var(--color-brand-orange); }
+        .m3 { left: 80%; }
+
+        .hud-scanline {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: rgba(32, 127, 222, 0.2);
+            top: 0;
+            animation: scanline 4s linear infinite;
+            z-index: 10;
+        }
+
+        @keyframes scanline {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 950px;">
+        <div class="label">Visión de Futuro R&D</div>
+        <h1>La Frontera Tecnológica 2030</h1>
+        
+        <div class="roadmap-container">
+            <div class="hud-grid"></div>
+            <div class="hud-scanline"></div>
+            <div class="timeline-main"></div>
+
+            <!-- PHASE 1 -->
+            <div class="milestone-point m1"></div>
+            <div class="milestone-card p1">
+                <span class="milestone-year">2026</span>
+                <h3>IA Mastery & Core</h3>
+                <p>Nodos de inferencia local masivos y optimización total de la Red Semántica CORE7.</p>
+            </div>
+
+            <!-- PHASE 2 -->
+            <div class="milestone-point m2"></div>
+            <div class="milestone-card p2">
+                <span class="milestone-year">2028</span>
+                <h3>Blockchain & IoT</h3>
+                <p>Anclaje distribuido de evidencias y captura autónoma de datos físicos en tiempo real.</p>
+            </div>
+
+            <!-- PHASE 3 -->
+            <div class="milestone-point m3"></div>
+            <div class="milestone-card p3">
+                <span class="milestone-year">2030</span>
+                <h3>Reality Orchestration</h3>
+                <p>Interfaces de Realidad Aumentada para gestión de almacenes y mantenimiento industrial.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 13px; color: var(--neutral-300); text-align: center; line-height: 1.5;">
+            HACDATA trasciende el software de gestión para convertirse en el **protocolo universal** de ejecución y certificación de negocios.
+        </div>
+
+        <div class="data-source">SOURCE: 10_Tecnologia_y_arquitectura_Final.md (Sec 10.6)</div>
+    </div>
+</body>
+</html>

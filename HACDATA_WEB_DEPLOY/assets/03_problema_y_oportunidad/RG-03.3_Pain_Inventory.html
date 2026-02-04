@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-03.3 - Inventario de Dolores</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            padding: 30px 40px 50px 40px;
+            box-sizing: border-box;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .label {
+            margin-bottom: 6px;
+        }
+
+        /* Legend - Inline compact */
+        .legend {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10px;
+            color: var(--neutral-200);
+        }
+
+        .legend-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 2px;
+        }
+
+        .legend-dot.d1 { background: var(--color-brand-orange); }
+        .legend-dot.d2 { background: #9B87F5; }
+        .legend-dot.d3 { background: var(--color-brand-blue); }
+        .legend-dot.d4 { background: #BF4D43; }
+        .legend-dot.d5 { background: #4ECDC4; }
+
+        /* Pain Grid - Flex grow to fill space */
+        .pain-grid {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Dimension Rows */
+        .dimension-row {
+            display: grid;
+            grid-template-columns: 160px 1fr 1fr;
+            gap: 12px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        /* Dimension Header */
+        .dimension-header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 12px 14px;
+            border-radius: 8px;
+            background: var(--neutral-800);
+            border-left: 4px solid;
+        }
+
+        .dimension-header.d1 { border-color: var(--color-brand-orange); }
+        .dimension-header.d2 { border-color: #9B87F5; }
+        .dimension-header.d3 { border-color: var(--color-brand-blue); }
+        .dimension-header.d4 { border-color: #BF4D43; }
+        .dimension-header.d5 { border-color: #4ECDC4; }
+
+        .dimension-code {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 700;
+            opacity: 0.7;
+            margin-bottom: 3px;
+        }
+
+        .dimension-header.d1 .dimension-code { color: var(--color-brand-orange); }
+        .dimension-header.d2 .dimension-code { color: #9B87F5; }
+        .dimension-header.d3 .dimension-code { color: var(--color-brand-blue); }
+        .dimension-header.d4 .dimension-code { color: #BF4D43; }
+        .dimension-header.d5 .dimension-code { color: #4ECDC4; }
+
+        .dimension-name {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--neutral-white);
+            line-height: 1.3;
+        }
+
+        /* Pain Point Cards */
+        .pain-card {
+            background: var(--neutral-700);
+            border: 1px solid var(--alpha-white-10);
+            border-radius: 6px;
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .pain-card:hover {
+            border-color: var(--alpha-white-20);
+        }
+
+        .pain-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--neutral-white);
+            line-height: 1.3;
+        }
+
+        .pain-area {
+            font-size: 9px;
+            color: var(--neutral-400);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        /* Evidence Section */
+        .pain-evidence {
+            font-size: 10px;
+            color: var(--neutral-200);
+            line-height: 1.35;
+            padding: 7px 8px;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 4px;
+        }
+
+        .evidence-label {
+            font-size: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            color: var(--neutral-400);
+            margin-bottom: 3px;
+            display: block;
+        }
+
+        .pain-impact {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 10px;
+            font-weight: 500;
+            margin-top: auto;
+            padding-top: 6px;
+            border-top: 1px solid var(--alpha-white-10);
+        }
+
+        .pain-impact.critical { color: #BF4D43; }
+        .pain-impact.high { color: var(--color-brand-orange); }
+        .pain-impact.medium { color: #f59e0b; }
+
+        .impact-arrow {
+            font-size: 9px;
+        }
+
+        .data-source {
+            margin-top: 12px;
+            padding-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Consecuencias Visibles del Problema Estructural</div>
+        <h1>Inventario de Dolores</h1>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item"><div class="legend-dot d1"></div> Procesos</div>
+            <div class="legend-item"><div class="legend-dot d2"></div> Conocimiento</div>
+            <div class="legend-item"><div class="legend-dot d3"></div> Tecnología</div>
+            <div class="legend-item"><div class="legend-dot d4"></div> Incidentes</div>
+            <div class="legend-item"><div class="legend-dot d5"></div> Métricas</div>
+        </div>
+
+        <div class="pain-grid">
+            <!-- D1: Procesos no Estandarizados -->
+            <div class="dimension-row">
+                <div class="dimension-header d1">
+                    <span class="dimension-code">D1</span>
+                    <span class="dimension-name">Procesos no Estandarizados</span>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-title">Cotizaciones Lentas</div>
+                    <div class="pain-area">Gestión Comercial</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Cotizaciones con formatos distintos, tiempos variables, aprobaciones por chat, retrabajo por errores.
+                    </div>
+                    <div class="pain-impact critical">
+                        <span class="impact-arrow">▼</span> Win Rate bajo / Ciclo de venta largo
+                    </div>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-title">Descuadres de Caja</div>
+                    <div class="pain-area">Admin. y Finanzas</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Cierres largos, ajustes manuales, faltantes sin explicación, diferencias por turno/cajero.
+                    </div>
+                    <div class="pain-impact critical">
+                        <span class="impact-arrow">▼</span> Mermas / Riesgo de fraude
+                    </div>
+                </div>
+            </div>
+
+            <!-- D2: Conocimiento Disperso -->
+            <div class="dimension-row">
+                <div class="dimension-header d2">
+                    <span class="dimension-code">D2</span>
+                    <span class="dimension-name">Conocimiento Disperso</span>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-title">Cliente "en la cabeza del vendedor"</div>
+                    <div class="pain-area">CRM / Relación Cliente</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Respuestas distintas según quién atiende; "reinicios" cuando cambia el ejecutivo.
+                    </div>
+                    <div class="pain-impact high">
+                        <span class="impact-arrow">▼</span> Churn alto / Venta cruzada perdida
+                    </div>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-title">Leads Dispersos</div>
+                    <div class="pain-area">Marketing Digital</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Formularios a correos genéricos; mensajes sin dueño; leads sin historia ni estado.
+                    </div>
+                    <div class="pain-impact high">
+                        <span class="impact-arrow">▼</span> Oportunidades fugadas
+                    </div>
+                </div>
+            </div>
+
+            <!-- D3: Tecnología Fragmentada -->
+            <div class="dimension-row">
+                <div class="dimension-header d3">
+                    <span class="dimension-code">D3</span>
+                    <span class="dimension-name">Tecnología Fragmentada</span>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-title">Inconsistencia Tienda vs Web</div>
+                    <div class="pain-area">Omnicanal / POS</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Catálogo duplicado; actualizaciones manuales; clientes mostrando capturas de precios.
+                    </div>
+                    <div class="pain-impact critical">
+                        <span class="impact-arrow">▼</span> Reclamos / Pérdida de confianza
+                    </div>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-title">Conciliación Digital Manual</div>
+                    <div class="pain-area">Tesorería / Cobranzas</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Cruces manuales; pedidos "en duda"; cobranzas duplicadas; retrasos en liberación.
+                    </div>
+                    <div class="pain-impact high">
+                        <span class="impact-arrow">▼</span> Morosidad aparente / Disputas
+                    </div>
+                </div>
+            </div>
+
+            <!-- D4: Incidentes Fuera del Flujo -->
+            <div class="dimension-row">
+                <div class="dimension-header d4">
+                    <span class="dimension-code">D4</span>
+                    <span class="dimension-name">Incidentes Fuera del Flujo</span>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-title">Reclamos por WhatsApp/Email</div>
+                    <div class="pain-area">Calidad / Operaciones</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Conversaciones sueltas; ausencia de historial; casos que se reabren; decisiones sin data.
+                    </div>
+                    <div class="pain-impact critical">
+                        <span class="impact-arrow">▼</span> Recurrencia de fallas / NPS bajo
+                    </div>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-title">Entregas Tardías/Erróneas</div>
+                    <div class="pain-area">Logística / Despacho</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Reprogramaciones sin registro; llamadas para "ubicar" pedidos; falta de trazabilidad.
+                    </div>
+                    <div class="pain-impact critical">
+                        <span class="impact-arrow">▼</span> OTIF bajo / Devoluciones
+                    </div>
+                </div>
+            </div>
+
+            <!-- D5: Falta de Métricas Operativas -->
+            <div class="dimension-row">
+                <div class="dimension-header d5">
+                    <span class="dimension-code">D5</span>
+                    <span class="dimension-name">Falta de Métricas Operativas</span>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-title">Margen Invisible</div>
+                    <div class="pain-area">Control de Gestión</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Decisiones basadas en ventas totales; promociones que destruyen margen sin saberlo.
+                    </div>
+                    <div class="pain-impact high">
+                        <span class="impact-arrow">▼</span> Decisiones a ciegas / Pérdida de caja
+                    </div>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-title">Marketing sin Atribución</div>
+                    <div class="pain-area">Growth / Pauta Digital</div>
+                    <div class="pain-evidence">
+                        <span class="evidence-label">Evidencia Observable</span>
+                        Decisiones por "sensación"; reportes que no conectan con ventas; ROI desconocido.
+                    </div>
+                    <div class="pain-impact medium">
+                        <span class="impact-arrow">▼</span> CAC desconocido / ROI incierto
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-source">SOURCE: 03_Problema_y_Oportunidad_Final.md (Sec 3.1.3)</div>
+    </div>
+</body>
+</html>

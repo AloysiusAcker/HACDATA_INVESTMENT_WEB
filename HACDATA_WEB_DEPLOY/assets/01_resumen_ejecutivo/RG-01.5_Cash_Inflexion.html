@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-01.5 - Inflexión de Caja</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        .chart-wrapper {
+            width: 100%;
+            height: 320px;
+            margin-top: var(--space-md);
+            position: relative;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .area-cash {
+            fill: url(#cash-gradient);
+            stroke: var(--color-brand-blue);
+            stroke-width: 2;
+        }
+
+        .breakeven-line {
+            stroke: var(--color-brand-orange);
+            stroke-width: 2;
+            stroke-dasharray: 5;
+        }
+
+        .axis-label {
+            font-size: 10px;
+            fill: #FFFFFF;
+            font-family: var(--font-mono);
+        }
+
+        .highlight-circle {
+            fill: var(--color-brand-orange);
+            filter: drop-shadow(0 0 5px var(--color-brand-orange));
+        }
+
+        .annotation {
+            font-size: 12px;
+            fill: #FFFFFF;
+            font-weight: 600;
+        }
+
+        .legend-financial {
+            display: flex;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-md);
+        }
+
+        .inflexion-point {
+            position: absolute;
+            top: 180px;
+            left: 28%;
+            background: var(--neutral-700);
+            padding: var(--space-sm);
+            border-radius: var(--radius-base);
+            border: 1px solid var(--color-brand-orange);
+            font-size: 11px;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Hitos de Caja</div>
+        <h1>Inflexión de Caja</h1>
+
+        <div class="legend-financial">
+            <div class="label" style="color: var(--color-brand-blue);">● Caja Acumulada</div>
+            <div class="label" style="color: var(--color-brand-orange);">-- Punto de Equilibrio Operativo</div>
+        </div>
+        
+        <div class="chart-wrapper">
+            <div class="inflexion-point">
+                <strong>MES 19</strong><br>
+                Punto de Equilibrio Operativo
+            </div>
+
+            <svg viewBox="0 0 800 400" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="cash-gradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="var(--color-brand-blue)" stop-opacity="0.4" />
+                        <stop offset="100%" stop-color="var(--color-brand-blue)" stop-opacity="0" />
+                    </linearGradient>
+                </defs>
+
+                <!-- Grid lines -->
+                <line x1="0" y1="350" x2="800" y2="350" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1" />
+                
+                <!-- Chart Data simulation (J-Curve) -->
+                <!-- Values: Start at -2.6M, valley at M12, recover to 0 at M19, growth to 15M at M66 -->
+                <path class="area-cash" d="M0,350 L50,370 L100,385 L150,395 L200,380 L224,350 L300,300 L400,240 L500,180 L600,120 L700,60 L800,20 L800,350 Z" />
+                
+                <!-- Breakeven Marker -->
+                <line class="breakeven-line" x1="224" y1="0" x2="224" y2="400" />
+                <circle class="highlight-circle" cx="224" cy="350" r="6" />
+
+                <!-- X Axis Text -->
+                <text x="10" y="365" class="axis-label">MES 1</text>
+                <text x="215" y="365" class="axis-label" style="fill: var(--color-brand-orange);">M19</text>
+                <text x="750" y="365" class="axis-label">MES 66</text>
+                
+                <!-- Y Axis Text -->
+                <text x="10" y="20" class="axis-label">$15.3M</text>
+                <text x="10" y="340" class="axis-label">$0</text>
+            </svg>
+        </div>
+
+        <div style="margin-top: var(--space-md); font-size: 13px; color: var(--neutral-200);">
+            Hacia el <span style="color: var(--neutral-white); font-weight: 600;">Runway Infinito</span>: La estructura operativa se vuelve autosuficiente a partir del segundo año, permitiendo reinversión agresiva en R&D.
+        </div>
+
+        <div class="data-source">SOURCE: 12_Plan_financiero_Final.md (Sec 12.5)</div>
+    </div>
+</body>
+</html>

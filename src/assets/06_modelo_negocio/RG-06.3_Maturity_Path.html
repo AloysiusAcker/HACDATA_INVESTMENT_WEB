@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-06.3 - Ruta de Madurez del Cliente</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <style>
+        :root {
+            --color-card-bg: #2E2E2B;
+            --color-card-border: rgba(206, 204, 197, 0.05);
+            --color-blue-accent: #207FDE;
+            --color-orange-accent: #D97757;
+            --color-muted-text: #BFBFBA;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            overflow: hidden;
+        }
+
+        body {
+            color: var(--neutral-white);
+            padding: 30px 40px;
+            font-family: var(--font-sans);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .header-group {
+            margin-bottom: 20px;
+        }
+
+        .path-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        /* Milestone Card Styling */
+        .milestone-card {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            gap: 12px;
+            width: 280px;
+            background: var(--color-card-bg);
+            border: 1px solid var(--color-card-border);
+            border-radius: 12px;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .milestone-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(206, 204, 197, 0.15);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .m-step {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: var(--color-muted-text);
+            text-transform: uppercase;
+        }
+
+        .m-title {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            font-weight: 400;
+            color: #FFFFFF;
+            margin: 0;
+        }
+
+        .m-desc {
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--color-muted-text);
+            margin: 0;
+        }
+
+        /* Progress Bar within card */
+        .m-progress-container {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 2px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .m-progress-fill {
+            height: 100%;
+            transition: width 1s ease-in-out;
+        }
+
+        /* Special themes */
+        .theme-blue { border-top: 3px solid var(--color-blue-accent); }
+        .theme-blue .m-progress-fill { background: var(--color-blue-accent); box-shadow: 0 0 10px rgba(32, 127, 222, 0.5); }
+        
+        .theme-orange { border-top: 3px solid var(--color-orange-accent); }
+        .theme-orange .m-progress-fill { background: var(--color-orange-accent); box-shadow: 0 0 10px rgba(217, 119, 87, 0.5); }
+
+        /* Sequence Arrows */
+        .sequence-arrow {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-card-border);
+            flex-shrink: 0;
+        }
+
+        .sequence-arrow svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .footer-text {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--neutral-400);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-text strong {
+            color: var(--neutral-200);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-group">
+            <div class="label">Segmentación Estratégica</div>
+            <h1>Ruta de Madurez y Segmentación</h1>
+        </div>
+        
+        <div class="path-group">
+            <!-- Stage 1 -->
+            <div class="milestone-card theme-blue">
+                <span class="m-step">STEP 01</span>
+                <h3 class="m-title">Crecimiento SaaS</h3>
+                <p class="m-desc">Empresas en expansión focalizadas en estandarización y control operativo básico.</p>
+                <div class="m-progress-container">
+                    <div class="m-progress-fill" style="width: 35%"></div>
+                </div>
+            </div>
+
+            <!-- Arrow 1 -->
+            <div class="sequence-arrow">
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="milestone-card theme-blue">
+                <span class="m-step">STEP 02</span>
+                <h3 class="m-title">SaaS Corporativo</h3>
+                <p class="m-desc">Estructuras complejas multi-sede con flujos inter-áreas masivos y auditoría viva.</p>
+                <div class="m-progress-container">
+                    <div class="m-progress-fill" style="width: 70%"></div>
+                </div>
+            </div>
+
+            <!-- Arrow 2 -->
+            <div class="sequence-arrow">
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="milestone-card theme-orange">
+                <span class="m-step">STEP 03</span>
+                <h3 class="m-title">BPO Corporativo</h3>
+                <p class="m-desc">Operación delegada de alta criticidad bajo soberanía total de expertos HACDATA.</p>
+                <div class="m-progress-container">
+                    <div class="m-progress-fill" style="width: 100%"></div>
+                </div>
+            </div>
+        </div>
+
+        <p class="footer-text">
+            HACDATA acompaña al cliente en su curva de madurez, desde el <strong>control autónomo</strong> hasta la <strong>excelencia delegada</strong>.
+        </p>
+    </div>
+</body>
+</html>
