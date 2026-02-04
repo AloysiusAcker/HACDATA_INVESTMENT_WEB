@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Bloque 09 - Operaciones y Entrega</title>
+    <link rel="stylesheet" href="../anthropic-base.css">
+    <style>
+        body {
+            overflow: auto;
+            display: block;
+            padding: var(--space-4xl);
+        }
+        .grid-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--space-2xl);
+        }
+        iframe {
+            width: 100%;
+            height: 650px;
+            border: 1px solid var(--alpha-white-10);
+            border-radius: var(--radius-lg);
+            background: var(--neutral-800);
+        }
+        .item-header {
+            margin-bottom: var(--space-md);
+            padding: 0 var(--space-sm);
+        }
+    </style>
+</head>
+<body>
+    <div class="item-header">
+        <div class="label">HACDATA 2026 - Visual Assets</div>
+        <h1>Bloque 09: Operaciones y Entrega del Servicio</h1>
+        <p style="color: var(--neutral-200);">Dogfooding radical, ciclos de entrega eficientes y arquitectura organizacional escalable.</p>
+    </div>
+
+    <div class="grid-preview">
+        <div>
+            <div class="label">RG-09.1</div>
+            <iframe src="RG-09.1_Unified_OS.html"></iframe>
+        </div>
+        <div>
+            <div class="label">RG-09.2</div>
+            <iframe src="RG-09.2_TTV_Cycles.html"></iframe>
+        </div>
+        <div>
+            <div class="label">RG-09.3</div>
+            <iframe src="RG-09.3_BPaaS_Loop.html"></iframe>
+        </div>
+        <div>
+            <div class="label">RG-09.4</div>
+            <iframe src="RG-09.4_Hybrid_Infra.html"></iframe>
+        </div>
+        <div>
+            <div class="label">RG-09.5</div>
+            <iframe src="RG-09.5_Cell_Structure.html"></iframe>
+        </div>
+    </div>
+</body>
+</html>

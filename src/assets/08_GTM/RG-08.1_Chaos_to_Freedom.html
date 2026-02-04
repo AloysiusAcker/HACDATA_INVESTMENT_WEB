@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-08.1 - From Chaos to Freedom</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <link rel="stylesheet" href="../shared/asset-fixes.css">
+    <style>
+        .emotional-container {
+            display: flex;
+            width: 100%;
+            height: 400px;
+            margin-top: var(--space-xl);
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            border: 1px solid var(--alpha-white-10);
+            position: relative;
+        }
+
+        .side {
+            flex: 1;
+            padding: var(--space-2xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .side-chaos {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+            border-right: 1px solid var(--alpha-white-10);
+        }
+
+        .side-freedom {
+            background: linear-gradient(135deg, rgba(32, 127, 222, 0.1) 0%, rgba(155, 135, 245, 0.05) 100%);
+        }
+
+        .emoji-header {
+            font-size: 48px;
+            margin-bottom: var(--space-md);
+        }
+
+        .side h2 {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            margin-bottom: var(--space-sm);
+        }
+
+        .side-chaos h2 { color: var(--state-error); }
+        .side-freedom h2 { color: var(--color-brand-blue); }
+
+        .side p {
+            font-size: 14px;
+            color: var(--neutral-300);
+            line-height: 1.6;
+        }
+
+        .chaos-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0; left: 0;
+            pointer-events: none;
+            opacity: 0.2;
+        }
+
+        .chaos-tag {
+            position: absolute;
+            background: var(--neutral-800);
+            border: 1px solid var(--state-error);
+            padding: 4px 8px;
+            font-size: 10px;
+            border-radius: 4px;
+            color: var(--state-error);
+        }
+
+        .freedom-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0; left: 0;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .freedom-tag {
+            position: absolute;
+            background: var(--color-brand-blue);
+            padding: 4px 10px;
+            font-size: 10px;
+            border-radius: var(--radius-pill);
+            color: white;
+            font-weight: 700;
+        }
+
+        .connector {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: var(--neutral-900);
+            border: 2px solid var(--neutral-700);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            font-size: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .connector::after {
+            content: "GESTOR";
+            position: absolute;
+            top: -25px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--color-brand-orange);
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Narrativa Maestra</div>
+        <h1>From Chaos to Freedom</h1>
+        
+        <div class="emotional-container">
+            <div class="connector">🚀</div>
+
+            <!-- Chaos Side -->
+            <div class="side side-chaos">
+                <div class="chaos-elements">
+                    <span class="chaos-tag" style="top: 20%; left: 10%;">¿DÓNDE ESTÁ EL DATO?</span>
+                    <span class="chaos-tag" style="top: 15%; right: 15%;">WHATSAPP SIN CONTROL</span>
+                    <span class="chaos-tag" style="bottom: 25%; left: 20%;">INCENDIOS DIARIOS</span>
+                    <span class="chaos-tag" style="bottom: 10%; right: 10%;">DEUDA TÉCNICA</span>
+                </div>
+                <div class="emoji-header">😫</div>
+                <h2>El Caos Operativo</h2>
+                <p>La gestión reactiva secuestra el tiempo del empresario. La incertidumbre y la fragmentación impiden el crecimiento estratégico.</p>
+            </div>
+
+            <!-- Freedom Side -->
+            <div class="side side-freedom">
+                <div class="freedom-elements">
+                    <span class="freedom-tag" style="top: 20%; right: 10%;">SOBERANÍA TOTAL</span>
+                    <span class="freedom-tag" style="top: 15%; left: 15%;">TIEMPO DE CALIDAD</span>
+                    <span class="freedom-tag" style="bottom: 25%; right: 20%;">PAZ MENTAL</span>
+                    <span class="freedom-tag" style="bottom: 10%; left: 10%;">CRECIMIENTO ESCALABLE</span>
+                </div>
+                <div class="emoji-header">🧘‍♂️</div>
+                <h2>Libertad Estratégica</h2>
+                <p>GESTOR devuelve el control al dueño. La soberanía operativa permite que el negocio funcione bajo tus reglas, incluso en tu ausencia.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 14px; color: var(--neutral-300); text-align: center; line-height: 1.5;">
+            Nuestra narrativa no vende software; vende la recuperación de la <strong>tranquilidad</strong> y el <strong>propósito</strong> del empresario a través de la orquestación técnica.
+        </div>
+
+        <div class="data-source">SOURCE: 08_Go_to_Market_y_estrategia_comercial_Final.md (Sec 8.1.2)</div>
+    </div>
+</body>
+</html>

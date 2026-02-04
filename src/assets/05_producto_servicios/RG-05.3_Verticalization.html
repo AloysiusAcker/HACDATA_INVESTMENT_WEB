@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-05.3 - GESTOR Verticalization Map</title>
+    <link rel="stylesheet" href="../anthropic-base.css">
+    <style>
+        .verticals-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+            position: relative;
+        }
+
+        .vertical-item {
+          padding: var(--space-xl);
+          border-radius: var(--radius-xl);
+          background: var(--alpha-white-05);
+          border: 1px solid var(--alpha-white-10);
+          display: flex;
+          align-items: flex-start;
+          gap: var(--space-lg);
+          transition: all 0.3s ease;
+        }
+
+        .vertical-item:hover {
+          background: var(--alpha-white-08);
+          border-color: var(--color-brand-blue);
+          transform: scale(1.02);
+        }
+
+        .v-icon {
+          font-size: 32px;
+          min-width: 50px;
+          height: 50px;
+          background: var(--neutral-900);
+          border-radius: 12px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid var(--alpha-white-10);
+        }
+
+        .v-content h3 { font-size: 16px; margin: 0 0 4px 0; color: var(--neutral-white); }
+        .v-content p { font-size: 12px; color: var(--neutral-200); line-height: 1.4; }
+
+        .v-badge {
+          display: inline-block;
+          font-size: 9px;
+          padding: 2px 6px;
+          background: var(--alpha-black-40);
+          color: var(--color-brand-orange);
+          border-radius: 4px;
+          margin-top: 6px;
+          font-family: var(--font-mono);
+          text-transform: uppercase;
+        }
+
+        .central-adapter {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 80px;
+          height: 80px;
+          background: var(--color-brand-blue);
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 0 0 20px var(--color-brand-blue);
+          z-index: 5;
+          color: white;
+          font-weight: 800;
+          font-size: 10px;
+          text-align: center;
+          line-height: 1.1;
+          border: 4px solid var(--neutral-800);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Adaptabilidad de Negocio</div>
+        <h1>Verticales Sugeridas</h1>
+        
+        <div class="verticals-grid">
+            <div class="central-adapter">MOTOR<br>CORE7</div>
+
+            <!-- Commercial -->
+            <div class="vertical-item">
+                <div class="v-icon">🛒</div>
+                <div class="v-content">
+                    <h3>Comercial & Retail</h3>
+                    <p>POS, Omnicanalidad y flujo Lead-to-Cash.</p>
+                    <span class="v-badge">Alta Rotación</span>
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div class="vertical-item">
+                <div class="v-icon">🛠️</div>
+                <div class="v-content">
+                    <h3>Servicios & Auditoría</h3>
+                    <p>Ciclo Ticket-Evidencia para field services.</p>
+                    <span class="v-badge">Field Services</span>
+                </div>
+            </div>
+
+            <!-- Industry -->
+            <div class="vertical-item">
+                <div class="v-icon">🏭</div>
+                <div class="v-content">
+                    <h3>Industria & Prod.</h3>
+                    <p>BOM, Recetas y costeo industrial real.</p>
+                    <span class="v-badge">Manufactura</span>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="vertical-item">
+                <div class="v-icon">🎓</div>
+                <div class="v-content">
+                    <h3>Educación</h3>
+                    <p>Matrículas, pensiones y vida académica.</p>
+                    <span class="v-badge">Core Histórico</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; font-size: 13px; color: var(--neutral-200); text-align: center;">
+            GESTOR se adapta mediante configuraciones de flujo sobre un núcleo inmutable, permitiendo una verticalización rápida sin desarrollo a medida.
+        </div>
+
+        <div class="data-source">SOURCE: 05_Producto_y_servicios_Final.md (Sec 5.3)</div>
+    </div>
+</body>
+</html>

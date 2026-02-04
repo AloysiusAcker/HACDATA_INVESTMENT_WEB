@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-09.5 - High-Performance Cell Structure</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <link rel="stylesheet" href="../shared/asset-fixes.css">
+    <style>
+        .org-container {
+            width: 100%;
+            height: 480px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: var(--space-xl);
+        }
+
+        .hex-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 160px);
+            gap: 20px;
+            transform: rotate(30deg);
+        }
+
+        .hex-cell {
+            width: 150px;
+            height: 170px;
+            background: var(--neutral-900);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--alpha-white-10);
+            transform: rotate(-30deg);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .hex-cell:hover {
+            background: var(--alpha-white-05);
+            border-color: var(--color-brand-blue);
+        }
+
+        .hex-title { font-size: 14px; font-weight: 800; color: var(--color-brand-blue); margin-bottom: 5px; }
+        .hex-metric { font-family: var(--font-mono); font-size: 11px; color: var(--color-brand-orange); font-weight: 700; }
+        .hex-desc { font-size: 8px; color: var(--neutral-400); text-transform: uppercase; margin-top: 4px; }
+
+        /* Positioning */
+        .cell-ga { grid-column: 2; grid-row: 1; }
+        .cell-tech { grid-column: 1; grid-row: 2; border-color: var(--color-brand-blue); }
+        .cell-ops { grid-column: 2; grid-row: 2; background: rgba(32, 127, 222, 0.1); }
+        .cell-com { grid-column: 3; grid-row: 2; }
+        .cell-bpo { grid-column: 2; grid-row: 3; }
+
+        .center-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--color-brand-blue);
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 0 20px var(--color-brand-blue);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Arquitectura Humana de Alto Rendimiento</div>
+        <h1>High-Performance Cell Structure</h1>
+        
+        <div class="org-container">
+            <div class="center-dot"></div>
+            
+            <div class="hex-grid">
+                <!-- GA -->
+                <div class="hex-cell cell-ga">
+                  <div class="hex-title">GA</div>
+                  <div class="hex-metric">EBITDA 76%</div>
+                  <div class="hex-desc">Adm. General & Estrategia</div>
+                </div>
+
+                <!-- TECH -->
+                <div class="hex-cell cell-tech">
+                  <div class="hex-title">TECH</div>
+                  <div class="hex-metric">Uptime 99.9%</div>
+                  <div class="hex-desc">Producto & Arquitectura IA</div>
+                </div>
+
+                <!-- OPS -->
+                <div class="hex-cell cell-ops">
+                  <div class="hex-title" style="color: var(--color-brand-orange);">OPS/CS</div>
+                  <div class="hex-metric" style="color: var(--neutral-white);">TTV 48h</div>
+                  <div class="hex-desc">Success & Soporte MCP</div>
+                </div>
+
+                <!-- COM -->
+                <div class="hex-cell cell-com">
+                  <div class="hex-title">COM</div>
+                  <div class="hex-metric">LTV/CAC 45x</div>
+                  <div class="hex-desc">Growth & Content Factory</div>
+                </div>
+
+                <!-- BPO -->
+                <div class="hex-cell cell-bpo">
+                  <div class="hex-title">BPO</div>
+                  <div class="hex-metric">Accur. 99%</div>
+                  <div class="hex-desc">Logistix (Servicios BPaaS)</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 13px; color: var(--neutral-300); text-align: center; line-height: 1.5;">
+            Nuestra organización rompe los silos jerárquicos: cada célula es una unidad de <strong>alto rendimiento</strong> medida por resultados técnicos y financieros auditados en tiempo real.
+        </div>
+
+        <div class="data-source">SOURCE: 09_Operaciones_y_entrega_del_servicio_Final.md (Sec 9.5)</div>
+    </div>
+</body>
+</html>

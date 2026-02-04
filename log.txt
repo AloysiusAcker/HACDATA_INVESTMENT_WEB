@@ -1,0 +1,16 @@
+* 228093a (HEAD -> feature/visual-assets-refinement-and-pain-inventory, origin/claude/hacdata-investment-platform-6qjet) fix(assets): responsive layout fixes for 848px iframe width
+*   a7e982b Merge branch 'main' into claude/hacdata-investment-platform-6qjet
+|\  
+| *   ae30410 (origin/main) Merge pull request #11 from AloysiusAcker/feature/visual-assets-refinement-and-pain-inventory
+| |\  
+| | * bc909ef (origin/feature/visual-assets-refinement-and-pain-inventory) Feat: Add business model maturity path asset and update deploy package
+| | * ad32b07 Refactor: Improved Maturity Path asset (RG-06.3) with better sizing and sequence arrows. Adjusted container heights for general assets.
+| | * faa2973 Fix: Increased container height for RG-05.1 Pillars using new .max-tall class to prevent content being cut off.
+| | * 396806e Style: Updated RG-05.1 background color to match sidebar (#f8f7f6) for improved contrast.
+| | * 471e0c3 Refactor: Integrated premium visual assets for Value Chain (RG-04.4), Moat Radar (RG-04.5), and CORE7 Pillars (RG-05.1). Improved spacing, contrast, and color coding across these assets.
+| * |   da65626 Merge pull request #10 from AloysiusAcker/claude/hacdata-investment-platform-6qjet
+| |\ \  
+| * \ \   73e08e8 Merge pull request #9 from AloysiusAcker/feature/visual-assets-refinement-and-pain-inventory
+| |\ \ \  
+| | | |/  
+| | |/|   

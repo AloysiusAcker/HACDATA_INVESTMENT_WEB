@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-09.1 - Unified Operating System</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <link rel="stylesheet" href="../shared/asset-fixes.css">
+    <style>
+        .isometric-scene {
+            width: 100%;
+            height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+            margin-top: var(--space-xl);
+            position: relative;
+        }
+
+        .iso-map {
+            width: 400px;
+            height: 300px;
+            transform: rotateX(60deg) rotateZ(-45deg);
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .iso-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--alpha-white-10);
+            background: var(--alpha-white-05);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .iso-cell {
+            background: var(--neutral-900);
+            border: 1px solid var(--alpha-white-10);
+            border-bottom: 3px solid var(--neutral-700);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            transform: translateZ(10px);
+            transition: all 0.3s ease;
+        }
+
+        .iso-cell:hover {
+            transform: translateZ(30px);
+            border-bottom-color: var(--color-brand-blue);
+        }
+
+        .iso-cell span {
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: var(--neutral-400);
+            margin-top: 5px;
+        }
+
+        .iso-cell i { font-size: 20px; }
+
+        .iso-core {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: var(--color-brand-blue);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            margin-left: -40px;
+            margin-top: -40px;
+            transform: translateZ(50px);
+            box-shadow: 0 0 50px var(--color-brand-blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .iso-core strong {
+            color: white;
+            font-size: 14px;
+            font-weight: 900;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .connection-line {
+            position: absolute;
+            background: linear-gradient(to top, var(--color-brand-blue), transparent);
+            width: 2px;
+            transform-origin: bottom;
+            z-index: 5;
+        }
+        
+        .label-overlay {
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            background: var(--neutral-850);
+            padding: var(--space-md);
+            border: 1px solid var(--color-brand-blue);
+            border-radius: var(--radius-lg);
+            width: 200px;
+            z-index: 20;
+        }
+
+        .label-overlay h3 { font-size: 14px; color: var(--color-brand-blue); margin-bottom: 4px; }
+        .label-overlay p { font-size: 10px; color: var(--neutral-300); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Internal Dogfooding</div>
+        <h1>Unified Operating System</h1>
+        
+        <div class="isometric-scene">
+            <div class="iso-map">
+                <div class="iso-layer">
+                    <div class="iso-cell"><i>🏢</i><span>GA</span></div>
+                    <div class="iso-cell"><i>💻</i><span>TECH</span></div>
+                    <div class="iso-cell"><i>📣</i><span>COM</span></div>
+                    <div class="iso-cell"><i>⚙️</i><span>OPS</span></div>
+                    <div class="iso-cell"><i>🏭</i><span>BPO</span></div>
+                    <div class="iso-cell"><i>🛡️</i><span>LEG</span></div>
+                </div>
+                <!-- Core Hub -->
+                <div class="iso-core">
+                    <strong>GESTOR<br>HUB</strong>
+                </div>
+            </div>
+
+            <!-- Annotation -->
+            <div class="label-overlay">
+                <h3>Soberanía Interna</h3>
+                <p>El 100% de la compañía opera dentro de GESTOR. Cada acción interna valida y optimiza el producto para el mercado externo.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; font-size: 13px; color: var(--neutral-200); text-align: center; line-height: 1.5;">
+            Eliminamos los silos técnicos: la data administrativa, tecnológica y de campo habita en un único <strong>grafo de ejecución</strong>.
+        </div>
+
+        <div class="data-source">SOURCE: 09_Operaciones_y_entrega_del_servicio_Final.md (Sec 9.1)</div>
+    </div>
+</body>
+</html>

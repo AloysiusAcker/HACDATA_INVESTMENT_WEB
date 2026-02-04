@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-09.4 - Hybrid Cloud & AI Infrastructure</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <link rel="stylesheet" href="../shared/asset-fixes.css">
+    <style>
+        .infra-scene {
+            width: 100%;
+            height: 480px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--space-4xl);
+            margin-top: var(--space-xl);
+            position: relative;
+        }
+
+        .infra-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xl);
+            z-index: 2;
+        }
+
+        .infra-card {
+            background: var(--neutral-900);
+            border: 1px solid var(--alpha-white-10);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .infra-card h3 { font-size: 16px; margin-bottom: 8px; color: var(--neutral-white); }
+        .infra-card p { font-size: 11px; color: var(--neutral-400); line-height: 1.4; }
+
+        .tag {
+            position: absolute;
+            top: 10px; right: 10px;
+            font-family: var(--font-mono);
+            font-size: 9px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .tag-local { background: var(--color-brand-blue); color: white; }
+        .tag-cloud { background: var(--color-brand-purple); color: white; }
+
+        .hardware-grid {
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4px;
+        }
+
+        .hw-unit {
+            height: 4px;
+            background: var(--alpha-white-10);
+            border-radius: 1px;
+        }
+
+        .hw-active { background: var(--color-brand-blue); animation: pulse-blue 1s infinite; }
+
+        @keyframes pulse-blue {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        .connection-hub {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: var(--neutral-850);
+            border: 2px solid var(--alpha-white-10);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .bridge-line {
+          position: absolute;
+          height: 2px;
+          background: linear-gradient(90deg, var(--color-brand-blue), var(--color-brand-purple));
+          width: 300px;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          opacity: 0.3;
+          z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Pila de Infraestructura</div>
+        <h1>Hybrid Cloud & AI Infrastructure</h1>
+        
+        <div class="infra-scene">
+            <div class="bridge-line"></div>
+            <div class="connection-hub">🖥️</div>
+
+            <!-- LOCAL INFRA -->
+            <div class="infra-side">
+                <div class="infra-card" style="border-left: 3px solid var(--color-brand-blue);">
+                    <span class="tag tag-local">Private Node</span>
+                    <h3>Workstations AI (Local)</h3>
+                    <p>Entrenamiento de modelos LLM propietarios mediante Dual-GPU. Máxima privacidad y soberanía del dato.</p>
+                    <div class="hardware-grid">
+                        <div class="hw-unit hw-active"></div>
+                        <div class="hw-unit hw-active"></div>
+                        <div class="hw-unit"></div>
+                        <div class="hw-unit"></div>
+                    </div>
+                </div>
+                <div class="infra-card" style="border-left: 3px solid var(--color-brand-blue);">
+                    <span class="tag tag-local">Backup</span>
+                    <h3>NAS & Backups Críticos</h3>
+                    <p>Inmutabilidad técnica y custodia de evidencias forenses SHA-256 en servidores privados.</p>
+                </div>
+            </div>
+
+            <!-- CLOUD INFRA -->
+            <div class="infra-side" style="text-align: right;">
+                <div class="infra-card" style="border-right: 3px solid var(--color-brand-purple);">
+                    <span class="tag tag-cloud">Elastic Scaling</span>
+                    <h3>Cloud Microservices</h3>
+                    <p>Despliegue de instancias GESTOR Web para clientes. Alta disponibilidad 99.9% y escalado dinámico.</p>
+                </div>
+                <div class="infra-card" style="border-right: 3px solid var(--color-brand-purple);">
+                    <span class="tag tag-cloud">Distribution</span>
+                    <h3>Redundancia Global</h3>
+                    <p>Balanceo de carga y ciberseguridad perimetral para operación multi-sede masiva.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; font-size: 13px; color: var(--neutral-250); text-align: center; line-height: 1.5;">
+            El modelo híbrido de HACDATA garantiza que la <strong>Inteligencia Operativa</strong> se entrene localmente (seguridad) mientras el <strong>Servicio SaaS</strong> escala en la nube (agilidad).
+        </div>
+
+        <div class="data-source">SOURCE: 09_Operaciones_y_entrega_del_servicio_Final.md (Sec 9.4)</div>
+    </div>
+</body>
+</html>

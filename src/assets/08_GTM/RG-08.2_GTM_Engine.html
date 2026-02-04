@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-08.2 - The Hybrid GTM Engine</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <link rel="stylesheet" href="../shared/asset-fixes.css">
+    <style>
+        .gtm-engine {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .lane {
+            background: var(--alpha-white-05);
+            border: 1px solid var(--alpha-white-10);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lane-header {
+            min-width: 180px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .lane-header .badge {
+            align-self: flex-start;
+            font-size: 9px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .plg-badge { background: var(--color-brand-blue); color: white; }
+        .sl-badge { background: var(--color-brand-purple); color: white; }
+
+        .lane-header h3 { font-size: 20px; color: var(--neutral-white); }
+        .lane-header p { font-size: 11px; color: var(--neutral-400); }
+
+        .steps-flow {
+            flex: 1;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: relative;
+        }
+
+        .step-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            z-index: 2;
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            background: var(--neutral-900);
+            border: 2px solid var(--alpha-white-10);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .step-node span { font-size: 10px; color: var(--neutral-200); font-weight: 500; }
+
+        .lane:hover .step-circle {
+            border-color: var(--color-brand-orange);
+            transform: scale(1.1);
+        }
+
+        .flow-line {
+            position: absolute;
+            top: 20px;
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background: var(--alpha-white-10);
+            z-index: 1;
+        }
+
+        .lane-plg { border-left: 4px solid var(--color-brand-blue); }
+        .lane-sl { border-left: 4px solid var(--color-brand-purple); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Modelo de Adquisición Dual</div>
+        <h1>The Hybrid GTM Engine</h1>
+        
+        <div class="gtm-engine">
+            <!-- PLG Lane -->
+            <div class="lane lane-plg">
+                <div class="lane-header">
+                    <span class="badge plg-badge">Masivo / Self-Serve</span>
+                    <h3>Product-Led (PLG)</h3>
+                    <p>Foco en Planes Flash & Pro</p>
+                </div>
+                <div class="steps-flow">
+                    <div class="flow-line"></div>
+                    <div class="step-node">
+                        <div class="step-circle">🔍</div>
+                        <span>Demo Online</span>
+                    </div>
+                    <div class="step-node">
+                        <div class="step-circle">🚀</div>
+                        <span>Self-Onboard</span>
+                    </div>
+                    <div class="step-node">
+                        <div class="step-circle">💳</div>
+                        <span>Suscripción</span>
+                    </div>
+                    <div class="step-node">
+                        <div class="step-circle">📈</div>
+                        <span>Auto-Scale</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales-Led Lane -->
+            <div class="lane lane-sl">
+                <div class="lane-header">
+                    <span class="badge sl-badge">Corp / Consultivo</span>
+                    <h3>Sales-Led (SLG)</h3>
+                    <p>Foco en Planes Ultra & BPO</p>
+                </div>
+                <div class="steps-flow">
+                    <div class="flow-line"></div>
+                    <div class="step-node">
+                        <div class="step-circle">🤝</div>
+                        <span>Consultoría</span>
+                    </div>
+                    <div class="step-node">
+                        <div class="step-circle">⚙️</div>
+                        <span>Custom Flow</span>
+                    </div>
+                    <div class="step-node">
+                        <div class="step-circle">📑</div>
+                        <span>SLA / Contrato</span>
+                    </div>
+                    <div class="step-node">
+                        <div class="step-circle">👑</div>
+                        <span>Account Mgr</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 13px; color: var(--neutral-250); text-align: center; line-height: 1.5;">
+            La convivencia de ambos modelos permite una cobertura total del mercado: el canal <strong>PLG</strong> captura volumen y el canal <strong>Sales-Led</strong> asegura rentabilidad corporativa.
+        </div>
+
+        <div class="data-source">SOURCE: 08_Go_to_Market_y_estrategia_comercial_Final.md (Sec 8.2)</div>
+    </div>
+</body>
+</html>

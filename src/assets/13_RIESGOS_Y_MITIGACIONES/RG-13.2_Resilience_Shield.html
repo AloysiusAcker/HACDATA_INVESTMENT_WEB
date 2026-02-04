@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-13.2 - The Resilience Shield</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <link rel="stylesheet" href="../shared/asset-fixes.css">
+    <style>
+        .shield-container {
+            width: 100%;
+            height: 480px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: var(--space-xl);
+            perspective: 1000px;
+        }
+
+        .shield-base {
+            width: 300px;
+            height: 350px;
+            background: linear-gradient(135deg, rgba(32, 127, 222, 0.1) 0%, transparent 100%);
+            border: 2px solid var(--color-brand-blue);
+            clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 50% 100%, 0% 70%);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .shield-layer {
+            position: absolute;
+            width: 260px;
+            height: 310px;
+            border: 1px solid var(--alpha-white-10);
+            clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 50% 100%, 0% 70%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .shield-content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .shield-content h3 { font-size: 20px; color: var(--neutral-white); letter-spacing: 2px; }
+        .shield-content p { font-size: 11px; color: var(--color-brand-blue); font-weight: 800; }
+
+        .protection-item {
+            position: absolute;
+            width: 180px;
+            padding: 10px;
+            background: var(--neutral-900);
+            border: 1px solid var(--alpha-white-10);
+            border-radius: 8px;
+            z-index: 10;
+        }
+
+        .protection-item h4 { font-size: 11px; margin-bottom: 3px; color: var(--color-brand-blue); }
+        .protection-item span { font-size: 9px; color: var(--neutral-400); }
+
+        /* Placement */
+        .item-1 { top: 10%; right: -120px; border-left: 3px solid #00FF41; }
+        .item-2 { top: 50%; right: -150px; border-left: 3px solid var(--color-brand-blue); }
+        .item-3 { bottom: 10%; right: -120px; border-left: 3px solid var(--color-brand-orange); }
+        
+        .item-4 { top: 10%; left: -120px; border-right: 3px solid #FF4757; text-align: right; }
+        .item-5 { bottom: 10%; left: -120px; border-right: 3px solid var(--color-brand-purple); text-align: right; }
+
+        .scanlines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent 50%, rgba(32, 127, 222, 0.05) 50%);
+            background-size: 100% 4px;
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 900px;">
+        <div class="label">Blindaje Corporativo</div>
+        <h1>The Resilience Shield</h1>
+        
+        <div class="shield-container">
+            <div class="shield-base">
+                <div class="scanlines"></div>
+                <div class="shield-layer">
+                    <div class="shield-content">
+                        <h3>MITIGACIÓN</h3>
+                        <p>CAPA FORENSE</p>
+                        <div style="font-size: 24px; margin-top: 10px;">🛡️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mitigations -->
+            <div class="protection-item item-1">
+                <h4>Mercado CCL</h4>
+                <span>Prospección científica vs. Incertidumbre.</span>
+            </div>
+            <div class="protection-item item-2">
+                <h4>CORE7 Hashing</h4>
+                <span>Inmutabilidad vs. Ciberataques.</span>
+            </div>
+            <div class="protection-item item-3">
+                <h4>ESOP Talent</h4>
+                <span>Incentivos vs. Fuga de Conocimiento.</span>
+            </div>
+            <div class="protection-item item-4">
+                <h4>Dogfooding Radical</h4>
+                <span>Uso interno vs. Fallas de Calidad.</span>
+            </div>
+            <div class="protection-item item-5">
+                <h4>Caja de Seguridad</h4>
+                <span>Reserva $514k vs. Valle de Caja.</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 13px; color: var(--neutral-300); text-align: center;">
+            La resiliencia de HACDATA no es reactiva: está **codificada** en la redundancia de procesos y la solidez institucional de nuestras alianzas.
+        </div>
+
+        <div class="data-source">SOURCE: 13_Riesgos_y_mitigaciones_Final.md (Sec 13.2)</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-05.2 - GESTOR Suites Showcase</title>
+    <link rel="stylesheet" href="../anthropic-base.css">
+    <style>
+        .suites-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-2xl);
+        }
+
+        .suite-card {
+            background: var(--neutral-900);
+            border: 1px solid var(--alpha-white-10);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .suite-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-brand-blue);
+        }
+
+        .suite-mockup {
+            height: 160px;
+            background: var(--neutral-800);
+            padding: var(--space-md);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ui-element {
+            height: 10px;
+            background: var(--alpha-white-05);
+            border-radius: 4px;
+        }
+
+        .ui-graph {
+            height: 60px;
+            background: linear-gradient(90deg, transparent 0%, var(--alpha-white-08) 50%, transparent 100%);
+            border-bottom: 2px solid var(--color-brand-blue);
+        }
+
+        .ui-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 4px;
+        }
+
+        .ui-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-brand-orange); }
+
+        .suite-info {
+            padding: var(--space-lg);
+            flex: 1;
+        }
+
+        .suite-info h3 { font-size: 16px; margin-bottom: var(--space-xs); color: var(--neutral-white); }
+        .suite-info p { font-size: 11px; color: var(--neutral-200); line-height: 1.4; margin-bottom: var(--space-md); }
+
+        .suite-feature {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10px;
+            color: var(--neutral-400);
+            margin-bottom: 2px;
+        }
+
+        .suite-feature::before { content: "✔"; color: var(--color-brand-blue); font-weight: bold; }
+
+        .core-theme .suite-mockup { border-bottom: 2px solid var(--color-brand-orange); }
+        .people-theme .suite-mockup { border-bottom: 2px solid var(--color-brand-purple); }
+        .control-theme .suite-mockup { border-bottom: 2px solid var(--color-brand-blue); }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 900px;">
+        <div class="label">Suites SaaS Integradas</div>
+        <h1>Ecosistema GESTOR</h1>
+        
+        <div class="suites-gallery">
+            <!-- Core Suite -->
+            <div class="suite-card core-theme">
+                <div class="suite-mockup">
+                    <div class="ui-header"><div class="ui-dot"></div><div class="ui-element" style="width: 40px;"></div></div>
+                    <div class="ui-graph"></div>
+                    <div class="ui-element" style="width: 100%"></div>
+                    <div class="ui-element" style="width: 70%"></div>
+                </div>
+                <div class="suite-info">
+                    <div class="label" style="color: var(--color-brand-orange);">ADMIN & FINANZAS</div>
+                    <h3>Core Suite</h3>
+                    <p>Gestión fiscal, contabilidad jerárquica y flujos de caja dinámicos.</p>
+                    <div class="suite-feature">Facturación UBL 2.1</div>
+                    <div class="suite-feature">Contabilidad Automática</div>
+                </div>
+            </div>
+
+            <!-- People Suite -->
+            <div class="suite-card people-theme">
+                <div class="suite-mockup">
+                    <div class="ui-header"><div class="ui-dot" style="background: var(--color-brand-purple);"></div><div class="ui-element" style="width: 50px;"></div></div>
+                    <div style="display: flex; gap: 4px; height: 60px;">
+                        <div style="flex: 1; background: var(--alpha-white-05);"></div>
+                        <div style="flex: 1; background: var(--alpha-white-10);"></div>
+                        <div style="flex: 1; background: var(--alpha-white-05);"></div>
+                    </div>
+                    <div class="ui-element" style="width: 90%"></div>
+                </div>
+                <div class="suite-info">
+                    <div class="label" style="color: var(--color-brand-purple);">TALENTO & PAYROLL</div>
+                    <h3>People Suite</h3>
+                    <p>Administración de legajos, asistencia y motor de nómina local legal.</p>
+                    <div class="suite-feature">Cálculo de Beneficios</div>
+                    <div class="suite-feature">PDT / PLAME Sync</div>
+                </div>
+            </div>
+
+            <!-- Control Suite -->
+            <div class="suite-card control-theme">
+                <div class="suite-mockup">
+                    <div class="ui-header"><div class="ui-dot" style="background: var(--color-brand-blue);"></div><div class="ui-element" style="width: 30px;"></div></div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px; height: 60px;">
+                        <div style="background: var(--alpha-white-08); border-radius: 4px;"></div>
+                        <div style="display: flex; flex-direction: column; gap: 2px;">
+                            <div class="ui-element"></div><div class="ui-element"></div><div class="ui-element"></div>
+                        </div>
+                    </div>
+                    <div class="ui-element" style="width: 80%"></div>
+                </div>
+                <div class="suite-info">
+                    <div class="label" style="color: var(--color-brand-blue);">WMS & ACTIVOS</div>
+                    <h3>Control Suite</h3>
+                    <p>Soberanía de activos físicos, Kardex histórico y auditoría patrimonial.</p>
+                    <div class="suite-feature">Trazabilidad por Lotes</div>
+                    <div class="suite-feature">QA de Almacén</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-source">SOURCE: 05_Producto_y_servicios_Final.md (Sec 5.2)</div>
+    </div>
+</body>
+</html>

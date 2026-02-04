@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-05.4 - Management vs Field Action</title>
+    <link rel="stylesheet" href="../anthropic-base.css">
+    <style>
+        .ubiquity-scene {
+            display: flex;
+            width: 100%;
+            height: 400px;
+            gap: var(--space-2xl);
+            align-items: center;
+            justify-content: center;
+            margin-top: var(--space-xl);
+            position: relative;
+        }
+
+        .device {
+            background: var(--neutral-900);
+            border: 2px solid var(--alpha-white-10);
+            border-radius: var(--radius-xl);
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Web Interface */
+        .device-web {
+            width: 450px;
+            height: 280px;
+            z-index: 1;
+        }
+
+        .web-header { height: 30px; background: var(--neutral-850); display: flex; align-items: center; padding: 0 10px; gap: 4px; }
+        .web-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--neutral-600); }
+        .web-content { flex: 1; padding: 15px; display: grid; grid-template-columns: 1fr 2fr; gap: 10px; }
+        .web-sidebar { background: var(--alpha-white-05); border-radius: 4px; }
+        .web-main { display: grid; grid-template-rows: 1fr 1fr; gap: 10px; }
+        .web-box { background: var(--alpha-white-05); border-radius: 4px; position: relative; }
+        .web-box::after { content: ""; position: absolute; left: 10%; bottom: 10%; width: 80%; height: 2px; background: var(--color-brand-blue); opacity: 0.5;}
+
+        /* App Interface */
+        .device-app {
+            width: 160px;
+            height: 320px;
+            z-index: 2;
+            border-radius: 20px;
+            border-width: 4px;
+            margin-left: -60px;
+            background: #000;
+        }
+
+        .app-screen {
+            flex: 1;
+            margin: 10px;
+            background: #111;
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .app-btn { height: 40px; background: var(--color-brand-orange); border-radius: 8px; display: flex; justify-content: center; align-items: center; font-size: 18px; color: white; }
+        .app-line { height: 8px; background: var(--alpha-white-10); border-radius: 4px; }
+
+        .sync-flow {
+          position: absolute;
+          width: 300px;
+          height: 100px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 0;
+          pointer-events: none;
+        }
+
+        .flow-path {
+          stroke: var(--color-brand-purple);
+          stroke-width: 2;
+          stroke-dasharray: 10;
+          fill: none;
+          animation: dash-move 2s linear infinite;
+        }
+
+        @keyframes dash-move {
+          to { stroke-dashoffset: -20; }
+        }
+
+        .label-tag {
+          position: absolute;
+          background: var(--neutral-850);
+          padding: 4px 10px;
+          border-radius: 4px;
+          border: 1px solid var(--alpha-white-10);
+          font-size: 10px;
+          color: var(--neutral-200);
+          white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Ubicuidad Digital</div>
+        <h1>Web vs. App Interaction</h1>
+        
+        <div class="ubiquity-scene">
+            <svg class="sync-flow" viewBox="0 0 300 100">
+                <path class="flow-path" d="M50,50 Q150,0 250,50 Q150,100 50,50" />
+            </svg>
+
+            <!-- GESTOR WEB -->
+            <div class="device device-web">
+                <div class="web-header">
+                    <div class="web-dot"></div><div class="web-dot"></div><div class="web-dot"></div>
+                </div>
+                <div class="web-content">
+                    <div class="web-sidebar"></div>
+                    <div class="web-main">
+                        <div class="web-box"></div>
+                        <div class="web-box"></div>
+                    </div>
+                </div>
+                <div class="label-tag" style="bottom: 10px; left: 10px;">GESTOR WEB (Control & Management)</div>
+            </div>
+
+            <!-- GESTOR APP -->
+            <div class="device device-app">
+                <div class="app-screen">
+                    <div style="height: 10px; background: #333; width: 40%; margin: 0 auto; border-radius: 5px;"></div>
+                    <div style="flex: 1; border: 1px dashed #333; display: flex; flex-direction: column; gap: 8px; padding: 10px;">
+                        <div class="app-line"></div>
+                        <div class="app-line" style="width: 60%"></div>
+                        <div class="app-btn">📷</div>
+                        <div class="app-line" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="label-tag" style="top: -30px; right: 0;">GESTOR APP (Action & Field)</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; font-size: 13px; color: var(--neutral-250); text-align: center; line-height: 1.5;">
+            Sincronización total: La <strong>ejecución en campo</strong> (App) alimenta de forma inmediata el <strong>centro de mando</strong> (Web), eliminando la latencia en la toma de decisiones.
+        </div>
+
+        <div class="data-source">SOURCE: 05_Producto_y_servicios_Final.md (Sec 5.5)</div>
+    </div>
+</body>
+</html>

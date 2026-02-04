@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-09.3 - The BPaaS Hybrid Delivery Loop</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <link rel="stylesheet" href="../shared/asset-fixes.css">
+    <style>
+        .loop-scene {
+            width: 100%;
+            height: 480px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: var(--space-xl);
+        }
+
+        svg {
+            width: 450px;
+            height: 450px;
+        }
+
+        .loop-path {
+            fill: none;
+            stroke: var(--alpha-white-10);
+            stroke-width: 2;
+            stroke-dasharray: 8 4;
+        }
+
+        .particle {
+            fill: var(--color-brand-blue);
+            filter: blur(2px);
+        }
+
+        .node-group {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 140px;
+            text-align: center;
+        }
+
+        .node-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--neutral-900);
+            border: 2px solid var(--alpha-white-10);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .node-group:hover .node-icon {
+            border-color: var(--color-brand-blue);
+            box-shadow: 0 0 20px rgba(32, 127, 222, 0.4);
+            transform: scale(1.1);
+        }
+
+        .node-group h3 { font-size: 13px; color: var(--neutral-white); margin: 0; }
+        .node-group p { font-size: 9px; color: var(--neutral-400); margin: 0; line-height: 1.2; }
+
+        /* Node Positions */
+        .node-1 { top: 0; left: 50%; transform: translateX(-50%); }
+        .node-2 { top: 50%; right: 0; transform: translateY(-50%); }
+        .node-3 { bottom: 0; left: 50%; transform: translateX(-50%); }
+        .node-4 { top: 50%; left: 0; transform: translateY(-50%); }
+
+        @keyframes rotate-loop {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .animated-ring {
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            border: 1px solid rgba(32, 127, 222, 0.1);
+            border-radius: 50%;
+            animation: rotate-loop 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Ciclo BPaaS (Business Process as a Service)</div>
+        <h1>The Hybrid Delivery Loop</h1>
+        
+        <div class="loop-scene">
+            <div class="animated-ring"></div>
+            
+            <svg viewBox="0 0 500 500">
+                <circle cx="250" cy="250" r="160" class="loop-path" />
+                <circle r="4" class="particle">
+                    <animateMotion dur="6s" repeatCount="indefinite" path="M250,90 A160,160 0 1,1 249.9,90" />
+                </circle>
+            </svg>
+
+            <!-- Node 1 -->
+            <div class="node-group node-1">
+                <div class="node-icon">🏃🏽</div>
+                <h3>Acción en Campo</h3>
+                <p>Equipos de LOGISTIX ejecutan procesos físicos.</p>
+            </div>
+
+            <!-- Node 2 -->
+            <div class="node-group node-2">
+                <div class="node-icon">📱</div>
+                <h3>Registro en App</h3>
+                <p>Captura instantánea de evidencia bajo CORE7.</p>
+            </div>
+
+            <!-- Node 3 -->
+            <div class="node-group node-3">
+                <div class="node-icon">🛡️</div>
+                <h3>Auditoría Central</h3>
+                <p>Validación remota proactiva en tiempo real.</p>
+            </div>
+
+            <!-- Node 4 -->
+            <div class="node-group node-4">
+                <div class="node-icon">📊</div>
+                <h3>Dashboard Cliente</h3>
+                <p>Visibilidad absoluta de la ejecución delegada.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 13px; color: var(--neutral-200); text-align: center;">
+            A diferencia del BPO tradicional, el modelo de HACDATA elimina la opacidad mediante la <strong>fusión técnica</strong> entre ejecución y reporte.
+        </div>
+
+        <div class="data-source">SOURCE: 09_Operaciones_y_entrega_del_servicio_Final.md (Sec 9.3)</div>
+    </div>
+</body>
+</html>

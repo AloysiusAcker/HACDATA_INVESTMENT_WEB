@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-09.2 - Time-to-Value Delivery Cycles</title>
+    <link rel="stylesheet" href="../anthRestrict-base.css">
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <link rel="stylesheet" href="../shared/asset-fixes.css">
+    <style>
+        .ttv-container {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: var(--space-2xl);
+            margin-top: var(--space-xl);
+        }
+
+        .ttv-row {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xl);
+            position: relative;
+        }
+
+        .ttv-label {
+            min-width: 120px;
+            text-align: right;
+        }
+
+        .ttv-label h3 { font-size: 14px; margin: 0; }
+        .ttv-label span { font-size: 10px; color: var(--neutral-400); text-transform: uppercase; }
+
+        .timeline-bar-bg {
+            flex: 1;
+            height: 40px;
+            background: var(--alpha-white-05);
+            border-radius: var(--radius-pill);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--alpha-white-10);
+        }
+
+        .timeline-fill {
+            height: 100%;
+            border-radius: var(--radius-pill);
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            transition: width 1s ease-out;
+            width: 0;
+        }
+
+        .fill-flash { background: linear-gradient(90deg, var(--color-brand-blue) 0%, #4facfe 100%); width: 15%; }
+        .fill-consultive { background: linear-gradient(90deg, var(--color-brand-purple) 0%, #a18cd1 100%); width: 85%; }
+
+        .time-tag {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--neutral-300);
+        }
+
+        .milestone {
+            position: absolute;
+            top: -25px;
+            font-size: 9px;
+            color: var(--neutral-500);
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Agilidad Operativa</div>
+        <h1>Time-to-Value Delivery Cycles</h1>
+        
+        <div class="ttv-container">
+            <!-- FLASH -->
+            <div class="ttv-row">
+                <div class="ttv-label">
+                    <span>Nivel Flash</span>
+                    <h3>Estandarizado</h3>
+                </div>
+                <div class="timeline-bar-bg">
+                    <div class="timeline-fill fill-flash" style="width: 15%">Configuración Blueprint</div>
+                    <span class="time-tag">⚡ 48 Horas</span>
+                </div>
+            </div>
+
+            <!-- PRO/ULTRA -->
+            <div class="ttv-row">
+                <div class="ttv-label">
+                    <span>Nivel Pro/Ultra</span>
+                    <h3>Consultivo</h3>
+                </div>
+                <div class="timeline-bar-bg">
+                    <div class="timeline-fill fill-consultive" style="width: 85%">Mapeo Operativo + QA + Orquestación Custom</div>
+                    <span class="time-tag">🛠️ 2-4 Semanas</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; padding: var(--space-md); background: var(--alpha-white-05); border-radius: var(--radius-lg); border-left: 3px solid var(--color-brand-blue);">
+            <p style="font-size: 13px; color: var(--neutral-200); margin: 0;">
+                <strong>Hito de Estabilidad:</strong> Consideramos la entrega exitosa tras la primera semana consecutiva de operación auditada en <strong>GESTOR</strong> sin incidencias.
+            </p>
+        </div>
+
+        <div class="data-source">SOURCE: 09_Operaciones_y_entrega_del_servicio_Final.md (Sec 9.2.2)</div>
+    </div>
+</body>
+</html>

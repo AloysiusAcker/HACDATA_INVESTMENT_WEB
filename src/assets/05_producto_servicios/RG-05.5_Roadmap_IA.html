@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-05.5 - Roadmap: Moats de IA</title>
+    <link rel="stylesheet" href="../anthropic-base.css">
+    <style>
+        .roadmap-container {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: var(--space-2xl);
+            margin-top: var(--space-xl);
+        }
+
+        .milestone-row {
+          display: flex;
+          align-items: center;
+          gap: var(--space-xl);
+          padding: var(--space-md);
+          border-radius: var(--radius-lg);
+          background: linear-gradient(90deg, var(--alpha-white-05) 0%, transparent 100%);
+          border-left: 2px solid var(--neutral-600);
+          transition: all 0.3s ease;
+          position: relative;
+        }
+
+        .milestone-row:hover {
+          border-left-color: var(--color-brand-purple);
+          background: linear-gradient(90deg, var(--alpha-white-08) 0%, transparent 100%);
+          transform: translateX(10px);
+        }
+
+        .m-year {
+          min-width: 80px;
+          font-family: var(--font-mono);
+          font-weight: 700;
+          font-size: 18px;
+          color: var(--neutral-400);
+        }
+
+        .m-content h3 { font-size: 16px; margin: 0; color: var(--neutral-white); }
+        .m-content p { font-size: 11px; color: var(--neutral-200); margin: 2px 0 0 0; }
+
+        .ai-active {
+          border-left-color: var(--color-brand-purple) !important;
+          box-shadow: -10px 0 20px rgba(155, 135, 245, 0.1);
+        }
+
+        .ai-active .m-year { color: var(--color-brand-purple); }
+
+        .glow-dot {
+          position: absolute;
+          left: -6px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 10px;
+          height: 10px;
+          background: var(--color-brand-purple);
+          border-radius: 50%;
+          box-shadow: 0 0 10px var(--color-brand-purple);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Visión Futuro</div>
+        <h1>Roadmap: Moats de IA</h1>
+        
+        <div class="roadmap-container">
+            <!-- CURRENT -->
+            <div class="milestone-row" style="border-left-color: var(--color-brand-blue);">
+                <div class="m-year">2026</div>
+                <div class="m-content">
+                    <h3>GESTOR / CORE7 Consolidación</h3>
+                    <p>Integración total de suites SaaS y verticales operativas.</p>
+                </div>
+            </div>
+
+            <!-- STEP 1 -->
+            <div class="milestone-row">
+                <div class="m-year">2027</div>
+                <div class="m-content">
+                    <h3>Reglas de Oro Digitalizadas</h3>
+                    <p>Codificación de estándares preventivos que bloquean la entropía humana.</p>
+                </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="milestone-row ai-active">
+                <div class="glow-dot"></div>
+                <div class="m-year">2028+</div>
+                <div class="m-content">
+                    <h3>IA Operativa (Soberanía Predictiva)</h3>
+                    <p>Análisis de rastro forense para anticipar fallas antes de que ocurran.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; font-size: 14px; background: rgba(155, 135, 245, 0.05); padding: var(--space-md); border-radius: var(--radius-lg); border: 1px solid var(--alpha-white-10); border-left: 3px solid var(--color-brand-purple);">
+            <strong>Tesis IA:</strong> Pasamos de ser una herramienta pasiva de registro a ser un <strong>tutor preventivo predictivo</strong>, consolidando una barrera competitiva imposible de replicar por incumbentes genéricos.
+        </div>
+
+        <div class="data-source">SOURCE: 05_Producto_y_servicios_Final.md (Sec 5.6)</div>
+    </div>
+</body>
+</html>

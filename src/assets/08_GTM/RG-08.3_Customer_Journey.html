@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG-08.3 - Land, Expand & Replace Journey</title>
+    <link rel="stylesheet" href="../shared/anthropic-base.css">
+    <link rel="stylesheet" href="../shared/asset-fixes.css">
+    <style>
+        .journey-scene {
+            width: 100%;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: var(--space-xl);
+        }
+
+        svg { width: 100%; height: 100%; }
+
+        .path-curve {
+            fill: none;
+            stroke: var(--alpha-white-10);
+            stroke-width: 2;
+            stroke-dasharray: 8;
+        }
+
+        .phase-node {
+            position: absolute;
+            width: 200px;
+            background: var(--neutral-850);
+            border: 1px solid var(--alpha-white-10);
+            padding: var(--space-lg);
+            border-radius: var(--radius-xl);
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .phase-node:hover {
+            transform: scale(1.05);
+            border-color: var(--color-brand-blue);
+            background: var(--alpha-white-05);
+        }
+
+        .phase-node .p-id {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--neutral-400);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .phase-node h3 { font-size: 18px; margin: 4px 0; color: var(--neutral-white); }
+        .phase-node p { font-size: 11px; color: var(--neutral-300); line-height: 1.4; }
+
+        .phase-stat {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--color-brand-orange);
+            margin-top: 8px;
+            font-weight: 700;
+        }
+
+        /* Positions along the curve */
+        .node-land { top: 70%; left: 5%; border-bottom: 3px solid var(--color-brand-orange); }
+        .node-expand { top: 40%; left: 40%; border-bottom: 3px solid var(--color-brand-blue); }
+        .node-replace { top: 10%; right: 5%; border-bottom: 3px solid var(--color-brand-purple); }
+
+        .journey-bg-text {
+            position: absolute;
+            font-size: 80px;
+            font-weight: 900;
+            color: var(--alpha-white-05);
+            text-transform: uppercase;
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 950px;">
+        <div class="label">Ciclo de Vida del Cliente</div>
+        <h1>The Land, Expand & Replace Journey</h1>
+        
+        <div class="journey-scene">
+            <span class="journey-bg-text" style="top: 20%; left: 10%;">LTV MAX</span>
+            
+            <svg viewBox="0 0 800 400">
+                <path class="path-curve" d="M50,300 Q200,300 350,200 Q500,100 750,50" />
+            </svg>
+
+            <!-- LAND -->
+            <div class="phase-node node-land">
+                <span class="p-id">FASE 01 - LAND</span>
+                <h3>Penetración</h3>
+                <p>Resolución de dolor crítico (ERP o Vertical) o entrada vía BPO Logistix.</p>
+                <div class="phase-stat">Payback: 2.1 m</div>
+            </div>
+
+            <!-- EXPAND -->
+            <div class="phase-node node-expand">
+                <span class="p-id">FASE 02 - EXPAND</span>
+                <h3>Crecimiento</h3>
+                <p>Activación de suites complementarias (ECO, CRM, HCM) según rubro.</p>
+                <div class="phase-stat">NRR: 124%</div>
+            </div>
+
+            <!-- REPLACE -->
+            <div class="phase-node node-replace">
+                <span class="p-id">FASE 03 - REPLACE</span>
+                <h3>Soberanía</h3>
+                <p>Sustitución total de sistemas legacy y consolidación integral CORE7.</p>
+                <div class="phase-stat">Churn: → 0</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; font-size: 13px; color: var(--neutral-200); text-align: center; line-height: 1.5;">
+            La estrategia de HACDATA no busca la venta única, sino la <strong>adherencia progresiva</strong> al ecosistema técnico del cliente hasta lograr la soberanía operativa total.
+        </div>
+
+        <div class="data-source">SOURCE: 08_Go_to_Market_y_estrategia_comercial_Final.md (Sec 8.3)</div>
+    </div>
+</body>
+</html>
